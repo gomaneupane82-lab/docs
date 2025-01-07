@@ -1,0 +1,385 @@
+---
+title: "Stripe Subscriptions (Beta)"
+description: "Set up subscription payments for your app"
+---
+
+<Note>
+  This is a beta features. We're improving it before general release. For now, it requires manual set up. Contact dhruv@create.xyz or join our Discord (create.xyz/discord) for help.
+</Note>
+
+Stripe lets you set up payments for your app so you can charge users for access or features.
+
+Our new integration helps set it up in minutes. It lets you:
+
+- Create a payment account in Create with Stripe
+- Add key Stripe functions + components to your app for building payment and checkout flows
+- Lets users subscribe to your app 
+- Track which users have subscribed in your user accounts database
+- Unlock app features based on the user's subscription status
+
+<Note>
+  This integration is designed for Stripe subscriptions (users pay $X per month for a paid tier, similar to Create Pro).
+
+  Other payment methods (like one-time or tips) are not officially supported yet. You can customize the Stripe elements the integration adds to this use case on your own.  
+</Note>
+
+
+## Prerequisites
+
+<Check>
+  A Create project with User Accounts enabled
+</Check>
+
+## User Flow
+
+Here's what your user flow will look like once set up:
+
+1. User visits your landing page
+2. User signs in with User Accounts
+3. User sees:
+   - Free tier app with your paid upgrade option upsell
+   - Paid access required upsell from start
+4. User goes through upsell to buy a subscription:
+   - Redirected to Stripe checkout
+   - Fills in payment details in Stripe's UI
+5. User submits payment:
+   - Redirected to to your app after subscribing
+   - Marked as paid in your user accounts database
+   - Gains access to paid features
+
+After a customer subscribes, you can manage them from your Stripe dashboard.
+
+## Setup
+
+### Make a Stripe Account
+
+
+<Steps>
+  <Step title="Visit Create Dashboard -> Accept Payments">
+    <img src="/images/stripe/dashboard.png" alt="Accept Payments" />
+  </Step>
+  <Step title="Complete Stripe Onboarding">
+    Create partners with Stripe to securely store your business information.
+
+    Hit 'Add information' to start. A Stripe popup will appear asking for email/password.
+
+    <Note>
+      Have a Stripe account already? Use that email to reuse your business info and save time.
+    </Note>
+
+    Follow these steps to complete Stripe's secure onboarding:
+
+    1. Account
+       - Enter your email
+       - Create a Stripe password
+
+    2. Personal information  
+       - Full legal name
+       - Date of birth 
+       - Phone number
+       - Home address
+
+    3. Business details
+       - Business name and type
+       - Business address
+       - Industry and website
+
+    4. Tax Information
+       - SSN or EIN
+       - Tax ID verification
+
+    5. Bank Account (for payouts)
+       - Account number
+       - Routing number
+       - Bank verification
+  </Step>
+
+  <Step title="Verify Email">
+    Check your inbox for a verification email from Stripe and click the link to verify your email.
+  </Step>
+
+  <Step title="Confirm Stripe Dashboard Access">
+    Once you've verified your email, you'll see your business information and a "View Stripe Dashboard" button in the 'Accept Payments' section of the dashboard.
+
+    Your Stripe dashboard is used to manually make changes to your subscription products, prices, customers. You'll copy keys and webhook URLs from here to Create.   
+
+    <Tip>
+      We're working on automated updates from Create to your connected Stripe account when you make a request to the assistant. 
+      
+      For now, you'll need to return to the Stripe dashboard to make manual changes to your products, prices, and customers when you make changes in your Create app.
+    </Tip>
+  </Step>
+
+</Steps>
+
+### Add Stripe to Your Project
+
+<Note>
+  Before you start, make sure you have:
+  - A Create project where you want to add subscriptions
+  - User Accounts enabled in the project ([learn how](/builder/user-accounts))
+</Note>
+
+
+You're going to do a few things:
+
+- Use our integration to add the checkout elements you need to your app
+- Set up the product, price, and subscription in Stripe 
+- Add keys & webhook URLs from your Stripe account to the elements in Create 
+- Prompt Create to hook up elements to the rest of your app
+- Test our your app flow
+
+
+#### Add Stripe Integration to Create Project
+
+<Steps>
+  <Step title="Go to Project">
+  </Step>
+
+  <Step title="Press / in the chat">
+  </Step>
+
+  <Step title="Select 'Stripe - Subscriptions'">
+    Prompt "Add Stripe - Subscriptions to this project. [other details of your subscription]"
+  </Step>
+
+  <Step title="Send message">
+    Create will automatically add the integration elements to your project
+  </Step>
+
+  <Step title="View Project Selector">
+    Check that the Stripe elements appear in your project selector
+
+    <img src="/images/stripe/connect/elements-copied.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+### Added Stripe Elements
+
+When you use the integration, Create adds 4 elements to your project to help build checkout flows & track user status. 
+
+#### Stripe Checkout Link
+This function generates stripe checkout URL for your product/subscription
+- Redirects users to Stripe's hosted checkout page
+- Needs the PRICE_ID as a secret key from your Stripe account
+
+You won't need to modify this besides adding your PRICE_ID. 
+
+#### Stripe Checkout Link Component 
+
+This component gives you an upsell UI that will redirect users to Stripe to checkout. Customizable as button or link, with built-in Stripe Checkout Link integration.
+
+- Customize its look and feel
+- Add to the right places in your app
+- Redirects the user to Stripe with Stripe Checkout Link function when the user taps "subscribe"
+
+You can style this component and add it to the right places in your app.
+
+#### Stripe Webhook
+
+This function listens for successful payments and subscription updates.
+It logs the user's subscription status in your user accounts users database.  
+
+- Automatically updates user payment status
+- Manages subscription lifecycle in your database
+- Needs the WEBHOOK_URL as a secret key from your Stripe account
+
+You won't need to modify this besides adding your WEBHOOK_URL. 
+
+#### Stripe Authorization Wrapper Component 
+
+Component for gating premium content based on the user's subscription status.
+
+- Shows/hides content based on subscription status
+- Checks subscription status for current user in your users database
+
+You can use this component when describing things you only want paid users to see.  
+
+### Set up your Stripe product 
+
+You'll make a product and price in Stripe for your subscription. You'll copy the PRICE_ID from Stripe to use in your Create app.   
+
+<Note>
+  Start by setting up your integration in Stripe's Test Mode.
+
+  This lets you verify everything works without real transactions. Once tested, switch to Live Mode and repeat these steps with your live credentials.
+</Note>
+
+#### Understanding Test Mode
+
+Stripe's Test Mode lets you make test versions of your products/prices. You can simulate payments without charging real cards.
+
+<img src="/images/stripe/connect/stripe-test-mode.png" style={{ borderRadius: '0.5rem' }} />
+
+- Enable Test Mode in Stripe dashboard (switch in top-right) 
+- All products and subscriptions created are test versions
+- API keys and webhooks apply to test mode only
+- Payments are simulated, not real charges
+- Switch to live mode by repeating all setup steps with Test Mode off
+
+<Warning>
+  Always test your integration in Test Mode before going live. When you want to go live, repeat all set up steps in Live Mode, and copy the new keys and webhooks to your Create app. When you want to go live, repeat all set up steps in Live Mode, and copy the new keys and webhooks to your Create app.
+</Warning>
+
+
+#### Make product, price, and get STRIPE_PRICE_ID
+
+<Steps>
+  <Step title="Access your Stripe Dashboard">
+    create.xyz/dashboard -> Accept Payments -> View Stripe Dashboard
+
+    <img src="/images/stripe/connect/view-stripe-dashboard.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Turn on Test Mode">
+    <img src="/images/stripe/connect/stripe-test-mode.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+  
+  <Step title="Go to Product catalog">
+    <img src="/images/stripe/connect/stripe-product-catalog.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+  
+  <Step title="+ Create product">
+    <img src="/images/stripe/connect/stripe-create-product.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+  
+  <Step title="Add Product details">
+    <img src="/images/stripe/connect/stripe-product-details.png" style={{ borderRadius: '0.5rem' }} />
+
+    Name and description. 
+
+    Under Pricing, select "Recurring" and add a price per month.
+  </Step>
+  
+  <Step title="Go to the product">
+    <img src="/images/stripe/connect/go-to-product.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Go to the price">
+    <img src="/images/stripe/connect/go-to-price.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Copy the price ID from top right corner">
+    <img src="/images/stripe/connect/copy-price-id.png" style={{ borderRadius: '0.5rem' }} />
+  
+    Copy this ID. You'll set it in your Create app as STRIPE_PRICE_ID.
+  </Step>
+
+  <Step title="Go to Create project">
+    <img src="/images/stripe/connect/go-to-create-project.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Select Stripe Checkout Link function">
+    <img src="/images/stripe/connect/stripe-checkout-link.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Go to 3 dots menu > Secrets">
+    <img src="/images/stripe/connect/secrets.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Add STRIPE_PRICE_ID as a secret">
+    <img src="/images/stripe/connect/add-stripe-price-id-secret.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+</Steps>
+
+#### Add Stripe Webhook and STRI
+
+<Steps>
+  <Step title="Go to Create project">
+    Navigate to your Create project
+  </Step>
+
+  <Step title="Copy the project id from the URL">
+    <Tip>
+      Example URL: https://www.create.xyz/build/326163b8-7363-489e-9def-13d8717f6ce6?view=9b95002f-0f1c-4c60-bf98-18a61e7a52cb&select=9b95002f-0f1c-4c60-bf98-18a61e7a52cb
+
+      The project ID is between `/build/` and the `?`: `326163b8-7363-489e-9def-13d8717f6ce6`
+    </Tip>
+  </Step>
+
+  <Step title="Create webhook URL">
+    You'll now make a webhook URL for it in this format: `<project-groupid>.created.app/api/stripe-webhook`
+
+    So the final URL here is: `326163b8-7363-489e-9def-13d8717f6ce6.created.app/api/stripe-webhook`
+  </Step>
+
+  <Step title="Access Stripe Dashboard">
+    Go to Stripe dashboard: create.xyz/dashboard -> Accept Payments -> View Stripe Dashboard
+  </Step>
+
+  <Step title="Create Event Destination">
+    Search "Create Event Destination" in the search bar
+  </Step>
+
+  <Step title="Select Event">
+    Search for customer.subscription.updated as the event. Check it. 
+
+    <img src="/images/stripe/connect/stripe-event-destination.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Choose Webhook">
+    Choose Webhook
+  
+    
+  </Step>
+
+  <Step title="Set Endpoint URL">
+    For Endpoint URL put in your webhook URL in the format above
+  </Step>
+
+  <Step title="Get Secret">
+    After it's created hit reveal secret
+
+    <img src="/images/stripe/connect/reveal-secret.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Copy Secret">
+    Copy the webhook secret
+  
+    <img src="/images/stripe/connect/copy-secret.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Select Stripe Webhook function in Create">
+    Go to your Create project > Stripe Webhook function
+  </Step>
+
+  <Step title="Access Secrets">
+    Go to 3 dots > Secrets > Add a Secret
+  </Step>
+
+  <Step title="Add Secret">
+    Add STRIPE_WEBHOOK_SECRET as the name. For the value, paste in the secret you copied from Stripe.
+  </Step>
+</Steps>
+
+#### Hooking Up the Elements to Your App
+
+You now can build your flows. 
+
+<Steps>
+  <Step title="Add Checkout Component">
+    Add the Checkout Component where you want the subscribe button
+  </Step>
+  
+  <Step title="Use the Stripe Authorization Wrapper Component to gate features">
+    Prompt Create to use this component when you want to control access to features based on the user's subscription status.
+  </Step>
+  
+  <Step title="Publish your app" />
+
+  <Step title="Test your app">
+    Run through your flow. 
+
+    1. Verify when you hit subscribe, you're redirected to Stripe
+    2. After paying, check your users database to see that the signed in user is marked as subscribed 
+
+  </Step>
+</Steps>
+
+#### Going Live 
+
+When you're ready to go live, repeat the Stripe set up stps in Live Mode instead of Test Mode. 
+
+Replace the keys and webhooks with your live versions. 
+
