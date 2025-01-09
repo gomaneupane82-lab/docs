@@ -159,9 +159,13 @@ When you use the integration, Create adds 4 elements to your project to help bui
 #### Stripe Checkout Link
 This function generates stripe checkout URL for your product/subscription
 - Redirects users to Stripe's hosted checkout page
-- Needs the PRICE_ID as a secret key from your Stripe account
+- Needs the STRIPE_PRICE_ID as a secret key from your Stripe account
 
-You won't need to modify this besides adding your PRICE_ID. 
+You won't need to modify this besides adding your STRIPE_PRICE_ID. 
+
+<Tip>
+  Learn how to get your STRIPE_PRICE_ID [here](#make-product-price-and-get-stripe_price_id) section below.
+</Tip>
 
 #### Subscription Upsell
 
@@ -180,9 +184,13 @@ It logs the user's subscription status in your user accounts users database.
 
 - Automatically updates user payment status
 - Manages subscription lifecycle in your database
-- Needs the WEBHOOK_URL as a secret key from your Stripe account
+- Needs the STRIPE_WEBHOOK_SECRET as a secret key from your Stripe account
 
-You won't need to modify this besides adding your WEBHOOK_URL. 
+You won't need to modify this besides adding your STRIPE_WEBHOOK_SECRET as a secret. 
+
+<Tip>
+  Learn how to get your STRIPE_WEBHOOK_SECRET [here](#add-stripe-webhook-and-stripe_webhook_secret) section below.
+</Tip>
 
 #### Check Subscription Wrapper
 
@@ -206,7 +214,7 @@ If the user is subscribed, show the extra content for pro members using /[Check 
 
 ### Set up your Stripe product 
 
-You'll make a product and price in Stripe for your subscription. You'll copy the PRICE_ID from Stripe to use in your Create app.   
+You'll make a product and price in Stripe for your subscription. You'll copy the STRIPE_PRICE_ID from Stripe to use in your Create app.   
 
 <Note>
   Start by setting up your integration in Stripe's Test Mode.
@@ -292,7 +300,7 @@ Stripe's Test Mode lets you make test versions of your products/prices. You can 
 
 </Steps>
 
-#### Add Stripe Webhook and STRI
+#### Add Stripe Webhook and STRIPE_WEBHOOK_SECRET
 
 <Steps>
   <Step title="Go to Create project">
