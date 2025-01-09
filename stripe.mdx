@@ -4,7 +4,7 @@ description: "Set up subscription payments for your app"
 ---
 
 <Note>
-  This is a beta features. We're improving it before general release. For now, it requires manual set up. Contact dhruv@create.xyz or join our Discord (create.xyz/discord) for help.
+  This is a beta feature. We're improving it before general release. For now, it requires manual set up. Contact dhruv@create.xyz or join our Discord (create.xyz/discord) for help.
 </Note>
 
 Stripe lets you set up payments for your app so you can charge users for access or features.
@@ -20,7 +20,7 @@ Our new integration helps set it up in minutes. It lets you:
 <Note>
   This integration is designed for Stripe subscriptions (users pay $X per month for a paid tier, similar to Create Pro).
 
-  Other payment methods (like one-time or tips) are not officially supported yet. You can customize the Stripe elements the integration adds to this use case on your own.  
+  Other payment methods (like one-time or tips) are not officially supported yet. You can customize the Stripe elements the integration adds.  
 </Note>
 
 
@@ -37,22 +37,24 @@ Here's what your user flow will look like once set up:
 1. User visits your landing page
 2. User signs in with User Accounts
 3. User sees:
-   - Free tier app with your paid upgrade option upsell
-   - Paid access required upsell from start
+   - Free tier app with your paid upgrade upsell OR
+   - Upsell required from start for access
 4. User goes through upsell to buy a subscription:
    - Redirected to Stripe checkout
    - Fills in payment details in Stripe's UI
 5. User submits payment:
-   - Redirected to to your app after subscribing
-   - Marked as paid in your user accounts database
+   - Redirected to your app after subscribing
+   - User marked as active subscriber in your user accounts database
    - Gains access to paid features
+6. User later cancels subscription:
+   - User marked as inactive subscriber in your user accounts database
+   - Access to paid features removed
 
-After a customer subscribes, you can manage them from your Stripe dashboard.
+After a customer subscribes, you can manage them manually from your Stripe dashboard.
 
 ## Setup
 
 ### Make a Stripe Account
-
 
 <Steps>
   <Step title="Visit Create Dashboard -> Accept Payments">
@@ -123,12 +125,19 @@ After a customer subscribes, you can manage them from your Stripe dashboard.
 
 You're going to do a few things:
 
-- Use our integration to add the checkout elements you need to your app
-- Set up the product, price, and subscription in Stripe 
-- Add keys & webhook URLs from your Stripe account to the elements in Create 
-- Prompt Create to hook up elements to the rest of your app
-- Test our your app flow
+- Use our integration to add the checkout elements (functions + components) you need
+- Set up the product, price, and webhook in your Stripe account in Test Mode
+- Add keys from your Stripe account to the added functions in Create 
+- Customize look & feel of the added components in Create
+- Prompt Create to add the components to the right places in your app
+- Publish your app
+- Test your app flow in the published app
 
+Once it all looks good:
+
+- Repeat the Stripe set up steps in Live Mode
+- Copy new keys to Create
+- Publish again + launch your app
 
 #### Add Stripe Integration to Create Project
 
@@ -219,7 +228,7 @@ You'll make a product and price in Stripe for your subscription. You'll copy the
 <Note>
   Start by setting up your integration in Stripe's Test Mode.
 
-  This lets you verify everything works without real transactions. Once tested, switch to Live Mode and repeat these steps with your live credentials.
+  This lets you verify everything works without real transactions. Once tested, turn Test Mode off and repeat these steps with your live credentials.
 </Note>
 
 #### Understanding Test Mode
@@ -232,10 +241,10 @@ Stripe's Test Mode lets you make test versions of your products/prices. You can 
 - All products and subscriptions created are test versions
 - API keys and webhooks apply to test mode only
 - Payments are simulated, not real charges
-- Switch to live mode by repeating all setup steps with Test Mode off
+- Switch to production by turning Test Mode off and repeating all setup steps
 
 <Warning>
-  Always test your integration in Test Mode before going live. When you want to go live, repeat all set up steps in Live Mode, and copy the new keys and webhooks to your Create app. When you want to go live, repeat all set up steps in Live Mode, and copy the new keys and webhooks to your Create app.
+  Always test your integration in Test Mode before going live. When you want to go live, turn Test Mode off and repeat all set up steps with your production credentials.
 </Warning>
 
 
@@ -307,7 +316,10 @@ Stripe's Test Mode lets you make test versions of your products/prices. You can 
     Navigate to your Create project
   </Step>
 
-  <Step title="Copy the project id from the URL">
+  <Step title="Copy the project id from the URL in the builder">
+    
+    <img src="/images/build-link.png" style={{ borderRadius: '0.5rem' }} />
+    
     <Tip>
       Example URL: https://www.create.xyz/build/326163b8-7363-489e-9def-13d8717f6ce6?view=9b95002f-0f1c-4c60-bf98-18a61e7a52cb&select=9b95002f-0f1c-4c60-bf98-18a61e7a52cb
 
@@ -396,7 +408,7 @@ You now can build your flows.
 
 #### Going Live 
 
-When you're ready to go live, repeat the Stripe set up stps in Live Mode instead of Test Mode. 
+When you're ready to go live, turn Test Mode off and repeat the Stripe set up steps.
 
-Replace the keys and webhooks with your live versions. 
+Replace the keys and webhooks with your production versions.
 
