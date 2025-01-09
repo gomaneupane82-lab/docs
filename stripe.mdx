@@ -223,29 +223,6 @@ If the user is subscribed, show the extra content for pro members using /[Check 
 
 You'll make a product and price in Stripe for your subscription. You'll copy the STRIPE_PRICE_ID from Stripe to use in your Create app.   
 
-<Note>
-  Start by setting up your integration in Stripe's Test Mode.
-
-  This lets you verify everything works without real transactions. Once tested, turn Test Mode off and repeat these steps with your live credentials. 
-</Note>
-
-#### Understanding Test Mode
-
-Stripe's Test Mode lets you make test versions of your products/prices. You can simulate payments without charging real cards.
-
-<img src="/images/stripe/connect/test-mode.png" style={{ borderRadius: '0.5rem' }} />
-
-- Enable Test Mode in Stripe dashboard (switch in top-right) 
-- All products and subscriptions created are test versions
-- API keys and webhooks apply to test mode only
-- Payments are simulated, not real charges
-- Switch to production by turning Test Mode off and repeating all setup steps
-
-<Warning>
-  Always test your integration in Test Mode before going live. When you want to go live, turn Test Mode off and repeat all set up steps with your production credentials.
-</Warning>
-
-
 #### Make product, price, and get STRIPE_PRICE_ID
 
 <Steps>
@@ -255,10 +232,6 @@ Stripe's Test Mode lets you make test versions of your products/prices. You can 
     <img src="/images/stripe/connect/view-stripe-dashboard.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
-  <Step title="Turn on Test Mode">
-    <img src="/images/stripe/connect/test-mode.png" style={{ borderRadius: '0.5rem' }} />
-  </Step>
-  
   <Step title="Go to Product catalog">
     <img src="/images/stripe/connect/product-catalog.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
@@ -407,32 +380,12 @@ You now can build your flows.
     Run through your flow in your published app. 
 
     1. Verify when you hit subscribe, you're redirected to Stripe
-    2. If you've put in the keys in Test Mode, you'll see Test Mode in the Stripe checkout page
+    2. After paying, you should be redirected back to your app
+    3. Check in your users database to see that the signed in user is marked as subscribed
+    4. After the user is subscribed, make sure the right content is shown to them
 
     <Tip>
-      In Test Mode, your card won't be charged for real. You can use Stripe's test card numbers:
-      - Card number: 4242 4242 4242 4242
-      - Any future expiration date
-      - Any 3-digit CVC
-      - Any postal code
-      
-      This test card will always succeed. For other test scenarios (declined, errors etc), see [Stripe's test cards documentation](https://stripe.com/docs/testing#cards).
+      You can use a real card to test the flow. If needed, you can easily refund the payment from your Stripe dashboard.
     </Tip>
-
-    3. After paying, you should be redirected back to your app. 
-    4. Check in your users database to see that the signed in user is marked as subscribed
-    5. After the user is subscribed, make sure the right content is shown to them.   
-
   </Step>
 </Steps>
-
-### Going Live 
-
-When you're ready to go live, turn Test Mode off and repeat the Stripe set up steps:
-
-- Replicate your product and price
-- Make a new webhook in Stripe
-
-Replace the keys (STRIPE_PRICE_ID and STRIPE_WEBHOOK_SECRET) with the versions when Test Mode is off.
-
-Publish your app again and launch it
