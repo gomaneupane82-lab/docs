@@ -393,13 +393,33 @@ You now can build your flows.
     Prompt Create to use this component when you want to control access to features based on the user's subscription status.
   </Step>
   
-  <Step title="Publish your app" />
+  <Step title="Publish your app">
+    When you publish, be sure to toggle your Stripe Checkout Link function & Stripe Webhook function to on.
+  
+    Do not change the function routes. They should be `/api/stripe-checkout-link` and `/api/stripe-webhook` to have your components and webhooks work. 
+  
+    <img src="/images/stripe/connect/publish-functions.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
 
   <Step title="Test your app">
-    Run through your flow. 
+    Run through your flow in your published app. 
 
     1. Verify when you hit subscribe, you're redirected to Stripe
-    2. After paying, check your users database to see that the signed in user is marked as subscribed 
+    2. If you've put in the keys in Test Mode, you'll see Test Mode in the Stripe checkout page
+
+    <Tip>
+      In Test Mode, your card won't be charged for real. You can use Stripe's test card numbers:
+      - Card number: 4242 4242 4242 4242
+      - Any future expiration date
+      - Any 3-digit CVC
+      - Any postal code
+      
+      This test card will always succeed. For other test scenarios (declined, errors etc), see [Stripe's test cards documentation](https://stripe.com/docs/testing#cards).
+    </Tip>
+
+    3. After paying, you should be redirected back to your app. 
+    4. Check in your users database to see that the signed in user is marked as subscribed
+    5. After the user is subscribed, make sure the right content is shown to them.   
 
   </Step>
 </Steps>
