@@ -52,9 +52,7 @@ Here's what your user flow will look like once set up:
 
 After a customer subscribes, you can manage them manually from your Stripe dashboard.
 
-## Setup
-
-### Make a Stripe Account
+## Make a Stripe Account
 
 <Steps>
   <Step title="Visit Create Dashboard -> Accept Payments">
@@ -103,7 +101,7 @@ After a customer subscribes, you can manage them manually from your Stripe dashb
   <Step title="Confirm Stripe Dashboard Access">
     Once you've verified your email, you'll see your business information and a "View Stripe Dashboard" button in the 'Accept Payments' section of the dashboard.
 
-    Your Stripe dashboard is used to manually make changes to your subscription products, prices, customers. You'll copy keys and webhook URLs from here to Create.   
+    Your Stripe dashboard is used to manually make changes to your subscription products, prices, customers. You'll copy keys (STRIPE_PRICE_ID and STRIPE_WEBHOOK_SECRET) from here to Create.   
 
     <Tip>
       We're working on automated updates from Create to your connected Stripe account when you make a request to the assistant. 
@@ -114,7 +112,7 @@ After a customer subscribes, you can manage them manually from your Stripe dashb
 
 </Steps>
 
-### Add Stripe to Your Project
+## Add Stripe to Your Project
 
 <Note>
   Before you start, make sure you have:
@@ -139,7 +137,7 @@ Once it all looks good:
 - Copy new keys to Create
 - Publish again + launch your app
 
-#### Add Stripe Integration to Create Project
+### Add Stripe Integration to Create Project
 
 <Steps>
   <Step title="Go to Project" />
@@ -408,7 +406,11 @@ You now can build your flows.
 
 ### Going Live 
 
-When you're ready to go live, turn Test Mode off and repeat the Stripe set up steps.
+When you're ready to go live, turn Test Mode off and repeat the Stripe set up steps:
 
-Replace the keys and webhooks with your production versions.
+- Replicate your product and price
+- Make a new webhook in Stripe
 
+Replace the keys (STRIPE_PRICE_ID and STRIPE_WEBHOOK_SECRET) with the versions when Test Mode is off.
+
+Publish your app again and launch it
