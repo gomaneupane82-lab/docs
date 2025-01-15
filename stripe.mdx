@@ -1,11 +1,7 @@
 ---
-title: "Stripe Subscriptions (Beta)"
+title: "Stripe Subscriptions"
 description: "Set up subscription payments for your app"
 ---
-
-<Note>
-  This is a beta feature. We're improving it before general release. For now, it requires manual set up. Contact dhruv@create.xyz or join our [Discord](www.create.xyz/discord) for help.
-</Note>
 
 Stripe lets you set up payments for your app so you can charge users for access or features.
 
@@ -38,7 +34,7 @@ Here's what your user flow will look like once set up:
 2. User signs in with [User Accounts](/builder/user-accounts)
 3. User sees:
    - Free tier app with your paid upgrade upsell OR
-   - Upsell required from start for access
+   - Payment required from start for access
 4. User goes through upsell to buy a subscription:
    - Redirected to Stripe checkout
    - Fills in payment details in Stripe's UI
@@ -184,6 +180,18 @@ This component gives you an upsell UI that will redirect users to Stripe to chec
 
 You can style this component and add it to the right places in your app.
 
+Prompt examples 
+
+In the component chat:
+```
+Style this upsell to look like the rest of the app: [screenshot]. Call out that Pro is $10/month and say it gives you unlimited generations.
+```
+
+In another page:
+```
+Use /[Subscription Upsell] in the dashboard if the user is not subscribed.
+```
+
 #### Stripe Webhook
 
 This [function](/builder/functions) listens for successful payments and subscription updates.
@@ -199,9 +207,9 @@ You won't need to modify this besides adding your STRIPE_WEBHOOK_SECRET as a sec
   Learn how to get your STRIPE_WEBHOOK_SECRET in the [Add Stripe Webhook and STRIPE_WEBHOOK_SECRET](#add-stripe-webhook-and-stripe_webhook_secret) section below.
 </Tip>
 
-#### Check Subscription Wrapper
+#### useIsSubscribed
 
-Component for gating premium content based on the user's subscription status.
+Component that handles checking the signed in user's subscription status. You can use it gate features / access for paid members. 
 
 - Shows/hides content based on subscription status
 - Checks subscription status for current user in your [users database](/builder/user-accounts)
@@ -212,16 +220,17 @@ You can use this component when describing things you only want paid users to se
 Prompt examples 
 
 ```
-Use /[Check Subscription Wrapper] to hide the generations remaining counter for users that are subscribed"
+Use /[useIsSubscribed] to only show the /[Subscription Upsell] for free users. Hide it for paid users."
 ```
 
 ```
-If the user is subscribed, show the extra content for pro members using /[Check Subscription Wrapper]"
+If the user is subscribed, show the extra content for pro members with /[useIsSubscribed]"
 ```
 
 ### Set up your Stripe product 
 
-You'll make a product and price in Stripe for your subscription. You'll copy the STRIPE_PRICE_ID from Stripe to use in your Create app.   
+You'll make a product and price in Stripe for your subscription. 
+You'll copy the STRIPE_PRICE_ID from Stripe to use in your Create app.   
 
 #### Make product, price, and get STRIPE_PRICE_ID
 
@@ -270,12 +279,15 @@ You'll make a product and price in Stripe for your subscription. You'll copy the
     <img src="/images/stripe/connect/stripe-checkout-link.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
-  <Step title="Go to 3 dots menu > Secrets">
+  <Step title="Go to [3 dots menu](/builder/controls#3-dot-menu) > Secrets">
     <img src="/images/stripe/connect/secrets.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Add STRIPE_PRICE_ID as a secret">
     <img src="/images/stripe/connect/add-stripe-price-id-secret.png" style={{ borderRadius: '0.5rem' }} />
+  
+    Add STRIPE_PRICE_ID as the name.
+    Add the price ID you copied from Stripe as the value.
   </Step>
 
 </Steps>
@@ -347,7 +359,7 @@ You'll make a product and price in Stripe for your subscription. You'll copy the
   </Step>
 
   <Step title="Access Secrets">
-    Go to 3 dots > Secrets > Add a Secret
+    Go to [3 dots menu](/builder/controls#3-dot-menu) > Secrets > Add a Secret
   </Step>
 
   <Step title="Add Secret">
@@ -355,18 +367,53 @@ You'll make a product and price in Stripe for your subscription. You'll copy the
   </Step>
 </Steps>
 
-### Hooking Up the Elements to Your App
+### Hooking up the payment flow
 
-You now can build your flows. 
+You now can build:
+
+1. How your users pay you 
+2. What happens before they pay and after they pay
+
+<Tip>
+  You can add the [Subscription Upsell](#subscription-upsell) and [useIsSubscribed](#useissubscribed) [components](/builder/components) to other parts of your app the same as other [components](/builder/components).
+
+  Press / in the chat > Components > [name]. Then describe how you want to use it. 
+</Tip>
 
 <Steps>
+  <Step title="Style the Subscription Upsell">
+    Tap on the Subscription Upsell component. 
+
+    Prompt Create to make it look how you want. 
+
+    Before styling:
+
+    <img src="/images/stripe/connect/upsell-pre-style.png" style={{ borderRadius: '0.5rem' }} />
+
+    After styling with prompts:
+
+    <img src="/images/stripe/connect/upsell-after-style.png" style={{ borderRadius: '0.5rem' }} />
+
+  </Step>
+
   <Step title="Add Subscription Upsell">
-    Add the Subscription Upsell component where you want the subscribe button
+    Add the Subscription Upsell component where you want to show users your upsell to pay. 
+
+    Use / to add it in the chat.
+
+    <img src="/images/stripe/connect/add-upsell.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
   
-  <Step title="Use the Check Subscription Wrapper to gate features">
+  <Step title="Use the useIsSubscribed to gate features">
     Prompt Create to use this component when you want to control access to features based on the user's subscription status.
+
+    Use / to add it in the chat.
+
+    For example, "Use /[useIsSubscribed] If the user is free, then show them the [Subscription Upsell]. If they've paid, then show them the paid content" 
+  
+    <img src="/images/stripe/connect/add-use-is-subscribed.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
+  
   
   <Step title="Publish your app">
     When you publish, be sure to toggle your Stripe Checkout Link function & Stripe Webhook function to on.
@@ -379,13 +426,31 @@ You now can build your flows.
   <Step title="Test your app">
     Run through your flow in your published app. 
 
-    1. Verify when you hit subscribe, you're redirected to Stripe
+    1. Verify when you hit the button in the Subscription Upsell, you're redirected to Stripe
     2. After paying, you should be redirected back to your app
     3. Check in your users database to see that the signed in user is marked as subscribed
-    4. After the user is subscribed, make sure the right content is shown to them
+    
+    <Tip>
+      You can find your Users Database for your project quickly by:
+
+      - Tap on the Sign In page in the builder > in the panel on the left > tap database 
+
+      <img src="/images/stripe/connect/find-users-db.png" style={{ borderRadius: '0.5rem' }} />
+
+      - You should see that the user you signed in with is marked as "active" in the subscription status column
+
+      <img src="/images/stripe/connect/subscription-status-active.png" style={{ borderRadius: '0.5rem' }} />
+    </Tip>
+
+    
+    4. After the user is subscribed, make sure the right content is shown to them. 
 
     <Tip>
-      You can use a real card to test the flow. If needed, you can easily refund the payment from your Stripe dashboard.
+      If you're not seeing the right content shown to free vs. paid users, use the [useIsSubscribed](#useissubscribed) component.
+    </Tip>
+
+    <Tip>
+      You can use a real card to test the flow. If needed, you can refund the payment from your Stripe dashboard.
     </Tip>
   </Step>
 </Steps>
