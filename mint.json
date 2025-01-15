@@ -69,7 +69,8 @@
         "builder/functions",
         "builder/databases",
         "builder/user-accounts",
-        "builder/uploads"
+        "builder/uploads",
+        "stripe"
       ]
     },
     {
