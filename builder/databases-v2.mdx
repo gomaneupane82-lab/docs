@@ -10,7 +10,7 @@ hidden: true
 
 ## Overview
 
-Every Create project comes with a free database built in. As you chat with Create, it handles all database details - from designing the structure to writing code that saves and retrieves data.
+Every Create project comes with a free database built in. As you chat with Create, it handles all database details - from designing the structure to writing the code that lets your app save and retrieve data from it.
 
 Use databases to:
 * Store user submissions (forms, feedback, uploads)
@@ -52,10 +52,10 @@ Comments should show up under the task and show who wrote them.
 ```
 
 Create will:
-- Makk the tables needed
--- Make a Tasks table with title, description, and comments fields
--- Make a Users table with name and avatar fields
--- Make a Comments table with text and author fields
+- Make the tables needed
+  - Make a Tasks table with title, description, and comments fields
+  - Make a Users table with name and avatar fields
+  - Make a Comments table with text and author fields
 - Create Functions to save and fetch tasks, users, and comments
 - Build a Page with a task list, add form, and comment list
 - Make the Page use your Functions to save tasks when submitted and grab tasks to display
@@ -63,7 +63,7 @@ Create will:
 ### Adding Fields
 
 ```
-Add a description field to todos. Show it below the title in italics.
+Add a description to todos. Show it below the title in italics.
 ```
 
 Create will:
@@ -74,7 +74,7 @@ Create will:
 ### Removing Fields
 
 ```
-Remove the priority field from todos, we won't use it anymore
+Remove the priority from todos, we won't use it anymore
 ```
 
 Create will:
@@ -92,7 +92,7 @@ Create will:
 - Add UI for viewing/adding comments
 - Handle saving comments to the database
 
-### Changing Table Structure
+### Changing Structure
 ```
 Instead of due dates, let's use status (Todo, In Progress, Done) to track progress
 ```
@@ -101,7 +101,7 @@ Create will:
 - Update existing data
 - Modify the UI to show status options
 
-### Adding Relationships
+### Relationships
 ```
 Let users assign todos to team members. Show their avatar next to each todo
 ```
@@ -110,7 +110,8 @@ Create will:
 - Update queries to fetch user data
 - Show assignee info in the UI
 
-### Populating Test Data
+### Filling Data
+
 ```
 Generate 10 sample todos with different statuses and assignees
 ```
@@ -119,9 +120,10 @@ Create will:
 - Insert the data into your database
 - Preserve relationships between tables
 
-### Data Validation
+### Validation
+
 ```
-Make sure todo titles are at least 3 characters and due dates can't be in the past
+Make sure every todo has a title
 ```
 Create will:
 - Add validation rules to the database
