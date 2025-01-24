@@ -10,37 +10,30 @@ hidden: true
 
 ## Overview
 
-Databases let you store and manage information in your apps. Every Create project comes with a free database built in. 
-
-As you chat with Create, it handles all the technical details - from designing your database structure to writing the code to save and retrieve data from it in your app.
+Every Create project comes with a free database built in. As you chat with Create, it handles all database details - from designing the structure to writing code that saves and retrieves data.
 
 Use databases to:
-
-* Save user submissions (forms, feedback, uploads)
-* Store content (blog posts, products, galleries)
-* Persist data between uses of the app 
+* Store user submissions (forms, feedback, uploads)
+* Save content (blog posts, products, galleries)
+* Persist data between uses of the app
 * Build dynamic data-driven features
 
-<Tip>
-Start simple! You can always expand your database as your needs grow. Create handles updating the structure automatically from your descriptions.
-</Tip>
 
 ## Chat
 
-Create automatically updates your database structure & the code to save and retrieve data from it as you chat. 
+Create automatically updates your database structure & how your app retreives and stores data as you chat. 
 
 When a feature requires storing data, it:
-
 1. **Designs the database structure** based on your description
 2. **Makes Functions** to save and retrieve data from the database
 3. **Designs the Pages and Components** to display and interact with the data
-4. **Connects everything**. It makes sure the Pages and Components use the Functions when it needs data. 
+4. **Connects everything** to make sure your Pages use the Functions that retrieve/store data.
 
 For example, if you say "Make me a todo app", Create:
 - Makes a Todos table in the database with title, due date, and priority fields
 - Creates Functions to save and fetch todos
-- Builds a Page with a todo list and an add form
-- Connects the UI to save todos when submitted with the Functions
+- Builds a Page with a todo list and add form
+- Makes the Page use your Functions to save todos when submitted and grab todos to display
 
 ### Types of Changes
 
