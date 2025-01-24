@@ -1,0 +1,272 @@
+---
+title: "Databases"
+description: "Store and manage data in your apps"
+hidden: true
+---
+
+<Frame caption="Database viewer showing table structure and data">
+  <img src="/images/database-viewer.png" />
+</Frame>
+
+## Overview
+
+Databases let you store and manage information in your apps. Every Create project comes with a free database built in. 
+
+As you chat with Create, it handles all the technical details - from designing your database structure to writing the code to save and retrieve data from it in your app.
+
+Use databases to:
+
+* Save user submissions (forms, feedback, uploads)
+* Store content (blog posts, products, galleries)
+* Persist data between uses of the app 
+* Build dynamic data-driven features
+
+<Tip>
+Start simple! You can always expand your database as your needs grow. Create handles updating the structure automatically from your descriptions.
+</Tip>
+
+## Chat
+
+Create automatically updates your database structure & the code to save and retrieve data from it as you chat. 
+
+When a feature requires storing data, it:
+
+1. **Designs the database structure** based on your description
+2. **Makes Functions** to save and retrieve data from the database
+3. **Designs the Pages and Components** to display and interact with the data
+4. **Connects everything**. It makes sure the Pages and Components use the Functions when it needs data. 
+
+For example, if you say "Make me a todo app", Create:
+- Makes a Todos table in the database with title, due date, and priority fields
+- Creates Functions to save and fetch todos
+- Builds a Page with a todo list and an add form
+- Connects the UI to save todos when submitted with the Functions
+
+### Types of Changes
+
+Here are common ways to modify your database through chat:
+
+#### Adding Fields
+```
+Add a description field to todos. Show it below the title in italics.
+```
+Create will:
+- Add the description column to the Todos table
+- Update Functions to handle the new field
+- Modify the UI to display descriptions
+
+#### Removing Fields
+```
+Remove the priority field from todos, we won't use it anymore
+```
+Create will:
+- Remove the priority column
+- Update queries to exclude the field
+- Clean up any UI elements showing priority
+
+#### Adding Tables
+```
+Let users add comments on todos. Each comment should have the text and who wrote it
+```
+Create will:
+- Make a new Comments table
+- Link it to the Todos table
+- Add UI for viewing/adding comments
+- Handle saving comments to the database
+
+#### Changing Table Structure
+```
+Instead of due dates, let's use status (Todo, In Progress, Done) to track progress
+```
+Create will:
+- Convert the due_date field to a status field
+- Update existing data
+- Modify the UI to show status options
+
+#### Adding Relationships
+```
+Let users assign todos to team members. Show their avatar next to each todo
+```
+Create will:
+- Add user relationships to todos
+- Update queries to fetch user data
+- Show assignee info in the UI
+
+#### Populating Test Data
+```
+Generate 10 sample todos with different statuses and assignees
+```
+Create will:
+- Generate 10 sample todos with different statuses and assignees based on your structure
+- Insert the data into your database
+- Preserve relationships between tables
+
+#### Data Validation
+```
+Make sure todo titles are at least 3 characters and due dates can't be in the past
+```
+Create will:
+- Add validation rules to the database
+- Update Functions to check data
+- Show validation errors in the UI
+
+<Tip>
+Always describe both what data you want to store AND how you want to use it. This helps Create build the right database structure, Functions, and UI. 
+</Tip>
+
+<Tip>
+The more specific you are in your prompt, the better Create can help.
+
+If you describe something at a high level, "make a todo app", Create will guess what fields each todo should have. 
+
+If you describe what you want in detail, "make a todo app with a title, due date, and priority field", Create will make sure each todo has those fields. 
+</Tip>
+
+## Viewing & Editing Data
+
+Create comes with a built-in database viewer for manual edits to your data. You can quickly verify that data is being stored in the right way when you use your app.
+
+Access it from:
+* Chat - tap the database 
+* Project Selector - choose your database name 
+
+The database viewer lets you:
+* See all tables 
+* Edit individual rows 
+* Download data in bulk 
+* Make custom SQL queries to fetch data 
+
+You can also make your own internal tools that update multiple tables at once:
+* Make a new page 
+* Describe your tool and how it should update the database 
+* Try it out and verify 
+
+<Info>
+Changes in Demo mode in the Builder use a test database. This lets you experiment safely without affecting your live data.
+</Info>
+
+## Test vs. Live
+
+Create maintains separate test and live databases for each project:
+
+**Test Database**
+* Used in Demo mode from the builder
+
+**Live Database**
+* Used in published app
+* Access your live database from the builder
+
+When you publish your app, Create automatically:
+
+* Creates your live database
+* Applies the latest structure from the Test database to your Live database so that you have the same tables and fields
+* Runs your app with that structure 
+
+<Warn>
+When making changes to your database structure after publishing, be careful about conflicts with your live database. For example:
+
+* You rename a column from "email" to "userEmail" in test
+* But your live database already has data in "email"
+* Create will warn you about this conflict on publish
+
+To resolve migration conflicts:
+
+1. Check the error message for details
+2. Either:
+   * Modify your test database to match production (keep "email")
+   * Or manually migrate the live data (move data from "email" to "userEmail")
+3. Try publishing again
+
+Create prevents destructive changes by default to protect your live data.
+</Warn>
+
+## Errors
+
+If you run into database issues:
+
+1. **Check the error message**
+   * Create often knows how to fix specific errors
+   * Paste the error into chat for help
+
+2. **Verify your data**
+   * Open database viewer
+   * Confirm data structure
+   * Look for missing or invalid entries
+
+3. **Test in Demo mode**
+   * Isolate if issue is with test or live data
+   * Try reproducing the problem
+   * Check if error is consistent
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Will this scale?">
+    Yes. Create's built in databases are designed to scale. Under the hood, they use PostgreSQL, which is a powerful and scalable database system. We partner with [Neon](https://neon.tech) to automatically scale your database as your app grows.
+  </Accordion>
+
+  <Accordion title="How much data can I store?">
+    Free plans include 100mb of storage per database. You can upgrade to a paid plan to increase this.
+  </Accordion>
+
+  <Accordion title="Can I import existing data?">
+    Yes! Upload CSV files through the database viewer. Or use Create to make your own import tools. 
+  </Accordion>
+
+  <Accordion title="How do I connect to external databases?">
+    Use [Functions](/builder/functions) to connect to external databases like Supabase or your own backend. 
+  </Accordion>
+
+  <Accordion title="Is my data backed up?">
+    Yes, live databases are automatically backed up. Contact support if you need to restore data.
+  </Accordion>
+
+  <Accordion title="Can I write custom queries?">
+    Create handles making queries to your database automatically. For custom queries, create a [Function](/builder/functions) and describe what you need.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+Need help? Join our [Discord community](https://create.xyz/discord) or email hello@create.xyz
+</Note>
+
+## Helpful database concepts
+
+Create handles most details when it comes to updating the structure of your database, or writing the code in your app to save and retrieve data from the database.
+
+However, it somtimes helps to have a quick mental model of how databases work:
+
+<Frame caption="Think of a database like connected spreadsheets">
+  <img src="/images/database/spreadsheet-analogy.png" />
+</Frame>
+
+A database is like a collection of connected spreadsheets:
+
+* Each spreadsheet is a **table**
+* Each column in table is a **field**
+* Each row is an entry
+* You connect entries across tables with **foreign keys** and **joins**
+
+Here are the key terms you might encounter:
+
+* **Schema** - A fancy term for the structure of your database (the tables and fields). Create designs this automatically based on the description of how you want your app to work. It updates it as it learns more.  
+
+* **Table** - A collection of related data, like "Products" or "Feedback". Think of it like a spreadsheet where each row is an entry.
+
+* **Column** (or **Field**) - A specific piece of information you want to store, like "name" or "email". Create adds these based on what data you describe needing.
+
+* **Row** - A single entry in a table. Think of it like a row in a spreadsheet.
+
+* **Query** - Instructions for getting, saving, or updating data from/to tables in your database. Create writes these for you with Functions when you describe how you want your app to show or store data.
+
+* **Join** - A way to combine data from different tables. For example, grabbing all posts (from the Posts table) with their authors (from the Users table).
+
+* **Foreign Key** - A way to reference data in another table. Like when a post has an "authorId" that connects to a user (and userId) in the Users table. Create sets these up automatically when you describe relationships (e.g. "all posts have authors").
+
+* **SQL** - The language databases use under the hood. Create handles writing SQL for you - you just describe what you want in plain English!
+
+* **Migrations** - Changes to your database structure over time. Create automatically handles these when you describe new features that require changing the current structure of your database. 
+
+<Tip>
+Don't worry too much about these terms! Create handles the technical details. Just describe what data you want your app to store and how you want your app to display the data.
+</Tip>
