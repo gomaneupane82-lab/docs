@@ -35,29 +35,54 @@ For example, if you say "Make me a todo app", Create:
 - Builds a Page with a todo list and add form
 - Makes the Page use your Functions to save todos when submitted and grab todos to display
 
-### Types of Changes
-
 Here are common ways to modify your database through chat:
 
-#### Adding Fields
+### Setting the scene
+
+It helps to start with a specific description of what you want your app to do. 
+
+Prompt:
+
+```
+Make a tasks app. Users should be able to add, view, and delete tasks. 
+
+Each task has title, description and comments
+
+Comments should show up under the task and show who wrote them.  
+```
+
+Create will:
+- Makk the tables needed
+-- Make a Tasks table with title, description, and comments fields
+-- Make a Users table with name and avatar fields
+-- Make a Comments table with text and author fields
+- Create Functions to save and fetch tasks, users, and comments
+- Build a Page with a task list, add form, and comment list
+- Make the Page use your Functions to save tasks when submitted and grab tasks to display
+
+### Adding Fields
+
 ```
 Add a description field to todos. Show it below the title in italics.
 ```
+
 Create will:
 - Add the description column to the Todos table
 - Update Functions to handle the new field
 - Modify the UI to display descriptions
 
-#### Removing Fields
+### Removing Fields
+
 ```
 Remove the priority field from todos, we won't use it anymore
 ```
+
 Create will:
 - Remove the priority column
 - Update queries to exclude the field
 - Clean up any UI elements showing priority
 
-#### Adding Tables
+### Adding Tables
 ```
 Let users add comments on todos. Each comment should have the text and who wrote it
 ```
@@ -67,7 +92,7 @@ Create will:
 - Add UI for viewing/adding comments
 - Handle saving comments to the database
 
-#### Changing Table Structure
+### Changing Table Structure
 ```
 Instead of due dates, let's use status (Todo, In Progress, Done) to track progress
 ```
@@ -76,7 +101,7 @@ Create will:
 - Update existing data
 - Modify the UI to show status options
 
-#### Adding Relationships
+### Adding Relationships
 ```
 Let users assign todos to team members. Show their avatar next to each todo
 ```
@@ -85,7 +110,7 @@ Create will:
 - Update queries to fetch user data
 - Show assignee info in the UI
 
-#### Populating Test Data
+### Populating Test Data
 ```
 Generate 10 sample todos with different statuses and assignees
 ```
@@ -94,7 +119,7 @@ Create will:
 - Insert the data into your database
 - Preserve relationships between tables
 
-#### Data Validation
+### Data Validation
 ```
 Make sure todo titles are at least 3 characters and due dates can't be in the past
 ```
@@ -195,7 +220,7 @@ If you run into database issues:
 
 <AccordionGroup>
   <Accordion title="Will this scale?">
-    Yes. Create's built in databases are designed to scale. Under the hood, they use PostgreSQL, which is a powerful and scalable database system. We partner with [Neon](https://neon.tech) to automatically scale your database as your app grows.
+    Yes. Create's built in databases are designed to scale. Under the hood, it's PostgreSQL, which is powerful and scalable. We partner with [Neon](https://neon.tech) to autoscale your database as your app grows.
   </Accordion>
 
   <Accordion title="How much data can I store?">
@@ -211,11 +236,11 @@ If you run into database issues:
   </Accordion>
 
   <Accordion title="Is my data backed up?">
-    Yes, live databases are automatically backed up. Contact support if you need to restore data.
+    Yes, databases are automatically backed up. Contact support if you need to restore data.
   </Accordion>
 
   <Accordion title="Can I write custom queries?">
-    Create handles making queries to your database automatically. For custom queries, create a [Function](/builder/functions) and describe what you need.
+    Create handles making queries to your database automatically. For custom queries, create a [Function](/builder/functions) and describe what you need. You can then use your Function.  Or use the built in SQL editor in the database viewer.
   </Accordion>
 </AccordionGroup>
 
@@ -223,7 +248,7 @@ If you run into database issues:
 Need help? Join our [Discord community](https://create.xyz/discord) or email hello@create.xyz
 </Note>
 
-## Helpful database concepts
+## Helpful database terms
 
 Create handles most details when it comes to updating the structure of your database, or writing the code in your app to save and retrieve data from the database.
 
@@ -256,7 +281,7 @@ Here are the key terms you might encounter:
 
 * **Foreign Key** - A way to reference data in another table. Like when a post has an "authorId" that connects to a user (and userId) in the Users table. Create sets these up automatically when you describe relationships (e.g. "all posts have authors").
 
-* **SQL** - The language databases use under the hood. Create handles writing SQL for you - you just describe what you want in plain English!
+* **SQL** - The language used to make changes to your database structure or retrieve / store data. Create handles writing SQL for you - you just describe what you want in plain English!
 
 * **Migrations** - Changes to your database structure over time. Create automatically handles these when you describe new features that require changing the current structure of your database. 
 
