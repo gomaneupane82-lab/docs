@@ -235,31 +235,53 @@ Create warns you about destructive changes before your publish to protect your l
 
 ## Errors
 
-Here are some common ways to troubleshoot common database errors:
+Here are some good ways to troubleshoot common errors:
 
-### Data isn't saving 
+### Data isn't saving or retrieving
 
-If data isn't saving when you use your app, there's 3 places it might be failing:
+If data isn't saving when you use your app, there are 3 common failure points to check. Go in this order to test each isolation:
 
-1. The database structure is wrong
-2. The function that saves data is wrong. 
-3. The UI isn't connected to the function that saves data. 
+#### 1. Database Structure
+**How to check:**
+- Open the database viewer
+- Verify tables and fields match what you expect
 
-If you run into database issues:
+**If there's an issue:**
+- Describe the correct structure you want in chat
+- Example: "Update the Tasks table to have title, description, and dueDate fields"
+- Create will modify the database to match
 
-1. **Check the error message**
-   * Create often knows how to fix specific errors
-   * Paste the error into chat for help
+#### 2. Function -> Database
+**How to check:**
+- Identify which function saves or retrieves data from the database. Tap on it. 
+- Open the [Test Runner](/builder/functions#test-runner) (3-dot menu > Test)
+- Enter sample data and run the test
+- Check database viewer to verify data was saved
+- Delete test records if needed
 
-2. **Verify your data**
-   * Open database viewer
-   * Confirm data structure
-   * Look for missing or invalid entries
+**If there's an issue:**
+- Copy any error messages
+- Paste them into the function chat
+- Ask Create to fix the specific error
+- Example: "I see this error when I run saveTask and test it with this data: [error] [example data]"
 
-3. **Test in Demo mode**
-   * Isolate if issue is with test or live data
-   * Try reproducing the problem
-   * Check if error is consistent
+#### 3. UI -> Function
+**How to check:**
+- Try the app in Demo mode from the UI
+- Check that data is being saved when you use the app in the database viewer
+- Verify your page/component references the correct function
+- Type `/` in chat to see if function is linked
+- Try the flow in Demo mode
+- Watch database viewer to see if records appear
+
+**If there's an issue:**
+- Verify your page/component references the correct function
+- Example: "Connect the taks form to the saveTask function when I submit a task"
+- Create will update the code to properly wire everything together
+
+<Tip>
+For any errors you encounter, you can paste them directly into Create's chat. It often recognizes specific error patterns and knows how to fix them.
+</Tip>
 
 ## FAQ
 
