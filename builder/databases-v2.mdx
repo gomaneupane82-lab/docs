@@ -4,8 +4,8 @@ description: "Store and manage data in your apps"
 hidden: true
 ---
 
-<Frame caption="Database viewer showing table structure and data">
-  <img src="/images/database-viewer.png" />
+<Frame caption="Create comes with built in databases for each project">
+  <img src="/images/databases/viewer.png" />
 </Frame>
 
 ## Overview
@@ -29,11 +29,35 @@ When a feature requires storing data, it:
 3. **Designs the Pages and Components** to display and interact with the data
 4. **Connects everything** to make sure your Pages use the Functions that retrieve/store data.
 
-For example, if you say "Make me a todo app", Create:
-- Makes a Todos table in the database with title, due date, and priority fields
-- Creates Functions to save and fetch todos
-- Builds a Page with a todo list and add form
-- Makes the Page use your Functions to save todos when submitted and grab todos to display
+For example, if you say "Make me a tasks app", Create:
+
+<Steps>
+  <Step title="Creates a tasks table with title, due date, and other fields">
+    <Frame>
+      <img src="/images/databases/viewer.png" />
+    </Frame>
+  </Step>
+
+  <Step title="Creates Functions to save and fetch tasks">
+    <Frame>
+      <img src="/images/databases/tasks-functions.png" />
+    </Frame>
+  </Step>
+
+  <Step title="Builds a Page with a task list and add form">
+    <Frame>
+      <img src="/images/databases/tasks-ui.png" />
+    </Frame>
+  </Step>
+
+  <Step title="Makes your Page use your Functions to save and grab tasks from the database">
+    <Frame>
+      <img src="/images/databases/tasks-connected.png" />
+    </Frame>
+  </Step>
+</Steps>
+
+As you continue describing your app, Create updates your database structure, Functions and Pages to match what you want. 
 
 Here are common ways to modify your database through chat:
 
@@ -148,59 +172,78 @@ Create comes with a built-in database viewer for manual edits to your data. You 
 
 Access it from:
 * Chat - tap the database 
-* Project Selector - choose your database name 
+* [Project Selector](/builder/controls#project-selector) - choose your database name 
 
 The database viewer lets you:
 * See all tables 
 * Edit individual rows 
+* Sort and filter data 
 * Download data in bulk 
-* Make custom SQL queries to fetch data 
+* Run custom SQL queries to fetch data 
 
-You can also make your own internal tools that update multiple tables at once:
-* Make a new page 
+You can also make your own internal tools to update multiple tables at once:
+* Make a new [Page](/builder/pages)
 * Describe your tool and how it should update the database 
-* Try it out and verify 
+* Try out your UI
 
 <Info>
 Changes in Demo mode in the Builder use a test database. This lets you experiment safely without affecting your live data.
 </Info>
 
-## Test vs. Live
+## Test vs. Live DB
 
 Create maintains separate test and live databases for each project:
 
 **Test Database**
 * Used in Demo mode from the builder
+* Allows you to make sure your app is saving data correctly before publishing
 
 **Live Database**
-* Used in published app
+* Used in your published app
 * Access your live database from the builder
+
+### Publishing 
 
 When you publish your app, Create automatically:
 
 * Creates your live database
-* Applies the latest structure from the Test database to your Live database so that you have the same tables and fields
+* Applies the latest structure from the Test database to your Live database so that it has the same tables and fields
 * Runs your app with that structure 
 
 <Warn>
 When making changes to your database structure after publishing, be careful about conflicts with your live database. For example:
 
-* You rename a column from "email" to "userEmail" in test
-* But your live database already has data in "email"
-* Create will warn you about this conflict on publish
+* You make an app that has a User table with email, image, and phone fields
+* You publish your app so your live database has the same tables. You launch it and users start signing up. 
+* You later decide that you don't need phone numbers, so in an update to the app you remove it.
+* You try to publish your app again. Your live database now has users with with phone numbers. 
+* Create will warn you about this conflict on publish. If you publish, it will remove the existing phone numbers.
+
+This is called a "migration conflict". You've changed the structure of your test database, but it now conflicts with your live database structure. 
 
 To resolve migration conflicts:
 
 1. Check the error message for details
 2. Either:
-   * Modify your test database to match production (keep "email")
-   * Or manually migrate the live data (move data from "email" to "userEmail")
+   * Modify your test database to match production (keep "phone" around)
+   * Manually migrate the live data (move data from "phone")
 3. Try publishing again
 
-Create prevents destructive changes by default to protect your live data.
+Create warns you about destructive changes before your publish to protect your live data. 
 </Warn>
 
+
 ## Errors
+
+Here are some common ways to troubleshoot common database errors:
+
+### Data isn't saving 
+
+If data isn't saving when you use your app, there's 3 places it might be failing:
+
+1. The database structure is wrong
+2. The function that saves data is wrong. 
+3. The UI isn't connected to the function that saves data. 
 
 If you run into database issues:
 
