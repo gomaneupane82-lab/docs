@@ -1,44 +1,90 @@
 ---
-title: "Pexels Integration"
-description: "Create an account to find stock photos seamlessly with the Pexels API."
+title: "Pexels"
+description: "Add beautiful stock photo and videos"
 ---
 
-Before you begin, you will need an account on [Pexel&#x73;**.**](https://www.pexels.com/)
+Pexels lets you find and use beautiful stock photos and videos in your project. 
 
-## Account Setup
+## Overview
 
-Visit [Pexels](https://www.pexels.com/)
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a Pexels account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your Pexels API key
+  </Card>
+  <Card title="Copy into Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
 
-On their home page click on “Join” in the upper right
+## Account Creation
 
-<img height="303" width="624" src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXegFRdrCRgWAd6FltXOQHSM_p9amztFsQQuGzAEJbKOoGCyPfBk-GLybWWpz7ZeluqCJo9KAi7UjOkC9L_WtcLeC104f5IW8eG-J-WCRTr4UPjmC45vHeArqGDX_yQGhirJOZGj?key=NZ4d7cCGppQiJdZwRfiRd3BA" />
+<Steps>
+  <Step title="Visit Pexels Website">
+    Go to [pexels.com](https://www.pexels.com/) and click "Join" in the top right corner
+    
+    <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXegFRdrCRgWAd6FltXOQHSM_p9amztFsQQuGzAEJbKOoGCyPfBk-GLybWWpz7ZeluqCJo9KAi7UjOkC9L_WtcLeC104f5IW8eG-J-WCRTr4UPjmC45vHeArqGDX_yQGhirJOZGj?key=NZ4d7cCGppQiJdZwRfiRd3BA" style={{ borderRadius: '0.5rem', width: '624px', height: '303px' }} />
+  </Step>
 
-* Sign up with your email or authenticate with Google
+  <Step title="Choose Signup Method">
+    * Sign up with email/password
+    * Or continue with Google authentication
+  </Step>
+</Steps>
 
-## ![](/image.png)Generate API Token for Create
+## Generate API Key
 
-* Click on the three dot menu to the left of your Avatar/Initials on the Pexel Landing Page
+<Steps>
+  <Step title="Access Account Settings">
+    1. Click the three-dot menu next to your profile avatar
+    2. Select "Images & Video API" from the dropdown
+    
+    <img src="/Screenshot2025-02-03at12.47.42PM.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
 
-![](/Screenshot2025-02-03at12.47.42PM.png)
+  <Step title="Create New Token">
+    1. Click "Your API Key" button
+    2. Generate new token for Create integration
+    
+    <img src="/Screenshot2025-02-03at12.50.50PM.png" style={{ borderRadius: '0.5rem' }} />
 
-* Navigate to “Images & Video API”
+    <img src="/Screenshot2025-02-03at12.52.30PM.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
 
-Click on the “Your API Key” button
+  <Step title="Copy Your Token">
+    1. Copy the generated API key
+    2. You can find this key again from your Pexels dashboard
+  </Step>
+</Steps>
 
-![](/Screenshot2025-02-03at12.50.50PM.png)
+## Add to Create Project
 
-## Create New Token
+<Steps>
+  <Step title="Add the integration">
+    1. In your Create project, type `/` in the chat 
+    2. Select "Pexels" from the menu and send a messsage
+  </Step>
 
-Create a new API token for your Create project
+  <Step title="Add your API key">
+    1. Paste your Pexels API key into the "Pexels API Key" field
+    
+    <Tip>
+      Need a new key? Contact [Pexels support](mailto:api@pexels.com).
+    </Tip>
+  </Step>
 
-![](/Screenshot2025-02-03at12.52.30PM.png)
+  <Step title="Use it">
+    You can now use prompts with the integration to add stock photos. 
 
-* Copy Token
+    Some examples:
+    * `Make the homepage banner a video of a retailer with /Pexels`
+    * `Find me a video of a dog playing fetch with /Pexels and add it`
+    * `Make a gallery of product images with /Pexels`
+  </Step>
+</Steps>
 
-Make sure to copy your API Key. You may revisit this API key later by returning to your Pexel dashboard at anytime
-
-## Add to Create
-
-Enter and save your API token in Create inside the Pexel prompt from the builder.&#x20;
-
-Remember to keep your API token secure and never share it publicly. If you need a new API token, please contact [api@pexels.com](mailto:api@pexels.com)
+<Note type="success">
+  Your Pexels integration is now ready! Use the `/Pexels` command in chat to add stock photos.
+</Note>
