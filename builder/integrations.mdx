@@ -6,7 +6,7 @@ description: "Add powerful capabilities to your apps with our built-in integrati
 Create offers 50+ built-in integrations (and growing!) to give your apps superpowers. Build AI-powered features, generate PDFs, display maps, or enhance your UI with component libraries.
 
 <Tip>
-Missing an integration? Email us at hello\@create.xyz with your suggestion. Meanwhile, you can add any API to your app using [Functions](/builder/functions). It's similar to creating your own integration.
+  Missing an integration? Email us at hello@create.xyz with your suggestion. Meanwhile, you can add any API to your app using [Functions](/builder/functions). It's similar to creating your own integration.
 </Tip>
 
 ## Adding Integrations
@@ -22,56 +22,74 @@ Add integrations by:
 You can add integrations to your [Pages](/builder/pages), [Components](/builder/components), or [Functions](/builder/functions). When you add an integration, you'll see a special chip in your chat. Create adds the integration code to your page/component/function.
 
 <Tip>
-You need to include the integration in your prompt. You'll know it's referenced correctly if you see a chip in your chat.
+  You need to include the integration in your prompt. You'll know it's referenced correctly if you see a chip in your chat.
 </Tip>
 
 <Info>
-Some integrations use credits to run. Learn more about [Credits](/account/credits).
+  Some integrations use credits to run. Learn more about [Credits](/account/credits).
 </Info>
 
 ## Using AI Integrations
 
 Build powerful AI apps with our integrated models. Each integration comes with support out of box for:
 
-* **Streaming** - AI-generated text appears word by word, real time. You can tell Create not to stream when you use the integration if you'd rather have it load. 
+* **Streaming** - AI-generated text appears word by word, real time. You can tell Create not to stream when you use the integration if you'd rather have it load.
+
 * **Flexible Prompting** - Let Create guess the best prompt or specify the exact prompt
+
 * **Structured Outputs** - Get JSON responses to build dynamic UIs and drive application logic
 
 Adding AI is simple - just use a slash command, describe how you want to use the AI, and Create handles hooking it up to your app.
 
 ### Streaming
+
 By default, responses appear word-by-word as they're generated, creating an engaging real-time experience. This works great for chatbots and interactive experiences.
 
 If you prefer to show a loading spinner and display the complete response at once, simply tell Create "don't stream the response" in your prompt. This is useful for:
-- Applications that process the full response
-- UIs that need to wait for complete data
-- Situations where immediate partial results aren't helpful
+
+* Applications that process the full response
+
+* UIs that need to wait for complete data
+
+* Situations where immediate partial results aren't helpful
 
 ### Prompting
+
 Create offers multiple ways to handle AI prompts:
 
 1. **Basic Integration**
-   - Just include the AI integration (e.g. `/[ChatGPT]`) in your message
-   - Create will guess an optimal prompt based on your app's context
-   
+
+   * Just include the AI integration (e.g. `/[ChatGPT]`) in your message
+
+   * Create will guess an optimal prompt based on your app's context
+
 2. **Custom Prompts**
-   - Specify exactly what you want: "Use /[ChatGPT] with prompt: 'Analyze this text for tone'"
-   - Control the exact behavior of the AI
+
+   * Specify exactly what you want: "Use /\[ChatGPT] with prompt: 'Analyze this text for tone'"
+
+   * Control the exact behavior of the AI
 
 3. **Dynamic Variables**
-   - Use `[brackets]` for dynamic values
-   - Example: "Take in a subject line from the user. Then use /[ChatGPT] with prompt: 'Generate a concise email for [subject line]'"
-   - Create handles all the code to pass variables to your prompts. You can chain multiple variables
+
+   * Use `[brackets]` for dynamic values
+
+   * Example: "Take in a subject line from the user. Then use /\[ChatGPT] with prompt: 'Generate a concise email for \[subject line]'"
+
+   * Create handles all the code to pass variables to your prompts. You can chain multiple variables
 
 4. **Prompt Optimization**
-   - Let Create help: "Optimize the prompt for /[ChatGPT]. I want to [your goals]"
-   - Create will craft an effective prompt for your AI integration and include them in the code to call the integration
+
+   * Let Create help: "Optimize the prompt for /\[ChatGPT]. I want to \[your goals]"
+
+   * Create will craft an effective prompt for your AI integration and include them in the code to call the integration
 
 ### Structured Outputs
+
 While AI typically returns raw text, you can request JSON responses for more structured data handling.
 
 **Common Use Cases:**
-1. **Building UIs**   
+
+1. **Building UIs**
 
 ```javascript
    // Example: "Generate a recipe as JSON and show UI for each step"
@@ -84,25 +102,31 @@ While AI typically returns raw text, you can request JSON responses for more str
    }   
 ```
 
-2. **Driving Logic**   
-```javascript
+1. **Driving Logic**
+
+````javascript
    // Example: "Analyze text sentiment as JSON"
    {
      "sentiment": "positive",
      "score": 0.8,
      "key_phrases": ["excellent service", "highly recommend"]
    }   ```
-```
+````
 
 **Important Notes:**
-- JSON responses automatically disable streaming
-- Remember to handle loading states
-- Great for when you need to process or display data programmatically
-- See [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs) for more examples
+
+* JSON responses automatically disable streaming
+
+* Remember to handle loading states
+
+* Great for when you need to process or display data programmatically
+
+* See [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs) for more examples
 
 ## Integrations
 
 ### AI & LLMs
+
 Learn more about working with these models in [Using AI Integrations](#using-ai-integrations).
 
 #### ChatGPT
@@ -293,6 +317,10 @@ Example prompts:
 
 * `Create a tool that uses /[DALL-E] for custom illustrations`
 
+#### Pexels
+
+Create an account to find stock photos seamlessly with the Pexels API
+
 ### Audio Processing
 
 #### Audio Transcription
@@ -408,7 +436,7 @@ Example prompts:
 * `Create a business card scanner with /[Document Scanner]`
 
 <Tip>
-For best results, ensure documents are 8.5x11in proportion.
+  For best results, ensure documents are 8.5x11in proportion.
 </Tip>
 
 #### File Conversion
@@ -422,8 +450,8 @@ Example prompts:
 * `Build a document converter with /[File Conversion]`
 
 <Info>
-**Possible inputs include:** .html, .doc, .docx, .pptx, .xlsx, .pdf, .png, .jpg, .jpeg  
-**Possible outputs include:** .pdf, .png, .jpg, .jpeg, .html
+  **Possible inputs include:** .html, .doc, .docx, .pptx, .xlsx, .pdf, .png, .jpg, .jpeg\
+  **Possible outputs include:** .pdf, .png, .jpg, .jpeg, .html
 </Info>
 
 #### QR Code
@@ -558,7 +586,7 @@ Example prompts:
 
 * `Create an SEO analyzer with /[SEO Keywords Research]`
 
-####  Charts
+#### Charts
 
 Create interactive data visualizations.
 
@@ -571,7 +599,7 @@ Example prompts:
 * `Create an analytics page using /[Charts]`
 
 <Tip>
-Supports bar charts, line graphs, pie charts, and more. See examples at [Recharts](https://recharts.org/en-US/examples).
+  Supports bar charts, line graphs, pie charts, and more. See examples at [Recharts](https://recharts.org/en-US/examples).
 </Tip>
 
 #### Validate Emails
@@ -609,4 +637,3 @@ Example prompts:
 * `Build a safe chat app using /[OpenAI Moderation]`
 
 * `Create a content filter with /[OpenAI Moderation]`
-
