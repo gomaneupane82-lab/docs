@@ -70,7 +70,6 @@ Create Functions in several ways:
   <img src="/images/functions/new.gif" />
 </Frame>
 
-
 Describe what you want the Function to do:
 
 * What inputs it needs
@@ -129,7 +128,7 @@ Create handles connecting everything together based on your description. If you 
 
 ## Testing Functions
 
-Every Function has a full test runner available in the 3-dot menu > Run Test tab. 
+Every Function has a full test runner available in the 3-dot menu > Run Test tab.
 
 <Frame caption="Accessing the test runner">
   <img src="/images/functions/test-runner.gif" />
@@ -145,10 +144,10 @@ Use it to:
 
 * **Debug** - Use error descriptions to fix issues. You can often just paste the error description into your prompt to fix it.
 
-<img src="/images/functions/testing.gif" />
+![](/images/functions/testing.gif)
 
 <Tip>
-Functions have a 5-minute timeout. Chain Functions together for longer operations.
+  Functions have a 5-minute timeout. Chain Functions together for longer operations.
 </Tip>
 
 ## Using Functions
@@ -186,7 +185,7 @@ After changing a Function:
 3. Create will refresh with latest changes
 
 <Info>
-Changes to Functions don't automatically update everywhere they're used. This prevents unwanted changes from breaking your app.
+  Changes to Functions don't automatically update everywhere they're used. This prevents unwanted changes from breaking your app.
 </Info>
 
 ## External APIs and Secrets
@@ -218,27 +217,14 @@ Popular APIs and where to find credentials:
 Here is an in-depth YouTube video tutorial on how to connect to an external API, using the [Exa AI Search API](https://exa.ai/):
 
 <div className="relative aspect-video">
-  <iframe
-    src="https://www.youtube.com/embed/Le_b7AORg-A"
-    title="Create Tutorial: Connecting to External APIs"
-    className="absolute top-0 left-0 w-full h-full"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
+  <iframe src="https://www.youtube.com/embed/Le_b7AORg-A" title="Create Tutorial: Connecting to External APIs" className="absolute top-0 left-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
 </div>
 
 You can also use Zapier, Make, and other platforms that connect to APIs by using their "webhook" triggers. Here's a YouTube video with the steps:
 
 <div className="relative aspect-video">
-  <iframe
-    src="https://www.youtube.com/embed/BJvJHMUXSSM"
-    title="How to make a tool that uses Zapier in Create"
-    className="absolute top-0 left-0 w-full h-full"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
+  <iframe src="https://www.youtube.com/embed/BJvJHMUXSSM" title="How to make a tool that uses Zapier in Create" className="absolute top-0 left-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
 </div>
-
 
 ## Secrets
 
@@ -257,7 +243,7 @@ To add a Secret:
 Create automatically uses well-named secrets when generating Function code. For example, if you have a "Stripe API Key" secret and mention Stripe in your prompt, Create will use that key securely.
 
 <Info>
-When using popular APIs like Stripe or Twilio, Create will often ask for specific secret names in chat (e.g. "Stripe Secret Key"). Use these as hints for what credentials you need.
+  When using popular APIs like Stripe or Twilio, Create will often ask for specific secret names in chat (e.g. "Stripe Secret Key"). Use these as hints for what credentials you need.
 </Info>
 
 Supported secret types:
@@ -271,7 +257,7 @@ Supported secret types:
 * Bearer Tokens
 
 <Info>
-OAuth tokens aren't supported since they require refresh flows.
+  OAuth tokens aren't supported since they require refresh flows.
 </Info>
 
 ## Publishing
@@ -289,7 +275,5 @@ When ready to launch:
 Published Functions are locked versions your published app uses. Continue development without breaking live features.
 
 <Tip>
-Need help? [Join our Discord](https://create.xyz/discord) and post in #help-me-build
+  Need help? [Join our Discord](https://create.xyz/discord) and post in #help-me-build
 </Tip>
-
-
