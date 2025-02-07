@@ -1,0 +1,99 @@
+---
+title: "MovieDB"
+description: "Access comprehensive movie and TV show data"
+---
+
+MovieDB provides detailed information about movies, TV shows, cast, and crew through its extensive entertainment database.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a MovieDB account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your MovieDB API key
+  </Card>
+  <Card title="Connect to Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit MovieDB Website">
+    Go to [themoviedb.org](https://www.themoviedb.org/) and click "Join TMDb"
+    
+    <img src="/images/moviedb/image1.png" style={{ borderRadius: '0.5rem', width: '624px', height: '303px' }} />
+  </Step>
+
+  <Step title="Complete Registration">
+    * Choose username and password
+    * Verify your email address
+    <img src="/images/moviedb/image2.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Access API Settings">
+    1. Go to your account settings
+    2. Navigate to "API" section
+    
+    <img src="/images/moviedb/image3.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Create New Key">
+    1. Click "Create New API Key"
+    2. Accept the terms of service
+    3. Generate API credential
+    
+    <img src="/images/moviedb/image4.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Secure Your Key">
+    1. Copy the API key (v3 auth)
+    2. Store it securely
+
+    <img src="/images/moviedb/image5.png" style={{ borderRadius: '0.5rem' }} />
+    <Warning>
+      Never expose this key in client-side code
+    </Warning>
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the Integration">
+    1. In your Create project, type `/` in chat
+    2. Select "MovieDB" from the menu
+  </Step>
+
+  <Step title="Add Your API Key">
+    1. Paste your MovieDB API key into "MOVIEDB_API_KEY" secret
+    
+    <Tip>
+      Need a new key? Regenerate in your MovieDB API settings.
+    </Tip>
+  </Step>
+
+  <Step title="Start Exploring">
+    Use prompts to access entertainment data:
+    
+    * `Show details for The Dark Knight using /MovieDB`
+    * `Build a movie recommendation app with /MovieDB`
+    * `Create a TV show watchlist with /MovieDB`
+    * `Display cast photos for Stranger Things via /MovieDB`
+    
+    <Tip>
+      API responses are live data - cache results for better performance
+    </Tip>
+  </Step>
+</Steps>
+
+<Note type="success">
+  MovieDB integration complete! Use `/MovieDB` in chat to access entertainment data.
+</Note>
