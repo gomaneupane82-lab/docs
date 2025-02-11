@@ -1,0 +1,108 @@
+---
+title: "Line"
+description: "Integrate Line messaging capabilities into your application"
+---
+
+Connect your app to Line's messaging platform to send notifications, build chatbots, and interact with users through Line's popular messaging service.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Developer Account" icon="user">
+    Sign up and configure your Line Account Manager, Line Official Account, and Line Developer Account.
+  </Card>
+  <Card title="Get Channel Credentials" icon="key">
+    Create a Line channel and obtain API keys
+  </Card>
+  <Card title="Connect to Create" icon="plug">
+    Add your credentials to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Setup
+
+<Steps>
+  <Step title="Create a Line Official Account Manager">
+    Go to https://manager.line.biz/ and sign up with your account
+    
+    <img src="/images/line/image7.png" style={{ borderRadius: '0.5rem', width: '624px', height: '303px' }} />
+  </Step>
+
+  <Step title="Create a Line Official Account">
+    Click “Create LINE official account” to continue
+    
+    <img src="/images/line/image1.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Link your Line Account to Line Developer">
+    Once your account is created, you may now visit Line Developer and click Log in to Console to link your Line Official Account.
+    
+    <img src="/images/line/image3.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Generate API Credentials
+
+<Steps>
+  <Step title="Creating a Provider">
+    Click on “Create a new provider” to generate a provider for your Channel.
+    <img src="/images/line/image6.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Enable Messaging API">
+    Now go back to your Line Official Account Manager. In the top right corner, click on “Setting”. Then, on the left panel, select “Messaging API” and “Enable Messaging API”. Be sure to select the provider mentioned previously.
+    <img src="/images/line/image8.png" style={{ borderRadius: '0.5rem' }} />
+    <Warning>
+      These credentials grant full access to your Line channel - keep them private
+    </Warning>
+  </Step>
+
+  <Step title="Channel Secret Token">
+    Copy your Channel Secret Token and be sure to link your Webhook URL. (This should be the function you integrate Line in)
+    <img src="/images/line/image2.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Channel Access Token">
+    Get your Channel Access Token by going to your Line Developer Account > Provider Name > Messaging API > Scroll all the way down
+    <img src="/images/line/image4.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Adding Tokens to Create">
+    Enter and save your API tokens in Create
+    <img src="/images/line/image5.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the Integration">
+    1. In your Create project, type `/` in chat
+    2. Select "Line" from the menu
+  </Step>
+
+  <Step title="Add Your Credentials">
+    1. Paste Channel Secret into "LINE_CHANNEL_SECRET"
+    2. Paste Access Token into "LINE_ACCESS_TOKEN"
+    
+    <Tip>
+      Need new credentials? Regenerate in Line Developer Console.
+    </Tip>
+  </Step>
+
+  <Step title="Start Building">
+    Use prompts to implement Line features:
+    
+    * `Send order confirmation via /Line`
+    * `Build a chatbot that uses /Line for customer support`
+    * `Create a broadcast system with /Line`
+    
+    <Warning>
+      Line API has rate limits - implement error handling for best reliability
+    </Warning>
+  </Step>
+</Steps>
+
+<Note type="success">
+  Line integration complete! Use `/Line` in chat to access messaging capabilities.
+</Note>
