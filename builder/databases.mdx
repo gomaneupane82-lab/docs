@@ -1,244 +1,513 @@
 ---
-title: "Databases (legacy)"
-description: "This is a legacy document for projects using our prior version of databases"
+title: "Databases"
+description: "Store and manage data in your apps"
+hidden: true
 ---
 
-Databases let you store information in your apps. They're essential for apps that need to remember data between uses - like user preferences, form submissions, user submissions, or content to display.
+<Frame caption="Create comes with built in databases for each project">
+  <img src="/images/databases/viewer.png" />
+</Frame>
+
+## Overview
+
+Every Create project comes with a free database built in. As you chat with Create, it handles all database details - from designing the structure to writing the code that lets your app save and retrieve data from it.
+
+Use databases to:
+
+* Store user submissions (forms, feedback, uploads)
+
+* Save content (blog posts, products, galleries)
+
+* Persist data between uses of the app
+
+* Build dynamic data-driven features
 
 <Warning>
-  This is a legacy article for a prior version of databases (for apps built in Create prior to February 2025).  The article for our current release is linked here.&#x20;
+  Interested in upgrading an existing database? We're planning on offering a direct path to support you here, work is ongoing. Please reach out in the meantime via hello@create.xyz for assistance with this.&#x20;
 </Warning>
 
-## Why Use Databases
+## Chat
 
-Databases help you:
+Create automatically updates your database structure & how your app retreives and stores data as you chat.
 
-* Save user input across sessions
+When a feature requires storing data, it:
 
-* Store content for your app
+1. **Designs the database structure**
 
-* Build apps with dynamic data
+   based on your description
 
-* Create admin interfaces to manage information
+2. **Makes Functions**
 
-* Store information that's specific to each user to customize your app's experience per user
+   to save and retrieve data from the database
 
-## Creating a Database
+3. **Designs the Pages and Components**
 
-Create databases through:
+   to display and interact with the data
 
-**Chat**
+4. **Connects everything**
 
-* From the chat for a Page, Function, or Component
+   to make sure your Pages use the Functions that retrieve/store data.
+
+For example, if you say "Make me a tasks app", Create:
+
+<Steps>
+  <Step title="Creates a tasks table with title, due date, and other fields">
+    <Frame>
+      <img src="/images/databases/viewer.png" />
+    </Frame>
+  </Step>
+
+  <Step title="Creates Functions to save and fetch tasks">
+    <Frame>
+      <img src="/images/databases/tasks-functions.png" />
+    </Frame>
+  </Step>
+
+  <Step title="Builds a Page with a task list and add form">
+    <Frame>
+      <img src="/images/databases/tasks-ui.png" />
+    </Frame>
+  </Step>
+
+  <Step title="Makes your Page use your Functions to save and grab tasks from the database">
+    <Frame>
+      <img src="/images/databases/tasks-connected.png" />
+    </Frame>
+  </Step>
+</Steps>
+
+As you continue describing your app, Create updates your database structure, Functions and Pages to match what you want.
+
+Here are common ways to modify your database through chat:
+
+### Setting the scene
+
+It helps to start with a specific description of what you want your app to do.
+
+Prompt:
+
+```
+Make a tasks app. Users should be able to add, view, and delete tasks. 
+
+Each task has title, description and comments
+
+Comments should show up under the task and show who wrote them.  
+```
+
+Create will:
+
+* Make the tables needed
+
+  * Make a Tasks table with title, description, and comments fields
+
+  * Make a Users table with name and avatar fields
+
+  * Make a Comments table with text and author fields
+
+* Create Functions to save and fetch tasks, users, and comments
+
+* Build a Page with a task list, add form, and comment list
+
+* Make the Page use your Functions to save tasks when submitted and grab tasks to display
+
+### Adding Fields
+
+```
+Add a description to todos. Show it below the title in italics.
+```
+
+Create will:
+
+* Add the description column to the Todos table
+
+* Update Functions to handle the new field
+
+* Modify the UI to display descriptions
+
+### Removing Fields
+
+```
+Remove the priority from todos, we won't use it anymore
+```
+
+Create will:
+
+* Remove the priority column
+
+* Update queries to exclude the field
+
+* Clean up any UI elements showing priority
+
+### Adding Tables
+
+```
+Let users add comments on todos. Each comment should have the text and who wrote it
+```
+
+Create will:
+
+* Make a new Comments table
+
+* Link it to the Todos table
+
+* Add UI for viewing/adding comments
+
+* Handle saving comments to the database
+
+### Changing Structure
+
+```
+Instead of due dates, let's use status (Todo, In Progress, Done) to track progress
+```
+
+Create will:
+
+* Convert the due_date field to a status field
+
+* Update existing data
+
+* Modify the UI to show status options
+
+### Relationships
+
+```
+Let users assign todos to team members. Show their avatar next to each todo
+```
+
+Create will:
+
+* Add user relationships to todos
+
+* Update queries to fetch user data
+
+* Show assignee info in the UI
+
+### Filling Data
+
+```
+Generate 10 sample todos with different statuses and assignees
+```
+
+Create will:
+
+* Generate 10 sample todos with different statuses and assignees based on your structure
+
+* Insert the data into your database
+
+* Preserve relationships between tables
+
+### Validation
+
+```
+Make sure every todo has a title
+```
+
+Create will:
+
+* Add validation rules to the database
+
+* Update Functions to check data
+
+* Show validation errors in the UI
+
+<Tip>
+  Always describe both what data you want to store AND how you want to use it. This helps Create build the right database structure, Functions, and UI.
+</Tip>
+
+<Tip>
+  The more specific you are in your prompt, the better Create can help.
+
+  If you describe something at a high level, "make a todo app", Create will guess what fields each todo should have.
+
+  If you describe what you want in detail, "make a todo app with a title, due date, and priority field", Create will make sure each todo has those fields.
+</Tip>
+
+## Viewing & Editing Data
+
+Create comes with a built-in database viewer for manual edits to your data. You can quickly verify that data is being stored in the right way when you use your app.
+
+Access it from:
+
+* Chat - tap the database
+
+* [Project Selector](/builder/controls#project-selector)
+
+  \- choose your database name
+
+The database viewer lets you:
+
+* See all tables
+
+* Edit individual rows
+
+* Sort and filter data
+
+* Download data in bulk
+
+* Run custom SQL queries to fetch data
+
+You can also make your own internal tools to update multiple tables at once:
+
+* Make a new
+
+  [Page](/builder/pages)
+
+* Describe your tool and how it should update the database
+
+* Try out your UI
+
+<Info>
+  Changes in Demo mode in the Builder use a test database. This lets you experiment safely without affecting your live data.
+</Info>
+
+## Test vs. Live DB
+
+Create maintains separate test and live databases for each project:
+
+**Test Database**
+
+* Used in Demo mode from the builder
+
+* Allows you to make sure your app is saving data correctly before publishing
+
+**Live Database**
+
+* Used in your published app
+
+* Access your live database from the builder
+
+### Publishing
+
+When you publish your app, Create automatically:
+
+* Creates your live database
+
+* Applies the latest structure from the Test database to your Live database so that it has the same tables and fields
+
+* Runs your app with that structure
+
+<Warn>
+  When making changes to your database structure after publishing, be careful about conflicts with your live database. For example:
+
+  * You make an app that has a User table with email, image, and phone fields
+
+  * You publish your app so your live database has the same tables. You launch it and users start signing up.
+
+  * You later decide that you don't need phone numbers, so in an update to the app you remove it.
+
+  * You try to publish your app again. Your live database now has users with with phone numbers.
+
+  * Create will warn you about this conflict on publish. If you publish, it will remove the existing phone numbers.
+
+  This is called a "migration conflict". You've changed the structure of your test database, but it now conflicts with your live database structure.
+
+  To resolve migration conflicts:
+
+  1. Check the error message for details
+
+  2. Either:
+
+     * Modify your test database to match production (keep "phone" around)
+
+     * Manually migrate the live data (move data from "phone")
+
+  3. Try publishing again
+
+  Create warns you about destructive changes before your publish to protect your live data.
+</Warn>
+
+## Errors
+
+Here are some good ways to troubleshoot common errors:
+
+### Data isn't saving or retrieving
+
+If data isn't saving when you use your app, there are 3 common failure points to check. Go in this order to test each isolation:
+
+#### 1. Database Structure
+
+**How to check:**
+
+* Open the database viewer
+
+* Verify tables and fields match what you expect
+
+**If there's an issue:**
+
+* Describe the correct structure you want in chat
+
+* Example: "Update the Tasks table to have title, description, and dueDate fields"
+
+* Create will modify the database to match
+
+#### 2. Function -> Database
+
+**How to check:**
+
+* Identify which function saves or retrieves data from the database. Tap on it.
+
+* Open the
+
+  [Test Runner](/builder/functions#test-runner)
+
+  (3-dot menu > Test)
+
+* Enter sample data and run the test
+
+* Check database viewer to verify data was saved
+
+* Delete test records if needed
+
+**If there's an issue:**
+
+* Copy any error messages
+
+* Paste them into the function chat
+
+* Ask Create to fix the specific error
+
+* Example: "I see this error when I run saveTask and test it with this data: [error] [example data]"
+
+#### 3. UI -> Function
+
+**How to check:**
+
+* Try the app in Demo mode from the UI
+
+* Check that data is being saved when you use the app in the database viewer
+
+* Verify your page/component references the correct function
 
 * Type
 
   `/`
 
-  \> "Data" > "Create a database"
+  in chat to see if function is linked
 
-* Name your database (e.g., "Feedback", "Products")
+* Try the flow in Demo mode
 
-* Describe how you want to store data:
+* Watch database viewer to see if records appear
 
-  * "Store waitlist signups with name and email in /[WaitlistDB]"
+**If there's an issue:**
 
-  * "Store blog posts with title, content, and author in /[BlogDB]"
+* Verify your page/component references the correct function
 
-  * "Store gallery submissions in /[GalleryDB]. In the feed, retrieve submissions from /[GalleryDB]"
+* Example: "Connect the taks form to the saveTask function when I submit a task"
 
-* Send your prompt in the chat. Create generates the database schema and queries (inserts, updates, fetches).
+* Create will update the code to properly wire everything together
 
-* Test your database by using your Page/Function/Component in Demo mode.
+<Tip>
+  For any errors you encounter, you can paste them directly into Create's chat. It often recognizes specific error patterns and knows how to fix them.
+</Tip>
 
-  * If you tap on the database name in the chat, you can view the data.
+## FAQ
 
-  * From the
+<AccordionGroup>
+  <Accordion title="Will this scale?">
+    Yes. Create's built in databases are designed to scale. Under the hood, it's PostgreSQL, which is powerful and scalable. We partner with [Neon](https://neon.tech) to autoscale your database as your app grows.
+  </Accordion>
 
-    [three dot menu](/builder/controls#top-nav)
+  <Accordion title="How much data can I store?">
+    Free plans include 100mb of storage per database. You can upgrade to a paid plan to increase this.
+  </Accordion>
 
-    on the Page/Function/Component, you can go to Linked Data to see databases referenced by the element. This provides quick access to the database.
+  <Accordion title="Can I import existing data?">
+    Yes! Upload CSV files through the database viewer. Or use Create to make your own import tools.
+  </Accordion>
 
-**Dashboard**
+  <Accordion title="How do I connect to external databases?">
+    Use [Functions](/builder/functions) to connect to external databases like Supabase or your own backend.
+  </Accordion>
 
-* Go to create.xyz/dashboard > Databases > New Database
+  <Accordion title="Is my data backed up?">
+    Yes, databases are automatically backed up. Contact support if you need to restore data.
+  </Accordion>
 
-* Name your database and submit
+  <Accordion title="Can I write custom queries?">
+    Create handles making queries to your database automatically. For custom queries, create a [Function](/builder/functions) and describe what you need. You can then use your Function.  Or use the built in SQL editor in the database viewer.
+  </Accordion>
 
-* Tap on the database name in the list to view its data
+  <Accordion title="I have a legacy database from an app built prior to February 2025" defaultOpen={false}>
+    We still have documentation for you, [linked here. ](https://www.create.xyz/docs/builder/databases)
+  </Accordion>
+</AccordionGroup>
 
-* (Optional) You can seed the initial schema / data with a CSV file
+<Note>
+  Need help? Join our [Discord community](https://create.xyz/discord) or email hello@create.xyz
+</Note>
 
-* Use it in the builder from a Page, Function, or Component with
+## Helpful database terms
 
-  `/`
+Create handles most details when it comes to updating the structure of your database, or writing the code in your app to save and retrieve data from the database.
 
-  \> "Data" > "Select Database"
+However, it somtimes helps to have a quick mental model of how databases work:
 
-<Info>
-  When you include a database in your prompt, Create generates queries based on your prompt's description. From these queries, it infers the database schema. It can:
+<Frame caption="Think of a database like connected spreadsheets">
+  <img src="/images/database/spreadsheet-analogy.png" />
+</Frame>
 
-  * Design tables from your description
+A database is like a collection of connected spreadsheets:
 
-  * Infer structure / schema from your UI
+* Each spreadsheet is a
 
-  * Follow specific schema requirements you provide (e.g. "Make a table for friends with name and age")
-</Info>
+  **table**
 
-## Using Your Database
+* Each column in table is a
 
-Add databases to any page, component, or function:
+  **field**
 
-1. Type
+* Each row is an entry
 
-   `/`
+* You connect entries across tables with
 
-   in chat
+  **foreign keys**
 
-2. Select your database
+  and
 
-3. Choose how to interact (insert, update, fetch)
+  **joins**
 
-4. Create adds the necessary queries to the code. It sets the schema for the database from the queries.
+Here are the key terms you might encounter:
 
-Your database appears in:
+* **Schema**
 
-* Chat - tap to view data
+  \- A fancy term for the structure of your database (the tables and fields). Create designs this automatically based on the description of how you want your app to work. It updates it as it learns more.
 
-* [Three dot menu](/builder/controls#three-dot-menu)
+* **Table**
 
-  on a Page/Function/Component - Linked Data
+  \- A collection of related data, like "Products" or "Feedback". Think of it like a spreadsheet where each row is an entry.
 
-* Dashboard - create.xyz/dashboard > Databases
+* **Column**
 
-<Info>
-  Use the same database across multiple elements or projects. This lets you build different interfaces for the same data.
-</Info>
+  (or
 
-## Managing Data
+  **Field**
 
-You can manage the data in your database from the dashboard, the database viewer, or by building your own admin pages around it.
+  ) - A specific piece of information you want to store, like "name" or "email". Create adds these based on what data you describe needing.
 
-**Add Data**
+* **Row**
 
-* From the database viewer > upload CSV files to populate tables. The table schema is inferred from the CSV column headers.
+  \- A single entry in a table. Think of it like a row in a spreadsheet.
 
-* From your app after it's integrated > in either Demo mode or Publish, go through your app flows to insert into the database.
+* **Query**
 
-* Build your own admin tools:
+  \- Instructions for getting, saving, or updating data from/to tables in your database. Create writes these for you with Functions when you describe how you want your app to show or store data.
 
-  * Create custom admin interfaces:
+* **Join**
 
-    * New Page > / in chat > "Data" > "Select Database"
+  \- A way to combine data from different tables. For example, grabbing all posts (from the Posts table) with their authors (from the Users table).
 
-    * Describe your admin interface (e.g. "Make an admin interface for /[your database] that lets me add/edit/delete submissions")
+* **Foreign Key**
 
-    * Create generates forms and tables to manage your data
+  \- A way to reference data in another table. Like when a post has an "authorId" that connects to a user (and userId) in the Users table. Create sets these up automatically when you describe relationships (e.g. "all posts have authors").
 
-    * Add fields, filters, and sorting as needed
+* **SQL**
 
-  * Generate test data with AI:
+  \- The language used to make changes to your database structure or retrieve / store data. Create handles writing SQL for you - you just describe what you want in plain English!
 
-    * New Page > / in chat > "Data" > "Select Database"
+* **Migrations**
 
-    * Ask for a data generator (e.g. "Create a tool to generate test data for /[your database] using /ChatGPT")
+  \- Changes to your database structure over time. Create automatically handles these when you describe new features that require changing the current structure of your database.
 
-    * Review generated entries before saving
-
-    * Bulk add approved data to your database
-
-    * Works with ChatGPT, Sonnet 3.5, and other AI models
-
-**Update Schema**
-
-* Upload new CSV with modified columns from the database viewer
-
-* Create custom update tools with pages/functions from the builder
-
-* Contact support for manual changes. Email us at
-
-  [hello@create.xyz](mailto:hello@create.xyz)
-
-**Joining Data**
-
-You can create multiple related tables in your database:
-
-* Describe the different tables you want in your prompt
-
-* Create generates the appropriate schema and relationships
-
-* Each table gets unique IDs automatically
-
-Each row in your database has a unique ID. This lets you:
-
-* Join data across tables in the same database
-
-* Connect data between different databases
-
-* Build relationships between user data and content
-
-For example, imagine building a blog with user accounts:
-
-1. Create a BlogPostsDB to store AI-generated posts
-
-2. Enable User Accounts which creates UsersDB
-
-3. When storing posts, include the current user's ID
-
-4. Later, fetch posts filtered by user ID
-
-The flow works because:
-
-* Create stores the user ID from UsersDB with each blog post
-
-* This connection lets you query posts by user
-
-* You can join the data to show user details with posts
-
-<Info>
-  Create handles the relationship logic automatically when you describe how you want to connect the data in your prompt.
-</Info>
-
-## Other Actions
-
-From the database viewer you can:
-
-* Rename database
-
-* Delete database
-
-* Download data as CSV
-
-## Pro Tips
-
-* AI excels at database design. In ChatGPT or other LLMs, ask "What schema would work for [your use case]?" and use the response in your database creation prompt
-
-* Create your own admin pages to manage your data. You don't need to publish these, but they can help for managing.
-
-* Use the same database across multiple pages for different views of your data
-
-## Examples
-
-You can use databases to build:
-
-* Contact form submissions
-
-* Content management systems
-
-* CRMs
-
-* Gallery submissions
-
-* Storing image urls
-
-* User feedback collection
-
-* Catalogs
-
-* And more
-
-👉 Watch our [video tutorial](https://www.youtube.com/watch?v=cUcd3t6yJdM) for a detailed walkthrough.
-
-<div className="relative aspect-video">
-  <iframe src="https://www.youtube.com/embed/cUcd3t6yJdM" title="Create Tutorial: Using Databases" className="absolute top-0 left-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
-</div>
+<Tip>
+  Don't worry too much about these terms! Create handles the technical details. Just describe what data you want your app to store and how you want your app to display the data.
+</Tip>
