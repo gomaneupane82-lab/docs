@@ -175,6 +175,10 @@
       "destination": "/quick-tips/external-apis"
     },
     {
+      "source": "/builder/databases-v2",
+      "destination": "/builder/databases"
+    },
+    {
       "source": "/create/builder-add-ons/:slug*",
       "destination": "/builder/:slug*"
     },
