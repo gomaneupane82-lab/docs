@@ -14,6 +14,9 @@ Connect your app to Line's messaging platform to send notifications, build chatb
   <Card title="Get Channel Credentials" icon="key">
     Create a Line channel and obtain API keys
   </Card>
+  <Card title="Verify Settings" icon="gear">
+    Turn on these settings to have the best experience with Line
+  </Card>
   <Card title="Connect to Create" icon="plug">
     Add your credentials to Create's secrets
   </Card>
@@ -25,7 +28,7 @@ Connect your app to Line's messaging platform to send notifications, build chatb
   <Step title="Create a Line Official Account Manager">
     Go to https://manager.line.biz/ and sign up with your account
     
-    <img src="/images/line/line-login.png" style={{ borderRadius: '0.5rem', width: '624px', height: '303px' }} />
+    <img src="/images/line/line-login.png" style={{ borderRadius: '0.5rem'}} />
   </Step>
 
   <Step title="Create a Line Official Account">
@@ -76,6 +79,27 @@ Connect your app to Line's messaging platform to send notifications, build chatb
     Enter and save your API tokens in Create
     <img src="/images/line/image5.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
+</Steps>
+
+## Verify Settings
+
+<Steps>
+  <Step title="Verify Webhook URL">
+    Verify your webhook URL by going to your Line Developer Console > Provider > Channel > Messaging API <br></br>
+    If you see a success message, your webhook URL is verified. Otherwise, you may need to check your webhook URL/function and try again.
+    <img src="/images/line/line-webhook-verify.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Enable Chatbot Settings">
+    Enable Chatbot Settings by going to your Line Official Account Manager > Settings(Top Right) > Response Settings
+    <img src="/images/line/line-bot-setting.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Enable Chatbot to Join Group Chats (Optional)">
+    Allow your chatbot to join group chats by going to your Line Official Account Manager > Settings(Top Right) > Account Settings
+    <img src="/images/line/line-groupchat.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+  
 </Steps>
 
 ## Add to Create Project
