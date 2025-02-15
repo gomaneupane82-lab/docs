@@ -72,13 +72,21 @@ Watch this step-by-step video tutorial to learn how to integrate Line messaging:
     </Warning>
   </Step>
 
-  <Step title="Webhook URL">
+  <Step title="Finding Webhook URL">
     Find your webhook URL path in the Page and Function Settings under the Publish button. Copy the URL of your Create project's live site and API path into the webhook URL.
     <img src="/images/line/line-webhook.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
+  <Step title="Inputting Webhook URL">
+    Input your webhook URL in your Line Official Account Manager. It should be in the format of https:// your-create-project-url.created.app/api/line-messaging.
+    <img src="/images/line/line-webhook-input.png" style={{ borderRadius: '0.5rem' }} />
+    <Warning>
+      The function path "api/line-messaging" may be changed as well. If so, you may need to update the function path in your Line Developer Console to match the function path in your Create project.
+    </Warning>
+  </Step>
+
   <Step title="Channel Secret Token">
-    Copy your Channel Secret Token and be sure to link your Webhook URL. (This should be the function you integrate Line in)
+    You may copy your Channel Secret Token here as well.
     <img src="/images/line/line-secret.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
@@ -97,7 +105,7 @@ Watch this step-by-step video tutorial to learn how to integrate Line messaging:
 
 <Steps>
   <Step title="Verify Webhook URL">
-    Verify your webhook URL by going to your Line Developer Console > Provider > Channel > Messaging API <br></br>
+    After publishing your project, you may verify your webhook URL by going to your Line Developer Console > Provider > Channel > Messaging API <br></br>
     If you see a success message, your webhook URL is verified. Otherwise, you may need to check your webhook URL/function and try again.
     <img src="/images/line/line-webhook-verify.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
