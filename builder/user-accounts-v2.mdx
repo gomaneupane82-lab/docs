@@ -59,45 +59,78 @@ If for some reason Create isn't recognizing when to add User Accounts, you can a
 
    * Publish to apply changes
 
-## How It Works
+## How It Works - In the App
 
 When you enable User Accounts, Create adds:
 
 * **Authentication Pages**:
 
-  * `/account/signin` - Sign in page
+  * Sign In Page - `/account/signin`
+  * Sign Up Page - `/account/signup`
+  * Logout Page - `/account/logout`
 
-  * `/account/signup` - Sign up page
+  * You can customize the look and feel of these pages by prompting Create. 
 
-  * `/account/logout` - Logout page
+  * Once User Accounts is enabled, you can also create components for the sign in, sign up, and logout functionality. This lets you embed this functionality anywhere. Under the hood, it uses the same auth routes as the pages. 
 
-  * You can customize the look and feel of these pages
-
-  * Once User Accounts is enable, you can also create components for the sign in, sign up, and logout pages
-
-  * These pages contain special code to update the user in the database securely 
+  * These pages contain special code to update the user in the database securely and handle common errors.
 
 * **User tables in your Database**:
 
-  * Stores user accounts automatically
+  * Create makes 4 special tables:
+    - `auth_users`: Tracks users in your app
+    - `auth_accounts`: Tracks auth methods (email/password, Google, etc.)
+    - `auth_sessions`: Database-backed user sessions
+    - `auth_verification_token`: 2FA verification tokens
 
-  * Built-in fields: email, password (hashed)
+  <img src='/images/auth/database.png' />
 
-  * Add custom fields as needed using [Databases](/builder/databases)
+  * Most used: `auth_users` (core profiles) and `auth_accounts` (login methods)
+  
+  * Built-in fields in `auth_users`:
+    - `id`: Unique identifier for each user
+    - `name`: User's display name (optional)
+    - `email`: User's email address
+    - `emailVerified`: Tracks if email has been verified
+    - `image`: Profile image URL (optional)
+
+  * Built-in fields in `auth_accounts`:
+    - `id`: Unique identifier for each auth method
+    - `userId`: Links to the user in auth_users
+    - `type`: Authentication type (e.g. "credentials" for email/password)
+    - `provider`: Auth provider (e.g. "credentials", "google")
+    - `providerAccountId`: ID from the provider
+    - `refresh_token`: OAuth refresh token
+    - `access_token`: OAuth access token
+    - `expires_at`: Token expiration
+    - `token_type`: Type of token (e.g. "bearer")
+    - `scope`: OAuth scopes
+    - `id_token`: OAuth ID token
+    - `session_state`: Session state
+    - `password`: Hashed password (for credentials provider)
+
+  <Tip>
+  Most of the time, you won't need to worry about these implementation details. Create handles storing and managing authentication data automatically. However, understanding the underlying structure can be helpful when building more complex features or debugging authentication flows.
+  </Tip>
+
+  * **Storing Additional User Information**: You can prompt Create to store additional profile information per user, like "Store the user's bio, location, and phone number". Create will either add these fields directly to the `auth_users` table or create a linked profile table with these fields that connects to `auth_users` via the user's ID. This keeps your user data organized while maintaining the core authentication tables.
+
+  * **Linking Data to Users**: When you prompt Create tostore data per user (like posts, preferences, or settings), Create automatically adds a `user_id` field to those database tables. This `user_id` connects each piece of data to the specific user in the `auth_users` table who owns it.
+
 
 * **Access Control**:
 
-  * When you prompt Create to protect a page or show content per user on a page, e.g. "When user is signed in, show their profile in top right" or "If the user isn't signed in, don't show the notification settings", Create can now add code to grab the current signed in user and change the behavior of the app based on it. 
+  * When you prompt Create to protect a page or show content per user on a page, e.g. "When user is signed in, show their profile in top right" or "If the user isn't signed in, don't show the notification settings", Create can now add code to grab the current signed in user's info and change the behavior of the app based on it. 
 
-  * Pages, Functions, and Components can now all check the current signed in user, grab their information from the database, and use it to change their behavior. 
+  * Pages, Functions, and Components can now all check the current signed in user, grab their information from the database, and use it to show/hide info, or change their behavior. 
 
   * Create automatically handles auth redirects. You can link pages as normal. If a user needs to be signed in to view a page, Create will redirect them to the Sign In page, and once signed in, redirect them back to the original page. 
 
-## How It Works - Under The Hood
+## How It Works - For your Users
 
 Create uses Next Auth and JWT (JSON Web Token) authentication to manage user sessions:
 
-* When users sign up or sign in, Create stores a secure cookie in their browser
+* When users sign up or sign in, Create saves the user's information in the database and stores a secure cookie in their browser
 
 * This cookie keeps users logged in as they browse your app
 
