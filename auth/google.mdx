@@ -105,14 +105,17 @@ Before setting up Google Sign In, ensure you have:
     <img src="/images/auth/google/9-webapplicationclientname.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
-  <Step title="Add your domain as an Authorized JavaScript Origin and `[your-domain]/api/auth/callback/google` as an Authorized redirect URI">
-    1. Add your domain as a Authorized JavaScript Origin
-    2. Add `[your-domain]/api/auth/callback/google` as an Authorized redirect URI
+  <Step title="Configure Authorized Origin and Redirect URI">
+    1. Add `www.your-custom-domain.com` as an Authorized JavaScript Origin (replace with your actual domain)
+    2. Add `www.your-custom-domain.com/api/auth/callback/google` as an Authorized redirect URI
 
     <img src="/images/auth/google/10-authorizedorigin.png" style={{ borderRadius: '0.5rem' }} />
 
     <Warning>
-      Make sure the domain is already associated with your Create project
+      Must include:
+      - `www` prefix in both fields
+      - Exact domain used for the app in Create's custom domain settings
+      - Valid CNAME record for `www` subdomain configured in DNS ([see Custom Domains guide](/publish-and-share/custom-domains#dns-configuration))
     </Warning>
   </Step>
 
