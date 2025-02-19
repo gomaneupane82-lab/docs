@@ -1,0 +1,295 @@
+---
+title: "Google Sign In"
+description: "Add Google Sign In to your app"
+---
+
+Create support adding Google Sign In to your app so your users can login with their Google accounts. 
+
+You can pull profile information from Google. 
+
+You'll need to configure some things on Google's side first, add the right keys to Create, and then customize your experience. 
+
+## Prerequisites
+
+Before setting up Google Sign In, ensure you have:
+
+<Check>
+  A Create project with [User Accounts](/builder/user-accounts) enabled
+</Check>
+
+<Check>
+  A custom domain associated with your app through Create's [custom domain setup](/publish-and-share/custom-domains)
+
+  Make sure the app is already published and accessible at your custom domain.
+</Check>
+
+<Warning>
+  Google OAuth requires a verified custom domain - the default `created.app` domains cannot be used. You'll need:
+  - A purchased domain
+  - [Create Pro subscription](https://create.xyz/pricing)
+  - DNS records properly configured
+</Warning>
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Google Credentials" icon="key">
+    Set up OAuth in Google Cloud Console
+  </Card>
+  <Card title="Add to Create Project" icon="plug">
+    Configure Google Client ID/Secret in Create
+  </Card>
+  <Card title="Customize Sign-In" icon="pencil">
+    Modify Google sign-in button appearance
+  </Card>
+  <Card title="Test Flow" icon="check-circle">
+    Verify end-to-end authentication
+  </Card>
+</CardGroup>
+
+## Google Cloud Setup
+
+<Steps>
+  <Step title="Access Google Cloud OAuth Clients">
+    1. Go to [Google Cloud OAuth Clients](https://console.cloud.google.com/auth/clients)
+    2. Sign in with your Google account
+    <img src="/images/auth/google/1-gotoclients.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Select or Create Project">
+    1. Click the project selector dropdown
+    2. Choose to create a new project or select an existing one
+    <img src="/images/auth/google/2-selectormakenewproject.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Configure New Project">
+    1. If creating new: Enter a recognizable project name (internal use only)
+    2. Choose whether to add it to an existing Organization or "No organization"
+    3. Click "Create"
+    <img src="/images/auth/google/3-nameprojectaddtoorg.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Initialize Google Auth Platform">
+    1. Once project is selected/created
+    2. Click "Get Started" on the Google Auth Platform screen
+    <img src="/images/auth/google/4-hitgetstartedfromproject.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Configure App Information">
+    1. Enter your App Name (this will be public-facing)
+    2. Add a support email address (this will be public-facing)
+    <img src="/images/auth/google/5-addappnamesupportemail.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Select User Type">
+    1. Choose your app's audience
+    2. Select "External" unless this is an internal app for your Google Workspace organization
+    <img src="/images/auth/google/6-decideaudience.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Add Contact Information">
+    1. Enter developer contact email address
+    2. This will be used by Google to contact you about your application
+    <img src="/images/auth/google/7-addcontactinfo.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Create OAuth Client">
+    1. Navigate to credentials section
+    2. Click "Create OAuth Client"
+    <img src="/images/auth/google/8-createoauthclient.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Configure OAuth Client">
+    1. Select "Web Application" as the application type
+    2. Name your client (e.g., "Production")
+    <img src="/images/auth/google/9-webapplicationclientname.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Add your domain as an Authorized JavaScript Origin and `[your-domain]/api/auth/callback/google` as an Authorized redirect URI">
+    1. Add your domain as a Authorized JavaScript Origin
+    2. Add `[your-domain]/api/auth/callback/google` as an Authorized redirect URI
+
+    <img src="/images/auth/google/10-addauthorizedoriginsandredirecturis.png" style={{ borderRadius: '0.5rem' }} />
+
+    <Warning>
+      Make sure the domain is already associated with your Create project
+    </Warning>
+  </Step>
+
+  <Step title="Copy Client ID">
+    1. Create the OAuth Client
+    2. Copy the generated Client ID
+    3. Save it for adding to your Create project later
+    <img src="/images/auth/google/11-copyclientid.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Copy Client Secret">
+    1. Click the Edit button
+    2. Copy the Client Secret
+    3. Save it for adding to your Create project later
+    <img src="/images/auth/google/12-copyclientsecret.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Customize Branding (Optional)">
+    1. Navigate to the Branding section
+    2. Add your app domain, privacy policy, and terms
+    3. These will appear on the Google Sign In page
+    <img src="/images/auth/google/13-customizebranding.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Configure Additional Scopes (Optional)">
+    1. If your app needs additional permissions
+    2. Request additional scopes as needed
+    <img src="/images/auth/google/14-optionaladdscopes.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Submit for Verification (Later)">
+    <Warning>
+      Before going live, submit your app for verification in the Verification Center.
+      This is required for external Google users to sign in to your app.
+    </Warning>
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Enable User Accounts in your Create project">
+    You have two options:
+    1. Prompt Create with "Let users sign in"
+    2. Enable User Accounts from the logo menu
+    
+    <Warning>
+      User Accounts must be enabled before proceeding with Google Sign In setup
+    </Warning>
+  </Step>
+
+  <Step title="Access Project Settings">
+    1. Click the 3-dot menu at the top of the chat
+    2. Select "Project Settings"
+    <img src="/images/auth/google/15-3dotprojectsettings.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Enable Google Sign In">
+    1. Navigate to the Authentication section
+    2. Find Google Sign In toggle
+    3. Make sure it's turned on
+    <img src="/images/auth/google/16-enablegooglesignin.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Add Google Credentials">
+    1. Paste in your Client ID from the previous section
+    2. Paste in your Client Secret from the previous section
+    3. Click Save to store your credentials
+    <img src="/images/auth/google/17-addcredentials.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Add Sign In UI">
+    1. Return to the chat
+    2. Prompt Create with something like "Add Google Sign In as an option"
+    3. Create will automatically update your sign-in pages with Google Sign In
+    4. You can customize the UI further if you'd like. 
+    <img src="/images/auth/google/18-promptcreateaddsignin.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Publish Your App">
+    1. Click the Publish button
+    2. Review your changes
+    3. Publish to make the Google Sign In feature live
+  </Step>
+
+  <Step title="Test the Flow">
+    1. Open your published app in an incognito window
+    2. Navigate to the sign-in page
+    3. Click the Google Sign In button
+    4. Complete the Google authentication flow
+    5. Verify you're successfully logged in to your app
+    6. Check the user is logged in by looking at the [auth_users table](/builder/databases) in your database
+    
+    <Warning>
+      Always test the authentication flow in an incognito window to ensure it works for new users
+    </Warning>
+  </Step>
+</Steps>
+
+## Testing
+
+1. Publish changes
+2. Visit sign-in page in incognito window
+3. Verify Google button appears
+4. Complete Google sign-in flow
+5. Check user is created in [auth_users table](/builder/databases)
+
+## Troubleshooting
+
+<Accordion title="Google button not appearing">
+  - Check User Accounts is enabled in your project
+  - Verify Google Sign In is toggled on in Project Settings
+  - Ensure you've published your changes after adding Google Sign In
+  - Clear your browser cache and try in an incognito window
+</Accordion>
+
+<Accordion title="Authentication fails">
+  - Verify your domain matches exactly in both Create and Google Cloud
+  - Confirm the redirect URI is exactly `[your-domain]/api/auth/callback/google`
+  - Check that your Client ID and Client Secret are correctly pasted in Create
+  - Ensure your domain is added as an Authorized JavaScript Origin in Google Cloud
+  - Verify your app is published and accessible at your custom domain
+</Accordion>
+
+<Accordion title="'App not verified by Google' warning">
+  - This is expected during development and testing
+  - Your app will work for up to 100 test users
+  - For production, submit your app for verification in Google Cloud Console
+  - Make sure you've completed the OAuth consent screen with all required information
+</Accordion>
+
+<Accordion title="Users can't sign in after domain change">
+  - Update the Authorized JavaScript Origins in Google Cloud
+  - Update the Authorized redirect URIs in Google Cloud
+  - Update your domain in the OAuth consent screen
+  - Re-publish your app on the new domain
+</Accordion>
+
+## FAQ
+
+<Accordion title="Can I use the default created.app domain?">
+  No, Google OAuth requires a verified custom domain. You'll need:
+  - A purchased domain
+  - Create Pro subscription
+  - Properly configured DNS records
+</Accordion>
+
+<Accordion title="What user information do I get from Google?">
+  By default, you receive:
+  - Email address
+  - Profile name
+  - Profile picture (if available)
+  
+  Additional information requires requesting extra scopes in Google Cloud Console.
+</Accordion>
+
+<Accordion title="How do I customize the Google Sign In button?">
+  You can customize the button by:
+  1. Returning to the chat after setup
+  2. Prompting Create with specific styling requests
+  3. Create will help you modify the button's appearance while maintaining Google's branding guidelines
+</Accordion>
+
+<Accordion title="Do I need Google Cloud verification?">
+  - For development: No, you can test with up to 100 users
+  - For production: Yes, verification is required for unlimited external users
+  - Internal Google Workspace apps don't need verification
+</Accordion>
+
+<Accordion title="How do I add more permissions/scopes?">
+  1. Go to Google Cloud Console OAuth consent screen
+  2. Add additional scopes in the "Scopes" section
+  3. Provide justification for each scope
+  4. Note: Additional scopes may require Google verification
+</Accordion>
+
+## See Also
+
+- [User Accounts](/builder/user-accounts-v2)
+- [Customizing Authentication Pages](/builder/user-accounts-v2#customizing-auth-pages)
