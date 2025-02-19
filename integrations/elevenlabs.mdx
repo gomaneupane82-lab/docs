@@ -1,0 +1,94 @@
+---
+title: "ElevenLabs"
+description: "Add AI-powered voice generation and text-to-speech"
+---
+
+ElevenLabs provides state-of-the-art voice synthesis for natural sounding speech generation.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for an ElevenLabs account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your ElevenLabs API key
+  </Card>
+  <Card title="Connect to Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit ElevenLabs Website">
+    Go to [elevenlabs.io](https://elevenlabs.io/) and click "Sign Up"
+    
+    <img src="/images/elevenlabs/image4.png" style={{ borderRadius: '0.5rem', width: '624px', height: '303px' }} />
+  </Step>
+
+  <Step title="Choose Signup Method">
+    * Sign up with email/password
+    * Or continue with Google authentication
+    
+    <img src="/images/elevenlabs/image6.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Access Profile Settings">
+    1. Click your profile icon in the top right
+    2. Select "API Keys" from the dropdown
+    
+    <img src="/images/elevenlabs/image3.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Create New Key">
+    1. Click "Generate New API Key"
+    2. Name the key (e.g., "Create Integration")
+    
+    <img src="/images/elevenlabs/image5.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Copy Your Key">
+    1. Copy the generated API key
+     <img src="/images/elevenlabs/image8.png" style={{ borderRadius: '0.5rem' }} />
+    2. Store it securely
+    
+    <Warning>
+      This key will only be shown once
+    </Warning>
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the Integration">
+    1. In your Create project, type `/` in chat
+    2. Select "ElevenLabs" from the menu
+  </Step>
+
+  <Step title="Add Your API Key">
+    1. Paste your ElevenLabs API key into the "ELEVEN_LABS_API_KEY" field
+    
+    <Tip>
+      Need a new key? Regenerate in your ElevenLabs dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Start Generating">
+    Use prompts with the integration to create voice content:
+    
+    * `Generate a voiceover for this script with /ElevenLabs`
+    * `Convert the blog post to audio with a British accent using /ElevenLabs`
+    * `Clone my voice from this sample with /ElevenLabs`
+  </Step>
+</Steps>
+
+<Note type="success">
+  ElevenLabs integration complete! Use `/ElevenLabs` in chat to access voice generation capabilities.
+</Note>
