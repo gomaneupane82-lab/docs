@@ -3,29 +3,25 @@ title: "Google Sign In"
 description: "Add Google Sign In to your app"
 ---
 
-Create support adding Google Sign In to your app so your users can login with their Google accounts. 
+Let users sign in to your app with their Google accounts. They'll share their email, name, profile picture, and language settings.
 
-Your app will get the user's email address, name, profile picture, and locale from their Google account.   
+You'll need to set up a few things in Google first, then add those settings to Create.
 
-You'll need to configure some things on Google's side first, add the right keys to Create, and then customize your sign up experience to add Google as an option. 
+## Before You Start
 
-## Prerequisites
-
-Before setting up Google Sign In, ensure you have:
+Make sure you have:
 
 <Check>
-  A Create project with [User Accounts](/builder/user-accounts) enabled
+  A Create project with [User Accounts](/builder/user-accounts) turned on
 </Check>
 
 <Check>
-  A custom domain associated with your app through Create's [custom domain setup](/publish-and-share/custom-domains)
-
-  Make sure the app is already published and accessible at your custom domain.
+  Your app running on a custom domain through [Create's domain setup](/publish-and-share/custom-domains)
 </Check>
 
 <Warning>
-  Google OAuth requires a verified custom domain - the default `created.app` domains cannot be used. You'll need:
-  - A purchased domain
+  Google Sign In needs a custom domain - you can't use the default `created.app` domains. You'll need:
+  - A domain you own
   - [Create Pro subscription](https://create.xyz/pricing)
   - DNS records properly configured
 </Warning>
@@ -36,14 +32,14 @@ Before setting up Google Sign In, ensure you have:
   <Card title="Create Google Credentials" icon="key">
     Set up OAuth in Google Cloud Console
   </Card>
-  <Card title="Add to Create Project" icon="plug">
-    Configure Google Client ID/Secret in Create
+  <Card title="Add to Create" icon="plug">
+    Add Google Client ID/Secret in Create
   </Card>
-  <Card title="Customize Sign-In" icon="pencil">
-    Modify Google sign-in button appearance
+  <Card title="Add the Google Login UI to your sign in pages" icon="pencil">
+    Make the page look how you want
   </Card>
-  <Card title="Test Flow" icon="check-circle">
-    Verify end-to-end authentication
+  <Card title="Test flow" icon="check-circle">
+    Make sure login works
   </Card>
 </CardGroup>
 
@@ -217,46 +213,46 @@ Before setting up Google Sign In, ensure you have:
 
 ## Testing
 
-1. Publish changes
-2. Visit sign-in page in incognito window
-3. Verify Google button appears
-4. Complete Google sign-in flow
-5. Check user is created in [auth_users table](/builder/databases)
+1. Publish your changes
+2. Open your app in a new incognito window
+3. Go to the sign in page
+4. Try signing in with Google
+5. Check the [auth_users table](/builder/databases) to see your new user
 
 ## Troubleshooting
 
-<Accordion title="Google button not appearing">
-  - Check User Accounts is enabled in your project
-  - Verify Google Sign In is toggled on in Project Settings
-  - Ensure you've published your changes after adding Google Sign In
-  - Clear your browser cache and try in an incognito window
+<Accordion title="Can't see the Google button">
+  - Check if User Accounts is turned on
+  - Make sure Google Sign In is enabled in Project Settings
+  - Try publishing your changes again
+  - Clear your browser data and try in incognito mode
 </Accordion>
 
-<Accordion title="Access Blocked: This app's request is not valid">
+<Accordion title="Getting 'Access Blocked: This app's request is not valid'">
   <img src="/images/auth/google/error-requestinvalid.png" style={{ borderRadius: '0.5rem' }} />
   <img src="/images/auth/google/error-requestinvaliddetails.png" style={{ borderRadius: '0.5rem' }} />
   - Check that your Client ID and Client Secret are correctly pasted in Create
   - Ensure your domain is added as an Authorized JavaScript Origin in Google Cloud
   - Verify your app is published and accessible at your custom domain
   <Tip>
-    In your Google Cloud settings, make sure to use 'www.your-domain.com' and not just 'your-domain.com' for both your Authorized JavaScript Origins and Redirect URIs. Many authentication failures occur because the domain was entered without the 'www' prefix.
+    In Google Cloud, always use 'www.your-domain.com' not just 'your-domain.com'. Many login problems happen because people forget the 'www'.
   </Tip>
 
 </Accordion>
 
-<Accordion title="Authentication fails">
-  - Verify your domain matches exactly in both Create and Google Cloud
-  - Confirm the redirect URI is exactly `[your-domain]/api/auth/callback/google`
-  - Check that your Client ID and Client Secret are correctly pasted in Create
-  - Ensure your domain is added as an Authorized JavaScript Origin in Google Cloud
-  - Verify your app is published and accessible at your custom domain
+<Accordion title="Login not working">
+  - Double check your domain is exactly the same in Create and Google Cloud
+  - Make sure your callback URL is right: `www.[your-domain].com/api/auth/callback/google`
+  - Check if your Client ID and Secret are pasted correctly
+  - Make sure your domain is set up in Google Cloud
+  - Make sure your app is live at your custom domain
 </Accordion>
 
-<Accordion title="'App not verified by Google' warning">
-  - This is expected during development and testing
-  - Your app will work for up to 100 test users
-  - For production, submit your app for verification in Google Cloud Console
-  - Make sure you've completed the OAuth consent screen with all required information
+<Accordion title="Seeing 'App not verified by Google'">
+  - This is normal during testing
+  - You can test with up to 100 users
+  - For a live app, you'll need Google to verify it
+  - Fill out all the info Google asks for
 </Accordion>
 
 <Accordion title="Users can't sign in after domain change">
@@ -268,33 +264,33 @@ Before setting up Google Sign In, ensure you have:
 
 ## FAQ
 
-<Accordion title="Can I use the default created.app domain?">
-  No, Google OAuth requires a verified custom domain. You'll need:
-  - A purchased domain
+<Accordion title="Can I use created.app domains?">
+  No, Google Sign In needs your own domain. You'll need:
+  - A domain you own
   - Create Pro subscription
   - Properly configured DNS records
 </Accordion>
 
-<Accordion title="What user information do I get from Google?">
-  By default, you receive:
+<Accordion title="What user info do I get?">
+  By default:
   - Email address
-  - Profile name
-  - Profile picture (if available)
+  - Name
+  - Profile picture (if they have one)
   
   Additional information requires requesting extra scopes in Google Cloud Console.
 </Accordion>
 
-<Accordion title="How do I customize the Google Sign In button?">
-  You can customize the button by:
-  1. Returning to the chat after setup
-  2. Prompting Create with specific styling requests
-  3. Create will help you modify the button's appearance while maintaining Google's branding guidelines
+<Accordion title="Can I change how the login button looks?">
+  Yes! Just:
+  1. Go back to chat
+  2. Tell Create how you want it to look
+  3. Create will help style it while following Google's rules
 </Accordion>
 
-<Accordion title="Do I need Google Cloud verification?">
-  - For development: No, you can test with up to 100 users
-  - For production: Yes, verification is required for unlimited external users
-  - Internal Google Workspace apps don't need verification
+<Accordion title="Do I need Google to verify my app?">
+  - For testing (up to 100 users): No
+  - For a live app: Yes
+  - Internal Google Workspace apps: No
 </Accordion>
 
 <Accordion title="How do I add more permissions/scopes?">
@@ -307,4 +303,4 @@ Before setting up Google Sign In, ensure you have:
 ## See Also
 
 - [User Accounts](/builder/user-accounts-v2)
-- [Customizing Authentication Pages](/builder/user-accounts-v2#customizing-auth-pages)
+- [Customizing Login Pages](/builder/user-accounts-v2#customizing-auth-pages)
