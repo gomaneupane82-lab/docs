@@ -1,0 +1,270 @@
+---
+title: "Facebook Sign In"
+description: "Add Facebook Sign In to your app"
+---
+
+Create support adding Facebook Sign In to your app so your users can login with their Facebook accounts.
+
+Your app will get the user's email address, name, and profile picture from their Facebook account.
+
+You'll need to configure some things on Facebook's side first, add the right keys to Create, and then customize your sign up experience to add Facebook as an option.
+
+## Prerequisites
+
+Before setting up Facebook Sign In, ensure you have:
+
+<Check>
+  A Create project with [User Accounts](/builder/user-accounts) enabled
+</Check>
+
+<Check>
+  A custom domain associated with your app through Create's [custom domain setup](/publish-and-share/custom-domains)
+
+  Make sure the app is already published and accessible at your custom domain.
+</Check>
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Facebook App" icon="key">
+    Set up app in Facebook Developers Console
+  </Card>
+  <Card title="Add to Create Project" icon="plug">
+    Configure App ID/Secret in Create
+  </Card>
+  <Card title="Customize Sign-In" icon="pencil">
+    Modify Facebook sign-in button appearance
+  </Card>
+  <Card title="Test Flow" icon="check-circle">
+    Verify end-to-end authentication
+  </Card>
+</CardGroup>
+
+## Facebook Developer Setup
+
+<Steps>
+  <Step title="Access Facebook Developers">
+    1. Go to [Facebook for Developers](https://developers.facebook.com)
+    2. Sign in with your Facebook account
+    3. Click "My Apps" in the top right
+    <img src="/images/auth/facebook/1-signindevelopers.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Create New App">
+    1. Click "Create App" from the dashboard
+    2. You'll be taken to the app creation screen
+    <img src="/images/auth/facebook/2-createapp.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Configure App Details">
+    1. Enter your app name
+    2. Add your contact email
+    3. Click "Create App"
+    <img src="/images/auth/facebook/3-namecontact.png" style={{ borderRadius: '0.5rem' }} />
+    <Warning>
+      Choose an app name that clearly represents your business or service - this will be visible to users
+    </Warning>
+  </Step>
+
+  <Step title="Add Facebook Login">
+    1. On the product selection screen
+    2. Find and select "Facebook Login"
+    3. This will add the login capability to your app
+    <img src="/images/auth/facebook/4-choosefblogin.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Business Portfolio Setup">
+    1. Choose whether to add your app to a business portfolio
+    2. You can skip this step for now during development
+    3. You'll need to complete this before launching
+    <img src="/images/auth/facebook/5-businessportfolios.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Complete Initial Setup">
+    1. Click "Go to Dashboard" to finalize the initial setup
+    2. This will take you to your app's main dashboard
+    <img src="/images/auth/facebook/6-finalize.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Configure Email Permission (Optional)">
+    1. Navigate to App Settings > Permissions
+    2. Add the email permission if you want to receive user email addresses
+    3. This is optional but recommended if your app needs to email users
+    <img src="/images/auth/facebook/7-permissionsaddemail.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Access Settings">
+    1. In the left sidebar, click "Facebook Login > Settings"
+    2. This is where you'll configure the OAuth settings
+    <img src="/images/auth/facebook/8-settings.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Configure OAuth Redirect URI">
+    1. Under "Valid OAuth Redirect URIs"
+    2. Add: `https://www.your-domain.com/api/auth/callback/facebook`
+    3. Replace "your-domain.com" with your actual domain
+    <img src="/images/auth/facebook/9-oauthredirecturi.png" style={{ borderRadius: '0.5rem' }} />
+    <Warning>
+      Must include:
+      - `https://` protocol
+      - `www` prefix in the domain
+      - Exact domain used in Create's custom domain settings
+      - Valid CNAME record for `www` subdomain in DNS
+    </Warning>
+  </Step>
+
+  <Step title="Save OAuth Settings">
+    1. Scroll to the bottom of the settings page
+    2. Click "Save Changes" to store your OAuth configuration
+    <img src="/images/auth/facebook/10-savechanges.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Go to Basic Settings">
+    1. Navigate to Settings > Basic in the left sidebar
+    2. This section contains your app credentials and core settings
+    <img src="/images/auth/facebook/11-basicsettings.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Copy App Credentials">
+    1. Find your App ID
+    2. Click "Show" to reveal your App Secret
+    3. Save both values - you'll need them for Create setup
+    <img src="/images/auth/facebook/12-copyidsecret.png" style={{ borderRadius: '0.5rem' }} />
+    <Warning>
+      Keep your App Secret secure - never commit it to version control or share it publicly
+    </Warning>
+  </Step>
+
+  <Step title="Complete Basic Settings (Later)">
+    <Note>
+      Before launching, you'll need to complete these additional settings:
+    </Note>
+    1. Add your domain with `www` prefix
+    2. Add Privacy Policy URL
+    3. Add User Data Deletion Policy URL
+    4. Add Terms of Service URL
+    <img src="/images/auth/facebook/13-domainprivacydatadeletion.png" style={{ borderRadius: '0.5rem' }} />
+    <Tip>
+      You can use services like Termly to generate these required policy documents and then host them on pages in your Create app. 
+    </Tip>
+  </Step>
+
+  <Step title="Business Verification (Later)">
+    <Note>
+      Required before launching your app:
+    </Note>
+    1. Complete the business verification process
+    2. Provide required documentation
+    3. Wait for Facebook's review
+    <img src="/images/auth/facebook/14-businessverification.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Publish Your Facebook App (Later)">
+    <Note>
+      Final step before going live:
+    </Note>
+    1. Navigate to the App Dashboard
+    2. Switch your app from Development to Live mode
+    3. Complete any remaining verification steps
+    <img src="/images/auth/facebook/15-publish.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Enable User Accounts">
+    You have two options:
+    1. Prompt Create with "Let users sign in"
+    2. Enable User Accounts from the logo menu
+  </Step>
+
+  <Step title="Access Project Settings">
+    1. Click the 3-dot menu at the top of the chat
+    2. Select "Project Settings"
+  </Step>
+
+  <Step title="Enable Facebook Sign In">
+    1. Navigate to the Authentication section
+    2. Find Facebook Sign In toggle
+    3. Turn it on
+  </Step>
+
+  <Step title="Add Facebook Credentials">
+    1. Paste in your App ID
+    2. Paste in your App Secret
+    3. Click Save
+  </Step>
+
+  <Step title="Add Sign In UI">
+    1. Return to the chat
+    2. Prompt Create with "Add Facebook Sign In as an option"
+    3. Create will update your sign-in pages automatically
+  </Step>
+
+  <Step title="Publish Your App">
+    1. Click the Publish button
+    2. Review your changes
+    3. Publish to make the Facebook Sign In feature live
+  </Step>
+</Steps>
+
+## Testing
+
+1. Publish changes
+2. Visit sign-in page in incognito window
+3. Verify Facebook button appears
+4. Complete Facebook sign-in flow
+5. Check user is created in [auth_users table](/builder/databases)
+
+## Troubleshooting
+
+<Accordion title="Facebook button not appearing">
+  - Check User Accounts is enabled in your project
+  - Verify Facebook Sign In is toggled on in Project Settings
+  - Ensure you've published your changes
+  - Clear your browser cache and try in an incognito window
+</Accordion>
+
+<Accordion title="Authentication fails">
+  - Verify your domain matches exactly in both Create and Facebook
+  - Confirm the redirect URI is exactly `[your-domain]/api/auth/callback/facebook`
+  - Check that your App ID and App Secret are correctly pasted in Create
+  - Ensure your domain is added in Facebook App Settings
+  - Verify your app is published and accessible at your custom domain
+</Accordion>
+
+<Accordion title="Users can't sign in after domain change">
+  - Update the OAuth Redirect URIs in Facebook
+  - Update your App Domains in Facebook
+  - Re-publish your app on the new domain
+</Accordion>
+
+## FAQ
+
+<Accordion title="What user information do I get from Facebook?">
+  By default, you receive:
+  - Email address
+  - Profile name
+  - Profile picture (if available)
+  
+  Additional information requires requesting extra permissions and may require Facebook app review.
+</Accordion>
+
+<Accordion title="How do I customize the Facebook Sign In button?">
+  You can customize the button by:
+  1. Returning to the chat after setup
+  2. Prompting Create with specific styling requests
+  3. Create will help you modify the button's appearance while maintaining Facebook's branding guidelines
+</Accordion>
+
+<Accordion title="Do I need Facebook app review?">
+  - For basic login with email: No
+  - For additional permissions: Yes
+  - Review process involves submitting your app for Facebook approval
+</Accordion>
+
+## See Also
+
+- [User Accounts](/builder/user-accounts-v2)
+- [Customizing Authentication Pages](/builder/user-accounts-v2#customizing-auth-pages)
