@@ -70,7 +70,9 @@ When you enable User Accounts, Create adds:
 ### Authentication Pages
 
 * Sign In Page - `/account/signin`
+
 * Sign Up Page - `/account/signup`
+
 * Logout Page - `/account/logout`
 
 You can customize the look and feel of these pages by prompting Create. Once User Accounts is enabled, you can also create components for the sign in, sign up, and logout functionality. This lets you embed this functionality anywhere. Under the hood, it uses the same auth routes as the pages.
@@ -80,9 +82,13 @@ These pages contain special code to update the user in the database securely and
 ### User Tables
 
 Create makes 4 special tables:
+
 * `auth_users`: Tracks users in your app
+
 * `auth_accounts`: Tracks auth methods (email/password, Google, etc.)
+
 * `auth_sessions`: Database-backed user sessions
+
 * `auth_verification_token`: 2FA verification tokens
 
 Most used: `auth_users` (core profiles) and `auth_accounts` (login methods)
@@ -94,25 +100,43 @@ Most used: `auth_users` (core profiles) and `auth_accounts` (login methods)
 </Tip>
 
 Built-in fields in `auth_users`:
+
 * `id`: Unique identifier for each user
+
 * `name`: User's display name (optional)
+
 * `email`: User's email address
+
 * `emailVerified`: Tracks if email has been verified
+
 * `image`: Profile image URL (optional)
 
 Built-in fields in `auth_accounts`:
+
 * `id`: Unique identifier for each auth method
-* `userId`: Links to the user in auth_users
+
+* `userId`: Links to the user in auth\_users
+
 * `type`: Authentication type (e.g. "credentials" for email/password)
+
 * `provider`: Auth provider (e.g. "credentials", "google")
+
 * `providerAccountId`: ID from the provider
+
 * `refresh_token`: OAuth refresh token
+
 * `access_token`: OAuth access token
+
 * `expires_at`: Token expiration
+
 * `token_type`: Type of token (e.g. "bearer")
+
 * `scope`: OAuth scopes
+
 * `id_token`: OAuth ID token
+
 * `session_state`: Session state
+
 * `password`: Hashed password (for credentials provider)
 
 **Storing Additional User Information**: You can prompt Create to store additional profile information per user, like "Store the user's bio, location, and phone number". Create will either add these fields directly to the `auth_users` table or create a linked profile table with these fields that connects to `auth_users` via the user's ID. This keeps your user data organized while maintaining the core authentication tables.
@@ -366,6 +390,8 @@ Create supports multiple authentication methods. Choose the ones that fit your a
 * Similar setup to Google
 
 * Requires Facebook Developer account
+
+* Facebook requires you as the domain owner have a listed privacy policy
 
 ### Twitter
 
