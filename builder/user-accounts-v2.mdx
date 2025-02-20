@@ -83,67 +83,45 @@ When you enable User Accounts, Create adds:
 
 * **User tables in your Database**:
 
+  * Create makes 4 special tables:
+    * `auth_users`: Tracks users in your app
+    * `auth_accounts`: Tracks auth methods (email/password, Google, etc.)
+    * `auth_sessions`: Database-backed user sessions
+    * `auth_verification_token`: 2FA verification tokens
+
+  * Most used: `auth_users` (core profiles) and `auth_accounts` (login methods)
+
   ![](/images/auth/database.png)
 
   <Tip>
     Most of the time, you won't need to worry about these implementation details. Create handles storing and managing authentication data automatically. However, understanding the underlying structure can be helpful when building more complex features or debugging authentication flows.
   </Tip>
 
-  * **Storing Additional User Information**: You can prompt Create to store additional profile information per user, like "Store the user's bio, location, and phone number". Create will either add these fields directly to the `auth_users` table or create a linked profile table with these fields that connects to `auth_users` via the user's ID. This keeps your user data organized while maintaining the core authentication tables.
-
-  * **Linking Data to Users**: When you prompt Create tostore data per user (like posts, preferences, or settings), Create automatically adds a `user_id` field to those database tables. This `user_id` connects each piece of data to the specific user in the `auth_users` table who owns it.
-
-  - Most used: `auth_users` (core profiles) and `auth_accounts` (login methods)
-
-  - Built-in fields in `auth_users`:
-
+  * Built-in fields in `auth_users`:
     * `id`: Unique identifier for each user
-
     * `name`: User's display name (optional)
-
     * `email`: User's email address
-
     * `emailVerified`: Tracks if email has been verified
-
     * `image`: Profile image URL (optional)
 
-  - Built-in fields in `auth_accounts`:
-
+  * Built-in fields in `auth_accounts`:
     * `id`: Unique identifier for each auth method
-
-    * `userId`: Links to the user in auth\_users
-
+    * `userId`: Links to the user in auth_users
     * `type`: Authentication type (e.g. "credentials" for email/password)
-
     * `provider`: Auth provider (e.g. "credentials", "google")
-
     * `providerAccountId`: ID from the provider
-
     * `refresh_token`: OAuth refresh token
-
     * `access_token`: OAuth access token
-
     * `expires_at`: Token expiration
-
     * `token_type`: Type of token (e.g. "bearer")
-
     * `scope`: OAuth scopes
-
     * `id_token`: OAuth ID token
-
     * `session_state`: Session state
-
     * `password`: Hashed password (for credentials provider)
 
-  * Create makes 4 special tables:
+  * **Storing Additional User Information**: You can prompt Create to store additional profile information per user, like "Store the user's bio, location, and phone number". Create will either add these fields directly to the `auth_users` table or create a linked profile table with these fields that connects to `auth_users` via the user's ID. This keeps your user data organized while maintaining the core authentication tables.
 
-    * `auth_users`: Tracks users in your app
-
-    * `auth_accounts`: Tracks auth methods (email/password, Google, etc.)
-
-    * `auth_sessions`: Database-backed user sessions
-
-    * `auth_verification_token`: 2FA verification tokens
+  * **Linking Data to Users**: When you prompt Create to store data per user (like posts, preferences, or settings), Create automatically adds a `user_id` field to those database tables. This `user_id` connects each piece of data to the specific user in the `auth_users` table who owns it.
 
 * **Access Control**:
 
