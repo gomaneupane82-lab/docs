@@ -1,46 +1,42 @@
 ---
-title: "Facebook Sign In"
-description: "Add Facebook Sign In to your app"
+title: "Facebook Login"
+description: "Add Facebook Login to your app"
 ---
 
-Create support adding Facebook Sign In to your app so your users can login with their Facebook accounts.
+Let users sign in to your app with their Facebook accounts. They'll share their email, name, and profile picture.
 
-Your app will get the user's email address, name, and profile picture from their Facebook account.
+You'll need to set up a few things in Facebook first, then add those settings to Create.
 
-You'll need to configure some things on Facebook's side first, add the right keys to Create, and then customize your sign up experience to add Facebook as an option.
+## Before You Start
 
-## Prerequisites
-
-Before setting up Facebook Sign In, ensure you have:
+Make sure you have:
 
 <Check>
-  A Create project with [User Accounts](/builder/user-accounts) enabled
+  A Create project with [User Accounts](/builder/user-accounts) turned on
 </Check>
 
 <Check>
-  A custom domain associated with your app through Create's [custom domain setup](/publish-and-share/custom-domains)
-
-  Make sure the app is already published and accessible at your custom domain.
+  Your app running on a custom domain through [Create's domain setup](/publish-and-share/custom-domains)
 </Check>
 
 ## Overview
 
 <CardGroup cols={2}>
-  <Card title="Create Facebook App" icon="key">
-    Set up app in Facebook Developers Console
+  <Card title="Set Up Facebook App" icon="key">
+    Create an app in Facebook
   </Card>
-  <Card title="Add to Create Project" icon="plug">
-    Configure App ID/Secret in Create
+  <Card title="Add keys to Create" icon="plug">
+    Add your Facebook App ID and Secret to Create
   </Card>
-  <Card title="Customize Sign-In" icon="pencil">
-    Modify Facebook sign-in button appearance
+  <Card title="Add the Facebook Login UI your sign in pages" icon="pencil">
+    Make the login button look how you want
   </Card>
-  <Card title="Test Flow" icon="check-circle">
-    Verify end-to-end authentication
+  <Card title="Test flow" icon="check-circle">
+    Make sure login works
   </Card>
 </CardGroup>
 
-## Facebook Developer Setup
+## Facebook Setup
 
 <Steps>
   <Step title="Access Facebook Developers">
@@ -184,9 +180,9 @@ Before setting up Facebook Sign In, ensure you have:
     2. Select "Project Settings"
   </Step>
 
-  <Step title="Enable Facebook Sign In">
+  <Step title="Enable Facebook Login">
     1. Navigate to the Authentication section
-    2. Find Facebook Sign In toggle
+    2. Find Facebook Login toggle
     3. Turn it on
   </Step>
 
@@ -198,40 +194,40 @@ Before setting up Facebook Sign In, ensure you have:
 
   <Step title="Add Sign In UI">
     1. Return to the chat
-    2. Prompt Create with "Add Facebook Sign In as an option"
+    2. Prompt Create with "Add Facebook Login as an option"
     3. Create will update your sign-in pages automatically
   </Step>
 
   <Step title="Publish Your App">
     1. Click the Publish button
     2. Review your changes
-    3. Publish to make the Facebook Sign In feature live
+    3. Publish to make the Facebook Login feature live
   </Step>
 </Steps>
 
 ## Testing
 
-1. Publish changes
-2. Visit sign-in page in incognito window
-3. Verify Facebook button appears
-4. Complete Facebook sign-in flow
-5. Check user is created in [auth_users table](/builder/databases)
+1. Publish your changes
+2. Open your app in a new incognito window 
+3. Go to the sign in page
+4. Try signing in with Facebook
+5. Check the [auth_users table](/builder/databases) to see your new user
 
 ## Troubleshooting
 
-<Accordion title="Facebook button not appearing">
-  - Check User Accounts is enabled in your project
-  - Verify Facebook Sign In is toggled on in Project Settings
-  - Ensure you've published your changes
-  - Clear your browser cache and try in an incognito window
+<Accordion title="Can't see the Facebook button">
+  - Check if User Accounts is turned on
+  - Make sure Facebook Login is enabled in Project Settings
+  - Try publishing your changes again
+  - Clear your browser data and try in incognito mode
 </Accordion>
 
-<Accordion title="Authentication fails">
-  - Verify your domain matches exactly in both Create and Facebook
-  - Confirm the redirect URI is exactly `[your-domain]/api/auth/callback/facebook`
-  - Check that your App ID and App Secret are correctly pasted in Create
-  - Ensure your domain is added in Facebook App Settings
-  - Verify your app is published and accessible at your custom domain
+<Accordion title="Login not working">
+  - Double check your domain is exactly the same in Create and Facebook
+  - Make sure your callback URL is right: `www.your-domain.com/api/auth/callback/facebook`
+  - Check if your App ID and Secret are pasted correctly
+  - Verify your domain is set up in Facebook
+  - Make sure your app is live at your custom domain
 </Accordion>
 
 <Accordion title="Users can't sign in after domain change">
@@ -242,29 +238,29 @@ Before setting up Facebook Sign In, ensure you have:
 
 ## FAQ
 
-<Accordion title="What user information do I get from Facebook?">
-  By default, you receive:
+<Accordion title="What user info do I get?">
+  By default:
   - Email address
-  - Profile name
-  - Profile picture (if available)
+  - Name
+  - Profile picture (if they have one)
   
   Additional information requires requesting extra permissions and may require Facebook app review.
 </Accordion>
 
-<Accordion title="How do I customize the Facebook Sign In button?">
-  You can customize the button by:
-  1. Returning to the chat after setup
-  2. Prompting Create with specific styling requests
-  3. Create will help you modify the button's appearance while maintaining Facebook's branding guidelines
+<Accordion title="Can I change how the login button looks?">
+  Yes! Just:
+  1. Go back to chat
+  2. Tell Create how you want it to look
+  3. Create will help style it while following Facebook's rules
 </Accordion>
 
-<Accordion title="Do I need Facebook app review?">
-  - For basic login with email: No
-  - For additional permissions: Yes
-  - Review process involves submitting your app for Facebook approval
+<Accordion title="Do I need Facebook to review my app?">
+  - For basic login: No
+  - For extra features: Yes
+  - You'll need to submit your app to Facebook for approval
 </Accordion>
 
 ## See Also
 
 - [User Accounts](/builder/user-accounts-v2)
-- [Customizing Authentication Pages](/builder/user-accounts-v2#customizing-auth-pages)
+- [Customizing Login Pages](/builder/user-accounts-v2#customizing-auth-pages)
