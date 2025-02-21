@@ -25,12 +25,15 @@ Make sure you have:
   <Card title="Set Up an X App" icon="key">
     Create an app in X
   </Card>
+
   <Card title="Add to Create" icon="plug">
     Add your X App's Client ID/Secret in Create
   </Card>
+
   <Card title="Add the X Login UI to your sign in pages" icon="pencil">
     Make the page look how you want
   </Card>
+
   <Card title="Test flow" icon="check-circle">
     Make sure login works
   </Card>
@@ -38,109 +41,154 @@ Make sure you have:
 
 ## X Setup
 
+##
+
+<iframe width="640" height="333" src="https://www.loom.com/embed/9e22bc2239614b0daa57d62d1a0f5977?sid=35c1933c-dfe0-430c-913f-26863d44dbf1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen />
+
 <Steps>
   <Step title="Access X Developer Portal">
     1. Go to [X Developer Portal](https://developer.x.com/en/apps)
+
     2. Sign in with your X account
+
     3. Click "Create an App"
-    <img src="/images/auth/x/1-developerxapps.png" style={{ borderRadius: '0.5rem' }} />
+
+    <img src="/images/auth/x/1-developerxapps.png" />
   </Step>
 
   <Step title="Apply for Developer Account">
     1. If you don't have a developer account, you'll need to apply
+
     2. Fill out the required information about your use case
+
     3. Submit your application
+
     <img src="/images/auth/x/2-applyfordevaccount.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Choose Developer Plan">
     1. Review the available developer plans
+
     2. You can sign up for a Free account if you prefer
+
     3. Select your plan and continue
+
     <img src="/images/auth/x/3-chooseplan.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Accept Developer Agreement">
     1. Review the developer terms
+
     2. Describe your app's purpose and that you're using Login with X
+
     3. Accept the terms to proceed
+
     <img src="/images/auth/x/4-acceptagreement.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Create Project">
     1. Once approved, navigate to your dashboard
+
     2. Click "Create Project" to begin
+
     <img src="/images/auth/x/5-createproject.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Name Your Project">
     1. Choose a descriptive name for your project
+
     2. This is for internal organization
+
     3. Click continue
+
     <img src="/images/auth/x/6-chooseaname.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Select Use Case">
     1. Choose the primary use case for your app
+
     2. This helps X understand how you'll use their API
+
     <img src="/images/auth/x/7-chooseusecase.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Add Project Description">
     1. Provide a detailed description of your project
+
     2. Explain how you'll use X's features
+
     3. Be specific about your Login with X implementation
+
     <img src="/images/auth/x/8-projectdescription.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Name Your App">
     1. Choose a user-facing name for your app
+
     2. This will be visible to users during sign in
+
     <img src="/images/auth/x/9-nameapp.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Skip Initial Tokens">
     1. You'll see initial Keys & Tokens
+
     2. These include API Key, API Key Secret, and Bearer Token
+
     3. You can skip these for now - click "App Settings"
+
     <img src="/images/auth/x/10-skiptokens.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Configure User Authentication">
     1. In App Settings, find "User authentication settings"
+
     2. Click "Set up"
+
     <img src="/images/auth/x/11-userauthenticationsetup.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Set App Permissions">
     1. Choose your app permissions level
+
     2. You can request read/write permissions
+
     3. Optionally request email access for users if you want your app to send users emails
+
     <img src="/images/auth/x/12-apppermissions.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Configure App Type">
     1. Select "Web App" as your app type
+
     2. This enables web-based authentication
+
     <img src="/images/auth/x/13-webapp.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Add App Information">
     1. Enter your callback URL:
        `https://www.your-domain.com/api/auth/callback/twitter`
+
     2. Add your website URL:
        `https://www.your-domain.com`
+
     3. Add privacy policy URL:
        `https://your-domain.com/privacy`
+
     4. Add terms of service URL:
        `https://your-domain.com/terms`
+
     <img src="/images/auth/x/14-redirecturlappinfo.png" style={{ borderRadius: '0.5rem' }} />
-    
+
     <Warning>
       Must include:
-      - `https://` protocol
-      - `www` prefix for callback and website URLs
-      - Exact domain for the app used in Create's custom domain settings
+
+      * `https://` protocol
+
+      * `www` prefix for callback and website URLs
+
+      * Exact domain for the app used in Create's custom domain settings
     </Warning>
 
     <Tip>
@@ -150,15 +198,21 @@ Make sure you have:
 
   <Step title="Access Keys and Tokens">
     1. After saving settings, go to "Keys and Tokens" section
+
     <img src="/images/auth/x/15-keysandtokens.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Copy OAuth Credentials">
     1. Under OAuth 2.0 Client ID and Client Secret
+
     2. Copy the Client ID
+
     3. Generate and copy the Client Secret
+
     4. Save both values - you'll need them in Create
+
     <img src="/images/auth/x/16-clientidclientsecret.png" style={{ borderRadius: '0.5rem' }} />
+
     <Warning>
       Keep your Client Secret secure - never share it publicly
     </Warning>
@@ -170,40 +224,51 @@ Make sure you have:
 <Steps>
   <Step title="Enable User Accounts">
     You have two options:
+
     1. Prompt Create with "Let users sign in"
+
     2. Enable User Accounts from the logo menu
   </Step>
 
   <Step title="Access Project Settings">
     1. Click the 3-dot menu at the top of the chat
+
     2. Select "Project Settings"
     <img src="/images/auth/x/17-createprojectsettings.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Enable Login with X">
     1. Navigate to the Authentication section
+
     2. Find Login with X toggle
+
     3. Turn it on
     <img src="/images/auth/x/18-enabletwitter.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Add X Credentials">
     1. Paste in your Client ID
+
     2. Paste in your Client Secret
+
     3. Click Save
     <img src="/images/auth/x/18-enabletwitter.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Add Sign In UI">
     1. Return to the chat
+
     2. Prompt Create with "Add Login with X as an option"
+
     3. Create will update your sign-in pages automatically
     <img src="/images/auth/x/19-promptcreate.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Publish Your App">
     1. Click the Publish button
+
     2. Review your changes
+
     3. Publish to make the Login with X feature live
   </Step>
 </Steps>
@@ -211,60 +276,83 @@ Make sure you have:
 ## Testing
 
 1. Publish your changes
+
 2. Open your app in a new incognito window
+
 3. Go to the sign in page
+
 4. Try signing in with X
-5. Check the [auth_users table](/builder/databases) to see your new user
+
+5. Check the [auth\_users table](/builder/databases) to see your new user
 
 ## Troubleshooting
 
 <Accordion title="Can't see the X button">
-  - Check if User Accounts is turned on
-  - Make sure Login with X is enabled in Project Settings
-  - Prompt Create with "Add Login with X as an option to the sign in page"
-  - Try publishing your changes again
-  - Clear your browser data and try in incognito mode
+  * Check if User Accounts is turned on
+
+  * Make sure Login with X is enabled in Project Settings
+
+  * Prompt Create with "Add Login with X as an option to the sign in page"
+
+  * Try publishing your changes again
+
+  * Clear your browser data and try in incognito mode
 </Accordion>
 
 <Accordion title="Login not working">
-  - Double check your domain is exactly the same in Create and X
-  - Make sure your callback URL is right: `www.[your-domain].com/api/auth/callback/twitter`
-  - Check if your Client ID and Secret are pasted correctly
-  - Make sure OAuth 2.0 is turned on in X
-  - Make sure your app is live at your custom domain
+  * Double check your domain is exactly the same in Create and X
+
+  * Make sure your callback URL is right: `www.[your-domain].com/api/auth/callback/twitter`
+
+  * Check if your Client ID and Secret are pasted correctly
+
+  * Make sure OAuth 2.0 is turned on in X
+
+  * Make sure your app is live at your custom domain
 </Accordion>
 
 <Accordion title="Users can't sign in after domain change">
-  - Update the callback URLs in X Developer Portal
-  - Update your website URL in X app settings
-  - Re-publish your app on the new domain
+  * Update the callback URLs in X Developer Portal
+
+  * Update your website URL in X app settings
+
+  * Re-publish your app on the new domain
 </Accordion>
 
 ## FAQ
 
 <Accordion title="What user info do I get?">
   By default:
-  - Username
-  - Display name
-  - Profile picture (if they have one)
-  
+
+  * Username
+
+  * Display name
+
+  * Profile picture (if they have one)
+
   Additional information requires requesting extra permissions and may require X app review.
 </Accordion>
 
 <Accordion title="Can I change how the login button looks?">
   Yes! Just:
+
   1. Go back to chat
+
   2. Tell Create how you want it to look
+
   3. Create will help style it while following X's rules
 </Accordion>
 
 <Accordion title="Do I need X to review my app?">
-  - For basic login: No
-  - For extra features: Yes
-  - You'll need to submit your app to X for approval
+  * For basic login: No
+
+  * For extra features: Yes
+
+  * You'll need to submit your app to X for approval
 </Accordion>
 
 ## See Also
 
-- [User Accounts](/builder/user-accounts-v2)
-- [Customizing Login Pages](/builder/user-accounts-v2#customizing-auth-pages)
+* [User Accounts](/builder/user-accounts-v2)
+
+* [Customizing Login Pages](/builder/user-accounts-v2#customizing-auth-pages)
