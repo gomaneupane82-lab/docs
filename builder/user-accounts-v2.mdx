@@ -3,13 +3,15 @@ title: "User Accounts"
 description: "Let users sign up and sign in to your app"
 ---
 
-User Accounts add authentication and users to your app. They handle sign-up, sign-in, logout, and user storage.
+User Accounts add authentication and users to your app. They handle sign-up, sign-in, logout, and storing users.
 
 ## Overview
 
-Every Create project can add User Accounts to handle authentication. As you chat with Create, it manages adding the authentication details - from setting up secure login flows to writing the code that protects your app's content.
+Every Create project can add User Accounts. As you chat with Create, it manages adding the authentication details - from setting up secure login flows to writing the code that only shows your app's content to logged in users.
 
 Use User Accounts to:
+
+* Let users sign up and sign in
 
 * Protect private content and features
 
@@ -19,11 +21,9 @@ Use User Accounts to:
 
 * Build apps with many users
 
-* Track user activity
-
 ## Chat
 
-Create sets up authentication and updates your app if you chat about adding users.
+Create updates your app to add User Accounts if you chat about adding users.
 
 Try a prompt like: 'Let users sign up' or 'Store data per user'
 
@@ -31,25 +31,28 @@ When Create recognizes you want to add user accounts, it:
 
 1. **Enables User Accounts** in your project
 
-2. **Adds special pages for Signup, Signin, and Logout**
+2. **Adds special pages for Sign up, Sign in, and Logout**
 
-3. **Creates special tables in your database** to store user information (auth\_users, auth\_sessions, etc.)
+3. **Creates special tables in your app's [database](/builder/databases)** to store user information (auth\_users, auth\_accounts, etc.)
 
 4. **Adds checks to your pages and functions** to protect content that needs to be signed in to view
 
-5. **Updates everything** to make sure your pages and functions work with the new users tables and auth system
+5. **Updates everything** to make sure your pages and functions work with the new users tables and signed in user
 
-You will know it's working when you see the sign up, sign in, and logout pages in your app on the Canvas or Project Selector, or if you see the special user tables in your database viewer.
+You will know it's working when you see the sign up, sign in, and logout pages in your app on the [Canvas](/builder/controls#canvas) or [Project Selector](/builder/controls#project-selector), or if you see the special user tables in your [database viewer](/builder/databases).
 
-\[todo insert photos]
+<Frame caption="Finding the sign up, sign in and log out pages in Project Selector. Checking the auth tables in the database.">
+  <img src="/images/auth/projectselector.png" />
+  <img src="/images/auth/dbtables.png" />
+</Frame>
 
 ## Adding Manually
 
-If for some reason Create isn't recognizing when to add User Accounts, you can also trigger it manually.
+If Create isn't recognizing when to add User Accounts, you can also trigger it manually.
 
 1. **Enable for Project**:
 
-   * Open Create logo menu
+   * Open [Create logo menu](/builder/controls#logo-menu)
 
    * Choose "Enable User Accounts"
 
@@ -57,7 +60,7 @@ If for some reason Create isn't recognizing when to add User Accounts, you can a
 
 2. **Protect Content**:
 
-   * Open page/function settings (3-dot menu > Settings > "Require sign in to view")
+   * Open page/function settings ([3-dot menu](/builder/controls#three-dot-menu) > Settings > "Require sign in to view")
 
    * Enable "Require sign in to view"
 
@@ -75,9 +78,11 @@ When you enable User Accounts, Create adds:
 
 * Logout Page - `/account/logout`
 
-You can customize the look and feel of these pages by prompting Create. Once User Accounts is enabled, you can also create components for the sign in, sign up, and logout functionality. This lets you embed this functionality anywhere. Under the hood, it uses the same auth routes as the pages.
+You can customize the look and feel of these pages by prompting Create to change them.
 
-These pages contain special code to update the user in the database securely and handle common errors.
+Once User Accounts is enabled, you can also create components for the sign in, sign up, and logout functionality. This lets you embed this functionality anywhere. Under the hood, it uses the same auth routes as the pages.
+
+These pages contain special code to update the user in the database when they sign up/in and handle common errors.
 
 ### User Tables
 
@@ -96,7 +101,7 @@ Most used: `auth_users` (core profiles) and `auth_accounts` (login methods)
 ![](/images/auth/database.png)
 
 <Tip>
-  Most of the time, you won't need to worry about these implementation details. Create handles storing and managing authentication data automatically. However, understanding the underlying structure can be helpful when building more complex features or debugging authentication flows.
+  Most of the time, you won't need to worry about these implementation details. Create handles storing and managing user data automatically. However, understanding the underlying structure can help build more complex features or debug authentication flows.
 </Tip>
 
 Built-in fields in `auth_users`:
@@ -110,6 +115,8 @@ Built-in fields in `auth_users`:
 * `emailVerified`: Tracks if email has been verified
 
 * `image`: Profile image URL (optional)
+
+* `auth_accounts`: Links to the auth methods for the user
 
 Built-in fields in `auth_accounts`:
 
@@ -141,15 +148,15 @@ Built-in fields in `auth_accounts`:
 
 **Storing Additional User Information**: You can prompt Create to store additional profile information per user, like "Store the user's bio, location, and phone number". Create will either add these fields directly to the `auth_users` table or create a linked profile table with these fields that connects to `auth_users` via the user's ID. This keeps your user data organized while maintaining the core authentication tables.
 
-**Linking Data to Users**: When you prompt Create to store data per user (like posts, preferences, or settings), Create automatically adds a `user_id` field to those database tables. This `user_id` connects each piece of data to the specific user in the `auth_users` table who owns it.
+**Linking Data to Users**: When you prompt Create to store data per user (like posts, preferences, or settings), Create automatically adds a `user_id` field to those database tables. This `user_id` connects each piece of data to the specific user in the `auth_users` table who owns it. That lets your app later grab the data for a specific user.
 
-### Access Control
+### Signed In User
 
 When you prompt Create to protect a page or show content per user on a page, e.g. "When user is signed in, show their profile in top right" or "If the user isn't signed in, don't show the notification settings", Create can now add code to grab the current signed in user's info and change the behavior of the app based on it.
 
 Pages, Functions, and Components can now all check the current signed in user, grab their information from the database, and use it to show/hide info, or change their behavior.
 
-Create automatically handles auth redirects. You can link pages as normal. If a user needs to be signed in to view a page, Create will redirect them to the Sign In page, and once signed in, redirect them back to the original page.
+Create automatically handles auth redirects. You can link pages as normal. If a user needs to be signed in to view a page, Create will check if they are. If they're not, it will redirect them to the Sign In page, and once signed in, redirect them back to the original page. Just prompt Create on which pages should be protected with sign in vs. public. 
 
 ## How It Works - For your Users
 
@@ -183,7 +190,7 @@ To add user accounts:
 
    * Prompting: "Only let signed in users view the homework creator"
 
-   * Manually: Go to `/app` page > 3-dot menu > Settings > "Require account to view"
+   * Manually: Go to `/app` page > [3-dot menu](/builder/controls) > Settings > "Require account to view"
 
 3. Publish changes
 
@@ -217,17 +224,21 @@ Create will:
 
 * Add your logo
 
-* Maintain security best practices
+* Maintain they key sign in / sign up code that stores the user 
 
 Common customizations:
 
 * Adding branding elements
 
+* Adding additional auth methods (Google, Facebook, etc.)
+
 * Modifying form fields
 
-* Changing button styles
+* Changing styles
 
-* Adding terms acceptance
+* Adding terms of service / privacy policy
+
+* Adding testimonials or other social proof
 
 ## Flows and Redirects
 
@@ -253,13 +264,13 @@ Create handles authentication flows automatically:
 
 * **Sign In**:
 
-1. User visits page that requires sign in 
+  1. User visits page that requires sign in 
 
-2. Create checks for auth cookie 
+  2. Create checks for auth cookie 
 
-3. If no cookie, redirects to sign in page you prompt
+  3. If no cookie, redirects to sign in page you prompt
 
- 4. User enters credentials
+  4. User enters credentials
 
   5. Create verifies account
 
@@ -288,8 +299,6 @@ By default, Create stores the following information about users:
 * **Created Date** - When the account was created
 
 * **Last Login** - Most recent sign in
-
-* **Session Data** - Secure tokens to keep users logged in
 
 You can prompt Create to store additional information per user. Create will update your database to make sure that each piece of user specific information is stored with a user\_id that links back to the user in your auth\_users table.
 
@@ -327,9 +336,9 @@ You can use the information you store about each user in your app. Just prompt C
 
 * "If the user is logged in, show a profile image in the top right. Otherwise, show the sign up / sign in buttons"
 
-Create will update your Pages, Functions, and Components to use the user data.
+Create will update your [Pages](/builder/pages), [Functions](/builder/functions), and Components to use the user data.
 
-You can also manually access and change user information from the Database Viewer.
+You can also manually access and change user information from the [Database Viewer](/builder/databases).
 
 ## Profiles
 
@@ -361,7 +370,7 @@ Add custom roles to control access:
 
 1. **Add Role Field**:
 
-   * Prompt Create to add "role" or similar field
+   * Prompt Create to add "role" or similar field for each user
 
    * Describe the values you want to use like "admin", "member" and how you want behavior to change
 
@@ -377,7 +386,13 @@ Add custom roles to control access:
 
 ## Auth Methods
 
-Create supports multiple authentication methods. Choose the ones that fit your app's needs.
+Create supports multiple auth methods. Choose the ones that fit your app's needs.
+
+You can turn on or off each auth method in the Project Settings.
+
+<Frame caption="Finding the Project Settings">
+  <img src="/images/auth/google/15-3dotprojectsettings.png" />
+</Frame>
 
 ### Email/Password
 
@@ -393,17 +408,23 @@ Create supports multiple authentication methods. Choose the ones that fit your a
 
 * Social login using Google accounts
 
+* You'll need to get a Google Client ID and Secret from Google
+
 * [Full setup guide](/auth/google)
 
 ### Facebook
 
 * Social login using Facebook accounts
 
+* You'll need to get a Facebook App ID and Secret from Facebook
+
 * [Full setup guide](/auth/facebook)
 
-### Twitter
+### X
 
 * Social login using X/Twitter accounts
+
+* You'll need to get a Twitter Client ID and Secret from X
 
 * [Full setup guide](/auth/x)
 
@@ -427,11 +448,11 @@ Verify your User Accounts setup:
 
 If authentication isn't working:
 
-* Verify User Accounts is enabled for project
+* Verify User Accounts is enabled for project. Do you see the sign up, sign in, and logout pages in the Project Selector? Do you see the auth tables in the database?
 * Check page/function auth settings
 * Review the database - check the auth_users table to make sure the user was created
 * Test with a fresh account
-* Join our [Discord](create.xyz/discord) for help
+* Join our [Discord](https://create.xyz/discord) for help
 
 ### Error Codes
 
@@ -492,7 +513,7 @@ Common error codes and fixes:
 
 * [Databases](/builder/databases) - Store user data and content
 
-* [Functions](/builder/functions) - Add custom authentication logic that looks at the database to do different actions
+* [Functions](/builder/functions) - Add backend logic that grabs the right data per user from the database
 
 * [Pages](/builder/pages) - Create protected routes
 
