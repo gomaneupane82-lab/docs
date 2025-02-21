@@ -1,0 +1,96 @@
+---
+title: "LogMeal"
+description: "Analyze food images with AI"
+---
+
+LogMeal uses advanced AI to identify and analyze food in images, providing detailed nutritional information.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a LogMeal account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your LogMeal API key
+  </Card>
+  <Card title="Copy into Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit LogMeal Website">
+    Go to [logmeal.com/](https://logmeal.com/) and click "Sign Up" in the top right corner
+    
+    <img src="/images/logmeal/homepage.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Choose Signup Method">
+    * Sign up with email/password
+    * Or continue with Google authentication
+
+    <img src="/images/logmeal/signin.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Access API Settings">
+    1. Click on your profile in the top right
+    2. Select "API Access" from the menu
+    
+    <img src="/images/logmeal/apigen.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Copy Your Key">
+    1. Copy the generated API key
+    2. Store it securely - you won't be able to see it again
+    
+    <Warning>
+      Keep your API key secure - it grants access to your paid credits
+    </Warning>
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the integration">
+    1. In your Create project, type `/` in the chat 
+    2. Select "LogMeal" from the menu
+  </Step>
+
+  <Step title="Add your API key">
+    1. Paste your API key into the "LOGMEAL_API_KEY" field
+    
+    <Tip>
+      Need a new key? Generate one in your LogMeal dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Start analyzing">
+    You can now use prompts with the integration to analyze food images.
+
+    Example prompts:
+    * `Analyze this food photo with /LogMeal`
+    * `Get nutritional information for this meal using /LogMeal`
+    * `Create a food diary that uses /LogMeal for image analysis`
+
+    <Warning>
+      Each API call uses one credit - implement caching for frequently analyzed images.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /LogMeal, cache the analysis results in my database
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your LogMeal integration is ready! Use `/LogMeal` in chat to analyze food images.
+</Note>
