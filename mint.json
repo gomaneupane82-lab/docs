@@ -118,9 +118,6 @@
     "thumbsRating": true,
     "suggestEdit": true
   },
-  "metadata": {
-    "og:image": "/images/og.png"
-  },
   "redirects": [
     {
       "source": "/create/getting-started/builder-basics",
