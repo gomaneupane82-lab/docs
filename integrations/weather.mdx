@@ -1,0 +1,93 @@
+---
+title: "Weather"
+description: "Access real-time weather data and forecasts"
+---
+
+Get detailed weather information and forecasts for any location worldwide using OpenWeatherMap's API.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for an OpenWeatherMap account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your API key
+  </Card>
+  <Card title="Copy into Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit OpenWeatherMap Website">
+    Go to [openweathermap.org](https://openweathermap.org/) and click "Sign Up" in the top right corner
+    
+    <img src="/images/weather/homepage.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Choose Signup Method">
+    * Sign up with email/password
+    * Or continue with Google authentication
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Access API Keys">
+    1. Go to your OpenWeatherMap dashboard
+    2. Navigate to the "API keys" tab
+    
+    <Warning>
+      New API keys may take a few hours to activate
+    </Warning>
+  </Step>
+
+  <Step title="Create New Key">
+    1. Name your key (e.g., "Create Integration")
+    2. Click "Generate"
+    3. Copy your API key
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the integration">
+    1. In your Create project, type `/` in the chat 
+    2. Select "Weather" from the menu
+  </Step>
+
+  <Step title="Add your API key">
+    1. Paste your API key into the "OPENWEATHERMAP_API_KEY" field
+    
+    <Tip>
+      Need a new key? Generate one in your OpenWeatherMap dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Start using">
+    You can now use prompts with the integration to access weather data.
+
+    Example prompts:
+    * `Show the weather forecast using /Weather`
+    * `Build a travel planner with /Weather`
+    * `Create a sports event scheduler using /Weather`
+
+    <Warning>
+      API has rate limits - implement caching for frequently accessed locations.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /Weather, cache the forecast data in my database
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your Weather integration is ready! Use `/Weather` in chat to access weather data.
+</Note>
