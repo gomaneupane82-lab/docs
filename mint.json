@@ -176,6 +176,10 @@
       "destination": "/builder/databases"
     },
     {
+      "source": "/builder/user-accounts-v2",
+      "destination": "/builder/user-accounts"
+    },
+    {
       "source": "/create/builder-add-ons/:slug*",
       "destination": "/builder/:slug*"
     },
