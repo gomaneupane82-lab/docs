@@ -1,0 +1,94 @@
+---
+title: "Ticketmaster"
+description: "Access events and venue data"
+---
+
+Ticketmaster Discovery API provides comprehensive access to events, venues, and ticket information worldwide.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a Ticketmaster Developer account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your API key
+  </Card>
+  <Card title="Copy into Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit Ticketmaster Developer Portal">
+    Go to [developer.ticketmaster.com](https://developer.ticketmaster.com/) and click "Create an Account"
+    
+    <img src="/images/ticketmaster/homepage.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Choose Signup Method">
+    * Sign up with email/password
+    * Or continue with Google authentication
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Access API Keys">
+    1. Go to your Ticketmaster Developer dashboard
+    2. Navigate to the "Applications" section
+    
+    <Warning>
+      Free tier has rate limits - monitor your usage
+    </Warning>
+  </Step>
+
+  <Step title="Create New Key">
+    1. Name your application
+    2. Select "Discovery API" access
+    3. Copy your Consumer Key (API Key)
+    <img src="/images/ticketmaster/apigen.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the integration">
+    1. In your Create project, type `/` in the chat 
+    2. Select "Ticketmaster" from the menu
+  </Step>
+
+  <Step title="Add your API key">
+    1. Paste your API key into the "TICKETMASTER_API_KEY" field
+    
+    <Tip>
+      Need a new key? Generate one in your Ticketmaster Developer dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Start searching">
+    You can now use prompts with the integration to access event data.
+
+    Example prompts:
+    * `Find upcoming concerts using /Ticketmaster`
+    * `Get venue details with /Ticketmaster`
+    * `Create an event discovery app using /Ticketmaster`
+
+    <Warning>
+      API has rate limits - implement caching for frequently accessed data.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /Ticketmaster, cache the event details in my database
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your Ticketmaster integration is ready! Use `/Ticketmaster` in chat to access event data.
+</Note>
