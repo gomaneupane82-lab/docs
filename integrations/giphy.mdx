@@ -1,0 +1,99 @@
+---
+title: "GIPHY"
+description: "Access GIFs and animated content"
+---
+
+GIPHY API provides access to the world's largest library of GIFs, stickers, and animated content.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a GIPHY Developer account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your GIPHY API key
+  </Card>
+  <Card title="Copy into Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit GIPHY Developers">
+    Go to [developers.giphy.com](https://developers.giphy.com/) and click "Create an Account"
+    
+    <img src="/images/giphy/homepage.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Create Developer Account">
+    * Sign up with email/password
+    * Or continue with existing GIPHY account
+    
+    <img src="/images/giphy/signup.png" style={{ borderRadius: '0.5rem' }} />
+
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Create an App">
+    1. Go to your GIPHY Developer dashboard
+    2. Click "Create an API Key"
+    3. Select "API" access type
+
+    <img src="/images/giphy/pickapi.png" style={{ borderRadius: '0.5rem' }} />
+    <Warning>
+      Free tier has rate limits - monitor your usage
+    </Warning>
+  </Step>
+
+  <Step title="Get API Key">
+    1. Name your app (e.g., "Create Integration")
+    2. Add a brief description
+    3. Copy your API key
+    <img src="/images/giphy/apigen.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the integration">
+    1. In your Create project, type `/` in the chat 
+    2. Select "GIPHY" from the menu
+  </Step>
+
+  <Step title="Add your API key">
+    1. Paste your API key into the "GIPHY_API_KEY" field
+    
+    <Tip>
+      Need a new key? Generate one in your GIPHY Developer dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Start searching">
+    You can now use prompts with the integration to access GIFs.
+
+    Example prompts:
+    * `Find reaction GIFs using /GIPHY`
+    * `Add animated stickers with /GIPHY`
+    * `Create a GIF picker using /GIPHY`
+
+    <Warning>
+      API has rate limits - implement caching for frequently accessed GIFs.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /GIPHY, cache the GIF URLs in my database
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your GIPHY integration is ready! Use `/GIPHY` in chat to access GIFs.
+</Note>
