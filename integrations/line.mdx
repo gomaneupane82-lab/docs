@@ -1,11 +1,11 @@
 ---
-title: "Line"
-description: "Integrate Line messaging capabilities into your application"
+title: "LINE"
+description: "Integrate LINE messaging capabilities into your application"
 ---
 
-Connect your app to Line's messaging platform to send notifications, build chatbots, and interact with users through Line's popular messaging service.
+Connect your app to LINE's messaging platform to send notifications, build chatbots, and interact with users through LINE's popular messaging service.
 
-Watch this step-by-step video tutorial to learn how to integrate Line messaging:
+Watch this step-by-step video tutorial to learn how to integrate LINE messaging:
 
 <iframe
   width="100%"
@@ -21,13 +21,13 @@ Watch this step-by-step video tutorial to learn how to integrate Line messaging:
 
 <CardGroup cols={2}>
   <Card title="Create Developer Account" icon="user">
-    Sign up and configure your Line Account Manager, Line Official Account, and Line Developer Account.
+    Sign up and configure your LINE Account Manager, LINE Official Account, and LINE Developer Account.
   </Card>
   <Card title="Get Channel Credentials" icon="key">
-    Create a Line channel and obtain API keys
+    Create a LINE channel and obtain API keys
   </Card>
   <Card title="Verify Settings" icon="gear">
-    Turn on these settings to have the best experience with Line
+    Turn on these settings to have the best experience with LINE
   </Card>
   <Card title="Connect to Create" icon="plug">
     Add your credentials to Create's secrets
@@ -37,20 +37,20 @@ Watch this step-by-step video tutorial to learn how to integrate Line messaging:
 ## Account Setup
 
 <Steps>
-  <Step title="Create a Line Official Account Manager">
+  <Step title="Create a LINE Official Account Manager">
     Go to https://manager.line.biz/ and sign up with your account
     
     <img src="/images/line/line-login.png" style={{ borderRadius: '0.5rem'}} />
   </Step>
 
-  <Step title="Create a Line Official Account">
+  <Step title="Create a LINE Official Account">
     Click "Create LINE official account" to continue
     
     <img src="/images/line/image1.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
-  <Step title="Link your Line Account to Line Developer">
-    Once your account is created, you may now visit Line Developer and click Log in to Console to link your Line Official Account.
+  <Step title="Link your LINE Account to LINE Developer">
+    Once your account is created, you may now visit LINE Developer and click Log in to Console to link your LINE Official Account.
     
     <img src="/images/line/image3.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
@@ -65,10 +65,10 @@ Watch this step-by-step video tutorial to learn how to integrate Line messaging:
   </Step>
 
   <Step title="Enable Messaging API">
-    Now go back to your Line Official Account Manager. In the top right corner, click on "Setting". Then, on the left panel, select "Messaging API" and "Enable Messaging API". Be sure to select the provider mentioned previously.
+    Now go back to your LINE Official Account Manager. In the top right corner, click on "Setting". Then, on the left panel, select "Messaging API" and "Enable Messaging API". Be sure to select the provider mentioned previously.
     <img src="/images/line/image8.png" style={{ borderRadius: '0.5rem' }} />
     <Warning>
-      These credentials grant full access to your Line channel - keep them private
+      These credentials grant full access to your LINE channel - keep them private
     </Warning>
   </Step>
 
@@ -78,10 +78,10 @@ Watch this step-by-step video tutorial to learn how to integrate Line messaging:
   </Step>
 
   <Step title="Inputting Webhook URL">
-    Input your webhook URL in your Line Official Account Manager. It should be in the format of https:// your-create-project-url.created.app/api/line-messaging.
+    Input your webhook URL in your LINE Official Account Manager. It should be in the format of https:// your-create-project-url.created.app/api/line-messaging.
     <img src="/images/line/line-webhook-input.png" style={{ borderRadius: '0.5rem' }} />
     <Warning>
-      The function path "api/line-messaging" may be changed as well. If so, you may need to update the function path in your Line Developer Console to match the function path in your Create project.
+      The function path "api/line-messaging" may be changed as well. If so, you may need to update the function path in your LINE Developer Console to match the function path in your Create project.
     </Warning>
   </Step>
 
@@ -91,7 +91,7 @@ Watch this step-by-step video tutorial to learn how to integrate Line messaging:
   </Step>
 
   <Step title="Channel Access Token">
-    Get your Channel Access Token by going to your Line Developer Account > Provider Name > Messaging API > Scroll all the way down
+    Get your Channel Access Token by going to your LINE Developer Account > Provider Name > Messaging API > Scroll all the way down
     <img src="/images/line/image4.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
@@ -105,18 +105,18 @@ Watch this step-by-step video tutorial to learn how to integrate Line messaging:
 
 <Steps>
   <Step title="Verify Webhook URL">
-    After publishing your project, you may verify your webhook URL by going to your Line Developer Console > Provider > Channel > Messaging API <br></br>
+    After publishing your project, you may verify your webhook URL by going to your LINE Developer Console > Provider > Channel > Messaging API <br></br>
     If you see a success message, your webhook URL is verified. Otherwise, you may need to check your webhook URL/function and try again.
     <img src="/images/line/line-webhook-verify.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Enable Chatbot Settings">
-    Enable Chatbot Settings by going to your Line Official Account Manager > Settings(Top Right) > Response Settings
+    Enable Chatbot Settings by going to your LINE Official Account Manager > Settings(Top Right) > Response Settings
     <img src="/images/line/line-bot-setting.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 
   <Step title="Enable Chatbot to Join Group Chats (Optional)">
-    Allow your chatbot to join group chats by going to your Line Official Account Manager > Settings(Top Right) > Account Settings
+    Allow your chatbot to join group chats by going to your LINE Official Account Manager > Settings(Top Right) > Account Settings
     <img src="/images/line/line-groupchat.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
   
@@ -135,43 +135,43 @@ Watch this step-by-step video tutorial to learn how to integrate Line messaging:
     2. Paste Access Token into "LINE_ACCESS_TOKEN"
     
     <Tip>
-      Need new credentials? Regenerate in Line Developer Console.
+      Need new credentials? Regenerate in LINE Developer Console.
     </Tip>
   </Step>
 
   <Step title="Start Building">
-    Use prompts to implement Line features:
+    Use prompts to implement LINE features:
     
     * `Send order confirmation via /Line`
     * `Build a chatbot that uses /Line for customer support`
     * `Create a broadcast system with /Line`
     
     <Warning>
-      Line API has rate limits - implement error handling for best reliability
+      LINE API has rate limits - implement error handling for best reliability
     </Warning>
   </Step>
 </Steps>
 
 <Note type="success">
-  Line integration complete! Use `/Line` in chat to access messaging capabilities.
+  LINE integration complete! Use `/Line` in chat to access messaging capabilities.
 </Note>
 
 ## Frequently Asked Questions
 
 <AccordionGroup>
-  <Accordion title="What is Line Messaging API?">
-    Line Messaging API allows you to send messages, build chatbots, and interact with users through Line's messaging platform. It's particularly popular in Asia and great for customer engagement.
+  <Accordion title="What is LINE Messaging API?">
+    LINE Messaging API allows you to send messages, build chatbots, and interact with users through LINE's messaging platform. It's particularly popular in Asia and great for customer engagement.
   </Accordion>
 
-  <Accordion title="Do I need a Line Business Account?">
-    Yes, you need a Line Business/Developer Account to access the Messaging API. The basic account is free and sufficient for testing and development.
+  <Accordion title="Do I need a LINE Business Account?">
+    Yes, you need a LINE Business/Developer Account to access the Messaging API. The basic account is free and sufficient for testing and development.
   </Accordion>
 
   <Accordion title="How does the webhook work?">
-    The webhook works by sending Line encrypted messages to your Create project's function URL when a message is typed in the Line app. This message triggers Function(s) that can send messages back to the user.
+    The webhook works by sending LINE encrypted messages to your Create project's function URL when a message is typed in the Line app. This message triggers Function(s) that can send messages back to the user.
   </Accordion>
 
-  <Accordion title="What can I build with Line integration?">
+  <Accordion title="What can I build with LINE integration?">
     You can build:
     - Customer service chatbots
     - Order notification systems
@@ -181,11 +181,11 @@ Watch this step-by-step video tutorial to learn how to integrate Line messaging:
   </Accordion>
 
   <Accordion title="Are there usage limits?">
-    Yes, Line has API rate limits and message quotas. Free accounts have lower limits than paid business accounts. Check Line's official documentation for current limits.
+    Yes, LINE has API rate limits and message quotas. Free accounts have lower limits than paid business accounts. Check Line's official documentation for current limits.
   </Accordion>
 
-  <Accordion title="Can I test my Line integration?">
-    Yes, you can test your Line integration by verifying your webhook URL returns a success message. Followed by talking to your bot on Line to test the integration.
+  <Accordion title="Can I test my LINE integration?">
+    Yes, you can test your LINE integration by verifying your webhook URL returns a success message. Followed by talking to your bot on LINE to test the integration.
     Additonally, you may test responses from your bot by asking the AI chat to print the response and using the Function test runner.
   </Accordion>
 </AccordionGroup>
