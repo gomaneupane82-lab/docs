@@ -1,0 +1,97 @@
+---
+title: "Rentcast"
+description: "Access real estate and rental market data"
+---
+
+Rentcast API provides comprehensive access to real estate data, rental market insights, and property analytics.
+
+<Warning> Rentcast requires credit card signup for overage fees in the free tier access </Warning>
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a Rentcast account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your Rentcast API key
+  </Card>
+  <Card title="Copy into Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit Rentcast Website">
+    Go to [rentcast.io/api](https://rentcast.io/api) and click "Start for Free"
+    
+    <img src="/images/rentcast/homepage.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Choose Signup Method">
+    * Sign up with email/password
+    * Or continue with Google authentication
+    <img src="/images/rentcast/signup.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Access API Keys">
+    1. Go to your Rentcast dashboard
+    2. Scroll down to the "API" section
+    <img src="/images/rentcast/apigen.png" style={{ borderRadius: '0.5rem' }} />
+    
+    <Warning>
+      Free tier has rate limits - monitor your usage
+    </Warning>
+  </Step>
+
+  <Step title="Create New Key">
+    1. Click "Generate API Key"
+    2. Name your key (e.g., "Create Integration")
+    3. Copy your API key
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the integration">
+    1. In your Create project, type `/` in the chat 
+    2. Select "Rentcast" from the menu
+  </Step>
+
+  <Step title="Add your API key">
+    1. Paste your API key into the "RENTCAST_API_KEY" field
+    
+    <Tip>
+      Need a new key? Generate one in your Rentcast dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Start searching">
+    You can now use prompts with the integration to access real estate data.
+
+    Example prompts:
+    * `Get rental market data for San Francisco using /Rentcast`
+    * `Analyze property values with /Rentcast`
+    * `Create a real estate analytics dashboard using /Rentcast`
+
+    <Warning>
+      API has rate limits - implement caching for frequently accessed data.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /Rentcast, cache the market data in my database
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your Rentcast integration is ready! Use `/Rentcast` in chat to access real estate data.
+</Note>
