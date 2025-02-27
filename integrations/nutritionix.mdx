@@ -1,0 +1,95 @@
+---
+title: "Nutritionix"
+description: "Access nutrition data and food information"
+---
+
+Nutritionix API provides comprehensive access to nutrition data, food information, and calorie tracking capabilities.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a Nutritionix account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your Nutritionix API keys
+  </Card>
+  <Card title="Copy into Create" icon="plug">
+    Add your API keys to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit Nutritionix Website">
+    Go to [developer.nutritionix.com](https://developer.nutritionix.com/) and click "Sign Up"
+    
+    <img src="/images/nutritionix/homepage.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Choose Signup Method">
+    * Sign up with email/password
+    * Fill in your developer information
+    <img src="/images/nutritionix/signup.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Generate API Keys
+
+<Steps>
+  <Step title="Access API Keys">
+    1. Go to your Nutritionix dashboard
+    2. Navigate to "Applications"
+    <img src="/images/nutritionix/dashboard.png" style={{ borderRadius: '0.5rem' }} />
+    <Warning>
+      Free tier has rate limits - monitor your usage
+    </Warning>
+  </Step>
+
+  <Step title="Get Your Keys">
+    1. Your Application ID and API Key will be displayed
+    2. Copy both keys
+    <img src="/images/nutritionix/apigen.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the integration">
+    1. In your Create project, type `/` in the chat 
+    2. Select "Nutritionix" from the menu
+  </Step>
+
+  <Step title="Add your API keys">
+    1. Paste your Application ID into the "NUTRITIONIX_APP_ID" field
+    2. Paste your API Key into the "NUTRITIONIX_API_KEY" field
+    
+    <Tip>
+      Need new keys? Generate them in your Nutritionix dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Start searching">
+    You can now use prompts with the integration to access nutrition data.
+
+    Example prompts:
+    * `Get nutrition info for an apple using /Nutritionix`
+    * `Track calories with /Nutritionix`
+    * `Create a meal planner using /Nutritionix`
+
+    <Warning>
+      API has rate limits - implement caching for frequently accessed foods.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /Nutritionix, cache the nutrition data in my database
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your Nutritionix integration is ready! Use `/Nutritionix` in chat to access nutrition data.
+</Note>
