@@ -1,0 +1,92 @@
+---
+title: "Freesound"
+description: "Access a vast library of audio samples"
+---
+
+Freesound API provides access to a collaborative database of Creative Commons Licensed sounds.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a Freesound account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your Freesound API key
+  </Card>
+  <Card title="Copy into Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit Freesound Website">
+    Go to [freesound.org](https://freesound.org/) and click "Join" in the top right corner
+    
+    <img src="/images/freesound/homepage.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Choose Signup Method">
+    * Sign up with email/password
+    <img src="/images/freesound/signup.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Access API Settings">
+    1. Fill out Freesound's Application Form [here](https://freesound.org/apiv2/apply/).
+    <img src="/images/freesound/application.png" style={{ borderRadius: '0.5rem' }} />   
+    <Tip>
+      Freesound's search feature does not require a callback url. You may leave it blank.
+    </Tip>
+  </Step>
+
+  <Step title="Create New Key">
+    1. Click "Request new access credentials"
+    2. Copy your API key
+    <img src="/images/freesound/apigen.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the integration">
+    1. In your Create project, type `/` in the chat 
+    2. Select "Freesound" from the menu
+  </Step>
+
+  <Step title="Add your API key">
+    1. Paste your API key into the "FREESOUND_API_KEY" field
+    
+    <Tip>
+      Need a new key? Generate one in your Freesound dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Start using">
+    You can now use prompts with the integration to access audio samples.
+
+    Example prompts:
+    * `Find nature sound effects using /Freesound`
+    * `Add background music with /Freesound`
+    * `Create a sound library using /Freesound`
+
+    <Warning>
+      API has rate limits - implement caching for frequently used sounds.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /Freesound, cache the audio files in my database
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your Freesound integration is ready! Use `/Freesound` in chat to access audio samples.
+</Note>
