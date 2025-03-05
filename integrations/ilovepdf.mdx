@@ -1,0 +1,81 @@
+---
+title: "iLovePDF"
+description: "Integrate iLovePDF capabilities into your application"
+---
+
+Connect your app to iLovePDF's API to convert URLs to PDFs. More functionality will come soon!
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Developer Account" icon="user">
+    Sign up and configure your iLovePDF Developer account.
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your iLovePDF API key.
+  </Card>
+  <Card title="Connect to Create" icon="plug">
+    Add your credentials to Create's secrets.
+  </Card>
+</CardGroup>
+
+## Account Setup
+
+<Steps>
+  <Step title="Create an iLovePDF Developer Account">
+    Go to [iLovePDF Developer Portal](https://developer.ilovepdf.com/).
+    
+    <img src="/images/ilovepdf/homepage.png" style={{ borderRadius: '0.5rem'}} />
+  </Step>
+
+  <Step title="Sign In">
+    Click "Register" to create a new account.
+    
+    <img src="/images/ilovepdf/signup.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Get Your API Key">
+    1. In your application settings, find and copy your API key.
+    <img src="/images/ilovepdf/apigen.png" style={{ borderRadius: '0.5rem' }} />
+    <Warning>
+      Keep your API key secure - it grants access to your iLovePDF account.
+    </Warning>
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the Integration">
+    1. In your Create project, type `/` in chat.
+    2. Select "iLovePDF" from the menu.
+  </Step>
+
+  <Step title="Add Your Credentials">
+    1. Paste your API key into "ILOVEPDF_API_KEY".
+    
+    <Tip>
+      Need new credentials? Regenerate in the iLovePDF Developer Portal.
+    </Tip>
+  </Step>
+
+  <Step title="Start Building">
+    Use prompts to implement iLovePDF features:
+    
+    * `Convert this webpage to PDF files using /iLovePDF`
+    * `Create a PDF document with /iLovePDF`
+    * `I want this webpage to PDF using /iLovePDF`
+    
+    <Warning>
+      iLovePDF API has rate limits - implement error handling for best reliability.
+    </Warning>
+  </Step>
+</Steps>
+
+<Note type="success">
+  iLovePDF integration complete! Use `/iLovePDF` in chat to access PDF manipulation capabilities.
+</Note>
