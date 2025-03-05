@@ -1,0 +1,98 @@
+---
+title: "Minimax"
+description: "Integrate Minimax video generation capabilities using Replicate's AI Model Database into your application"
+---
+
+Minimax provides advanced features for generating videos using AI models from Replicate.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a Replicate account.
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your Replicate API key.
+  </Card>
+  <Card title="Connect to Create" icon="plug">
+    Add your credentials to Create's secrets.
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit Replicate's Website">
+    Go to [replicate.com](https://www.replicate.com/) and click "Sign Up" in the top right corner.
+    
+    <img src="/images/background-remover/homepage.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Choose Signup Method">
+    * Sign up with email/password.
+    * Or continue with GitHub authentication.
+    
+    <img src="/images/background-remover/signin.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Access API Settings">
+    1. Click on your profile icon in the top right.
+    2. Select "API" from the dropdown menu.
+    
+    <img src="/images/background-remover/setting.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Create New API Key">
+    1. Click "Create API Key."
+    2. Name your key (e.g., "Minimax Integration").
+    3. Click "Generate."
+    
+    <img src="/images/background-remover/apigen.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Copy Your Key">
+    1. Copy the generated API key.
+    2. Store it securely - you won't be able to see it again.
+    
+    <Warning>
+      Keep your API key secure - it grants access to your paid credits.
+    </Warning>
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the Integration">
+    1. In your Create project, type `/` in chat.
+    2. Select "Minimax" from the menu.
+  </Step>
+
+  <Step title="Add Your Credentials">
+    1. Paste your API key into "MINIMAX_API_KEY."
+    
+    <Tip>
+      Need new credentials? Regenerate in the Replicate Developer Portal.
+    </Tip>
+  </Step>
+
+  <Step title="Start Building">
+    Use prompts to implement Minimax features:
+    
+    * `Generate videos using /Minimax`
+    * `Create personalized video content with /Minimax`
+    * `Analyze video data using /Minimax`
+    
+    <Warning>
+      Minimax API has rate limits - implement error handling for best reliability.
+    </Warning>
+  </Step>
+</Steps>
+
+<Note type="success">
+  Minimax integration complete! Use `/Minimax` in chat to access video generation capabilities.
+</Note>
