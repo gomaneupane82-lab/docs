@@ -39,11 +39,37 @@ Connect your app to Slack's API to send messages, manage channels, and interact 
     2. Click on "Create New App". 
     <img src="/images/slack/createnew.png" style={{ borderRadius: '0.5rem' }} />
     3. Name your App and choose which workspace you will be installing the slack bot.
-    <img src="/images/slack/choosewhere.png" style={{ borderRadius: '0.5rem' }} />
+<img src="/images/slack/choosewhere.png" style={{ borderRadius: '0.5rem' }} />
   </Step>
 </Steps>
 
-## Generate API Key
+## Slack Alert Bot Setup Guide
+
+This part will guide you in creating a bot that sends an alert to a specified channel.
+
+<Steps>
+    <Step title="Create a Slack Webhook">
+        1. Navigate to "Incoming Webhook" in the left sidebar.
+        2. Enable "Activate Incoming Webhooks"
+        3. Click "Add New Webhook to Workspace"
+        <img src="/images/slack/incomingWebhook.png" style={{ borderRadius: '0.5rem' }} />
+    </Step>
+
+    <Step title="Select Your Channel">
+        Select the channel in your workspace that your bot will send notifications to.
+        <img src="/images/slack/channelSelect.png" style={{ borderRadius: '0.5rem' }} />
+    </Step>
+
+    <Step title="Copy the Slack Webhook">
+        1. Copy the generated Slack webhook URL at the bottom of the page.
+        2. Paste the URL into your Create project's secrets as SLACK_WEBHOOK.
+        <img src="/images/slack/copywebhook.png" style={{ borderRadius: '0.5rem' }} />
+    </Step>
+</Steps>
+
+## Slack Slash Command Bot Setup Guide
+
+This part will guide you in creating a bot that uses slash commands.
 
 <Steps>
   <Step title="Finding Slack Signing Secret">
