@@ -1,0 +1,157 @@
+---
+title: "Slack"
+description: "Integrate Slack messaging capabilities into your application"
+---
+
+Connect your app to Slack's API to send messages, manage channels, and interact with users.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a Slack account.
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your Slack API token.
+  </Card>
+  <Card title="Connect to Create" icon="plug">
+    Add your credentials to Create's secrets.
+  </Card>
+</CardGroup>
+
+## Account Setup
+
+<Steps>
+  <Step title="Create a Slack Workspace">
+    Go to [api.slack.com](https://slack.com/) and click "Get Started" to create a new workspace.
+    
+    <img src="/images/slack/homepage.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Sign In">
+    If you already have a workspace, click "Sign In" to access your account.
+    
+    <img src="/images/slack/signin.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+    <Step title="Create a New App">
+    1. After signing, click "Your Apps" on the homepage.   
+    2. Click on "Create New App". 
+    <img src="/images/slack/createnew.png" style={{ borderRadius: '0.5rem' }} />
+    3. Name your App and choose which workspace you will be installing the slack bot.
+    <img src="/images/slack/choosewhere.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Finding Slack Signing Secret">
+    1. Once your app is created, navigate to "Basic Information" in the left sidebar.
+    2. Under "Signing Secret", copy the necessary key for your bot app.
+
+    <img src="/images/slack/signingsecret.png" style={{ borderRadius: '0.5rem' }} />
+    <Tip> The signing secret is used in the function to verify messages are coming from Slack.</Tip>
+  </Step>
+</Steps>
+
+## Verify Settings
+<Steps>
+    <Step title="Verify your webhook url">
+    1. Navigate to "Event Subscriptions" in the left sidebar, and enable Events.
+    2. Enter your Create project's URL into the Request URL. It should follow the example in the picture below.
+    <img src="/images/slack/eventsub.png" style={{ borderRadius: '0.5rem' }} />
+    3. Scroll further to find "Subscribe to Bot Events" and add the "message.im" Bot User Event
+    <img src="/images/slack/botevents.png" style={{ borderRadius: '0.5rem' }} />
+    </Step>
+
+    <Step title="Adding Chatgpt Slash command">
+        1. Navigate to "Slash Commands" in the left sidebar.
+        2. Click "Create New Command", and name it chatgpt as an example.
+
+        <img src="/images/slack/setupslash.png" style={{ borderRadius: '0.5rem' }} />
+    </Step>
+
+    <Step title="Changing the Name of Your Command">
+        If you plan on changing the name:
+        1. Go into your Create project's code, find the conditional that mentions /chatgpt and change it to whatever slash command you plan to name.
+        <img src="/images/slack/setupslash.png" style={{ borderRadius: '0.5rem' }} />
+        <Tip> If you plan on changing the functionality as well, be sure to use the AI Builder to modify it for that slash command </Tip>
+    </Step>
+
+    <Step title="Installing your Bot into your workspace">
+        1. After setting everything up, navigate to the "Install App" in the left sidebar.
+        2. Click on "Install to Your Workspace"
+
+        <img src="/images/slack/install.png" style={{ borderRadius: '0.5rem' }} />
+    </Step>
+
+    <Step title="Try It Out!">
+        Try out your App by going into any available channels or DM and type in "/chatgpt"
+        <img src="/images/slack/tryitout.png" style={{ borderRadius: '0.5rem' }} />
+    </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the Integration">
+    1. In your Create project, type `/` in chat.
+    2. Select "Slack" from the menu.
+  </Step>
+
+  <Step title="Add Your Credentials">
+    1. Paste your Signing Secret into "SLACK_SIGNING_SECRET."
+    
+    <Tip>
+      Need new credentials? Regenerate in the Slack API settings.
+    </Tip>
+  </Step>
+
+  <Step title="Start Building">
+    Use prompts to implement Slack features:
+    
+    * `Send a message to a channel using /Slack`
+    * `Post a reminder with /Slack`
+    * `Manage channels with /Slack`
+    
+    <Warning>
+      Slack API has rate limits - implement error handling for best reliability.
+    </Warning>
+  </Step>
+</Steps>
+
+<Note type="success">
+  Slack integration complete! Use `/Slack` in chat to access messaging capabilities.
+</Note>
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="What is Slack API?">
+    Slack API allows you to interact with Slack's messaging platform, enabling features like sending messages, managing channels, and more.
+  </Accordion>
+
+  <Accordion title="Do I need a Slack Developer Account?">
+    Yes, you need a Slack Developer Account to create an app and access the API.
+  </Accordion>
+
+  <Accordion title="How does the API work?">
+    The API works by sending requests to Slack's servers, which process the requests and return the results based on your commands.
+  </Accordion>
+
+  <Accordion title="What can I build with Slack integration?">
+    You can build:
+    - Messaging bots
+    - Notification systems
+    - Channel management tools
+  </Accordion>
+
+  <Accordion title="Are there usage limits?">
+    Yes, Slack has API rate limits. Free accounts have lower limits than paid accounts. Check Slack's official documentation for current limits.
+  </Accordion>
+
+  <Accordion title="Can I test my Slack integration?">
+    Yes, you can test your integration by sending requests to the API and monitoring the responses to ensure it functions as expected.
+  </Accordion>
+</AccordionGroup>
