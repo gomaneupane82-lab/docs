@@ -1,0 +1,87 @@
+---
+title: "FindWork"
+description: "Access job listings and freelance opportunities"
+---
+
+FindWork provides access to a comprehensive database of job listings and freelance opportunities across various industries.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a FindWork account.
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your FindWork API key.
+  </Card>
+  <Card title="Connect to Create" icon="plug">
+    Add your API key to Create's secrets.
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit FindWork's Website">
+    Go to [findwork.dev/developers/](https://findwork.dev/developers/) and "Sign Up"
+  </Step>
+
+  <Step title="Choose Signup Method">
+    * Sign up with email/password.
+    * Or continue with social media authentication.
+    
+    <img src="/images/findwork/signup.png" style={{ borderRadius: '0.5rem', width: '90%', maxHeight: '300px', objectFit: 'contain' }} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Copy Your Key">
+    1. Copy the generated API key.
+    2. Store it securely - you won't be able to see it again.
+    <img src="/images/findwork/apigen.png" style={{ borderRadius: '0.5rem' }} />
+    <Warning>
+      Keep your API key secure - it grants access to your account data.
+    </Warning>
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the Integration">
+    1. In your Create project, type `/` in chat.
+    2. Select "FindWork" from the menu.
+  </Step>
+
+  <Step title="Add Your API Key">
+    1. Paste your API key into "FINDWORK_API_KEY."
+    
+    <Tip>
+      Need new credentials? Regenerate in the FindWork dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Start Using">
+    You can now use prompts with the integration to access job listings and freelance opportunities.
+
+    Example prompts:
+    * `Search for jobs in my area using /FindWork`
+    * `Get details about a specific job listing using /FindWork`
+    * `Create a job board app with /FindWork`
+
+    <Warning>
+      FindWork API has rate limits - implement error handling for best reliability.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /FindWork, cache the job listings in my database
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your FindWork integration is ready! Use `/FindWork` in chat to access job listings and freelance opportunities.
+</Note>
