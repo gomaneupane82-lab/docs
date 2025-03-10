@@ -1,0 +1,123 @@
+---
+title: "Airtable"
+description: "Integrate and manage your data with Airtable"
+---
+
+Airtable lets you create powerful databases, organize your information, and connect it to your applications.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for an Airtable account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your Airtable API key
+  </Card>
+  <Card title="Copy into Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit Airtable Website">
+    Go to [airtable.com](https://airtable.com/) and click "Sign up" in the top right corner
+    
+    <img src="/images/airtable/homepage.png" style={{ borderRadius: '0.5rem', width: '624px', height: '303px' }} />
+  </Step>
+
+  <Step title="Choose Signup Method">
+    * Sign up with email/password
+    * Or continue with Google, Apple, or other authentication options
+    <img src="/images/airtable/signup.png" style={{ borderRadius: '0.5rem'}} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Access Account Settings">
+    Go to [airtable.com/create/token](https://airtable.com/create/token).
+  </Step>
+
+  <Step title="Create Personal Access Token">
+    1. Navigate to the "Personal Access Token" section
+    2. Click "Create new token"
+    3. Name your key (e.g., "Create Integration")
+    4. Add read and write data scopes
+    5. Add your workspace table
+    <img src="/images/airtable/patscope.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Copy Your PAT Token">
+    1. Copy the generated PAT Token
+    2. Store it securely.
+    <img src="/images/airtable/patgen.png" style={{ borderRadius: '0.5rem' }} />    
+    <Warning>
+      Keep your PAT Token secure - it grants access to your Airtable data
+    </Warning>
+  </Step>
+</Steps>
+
+## Get Base and Table ID
+
+<Steps>
+  <Step title="Open Your Airtable Base">
+    1. Navigate to the Airtable base you want to connect to
+    2. Look at the URL in your browser
+    
+    <img src="/images/airtable/get-id.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Extract Base and Table ID">
+    1. The Base and Table ID is in the URL after "airtable.com/" and typically starts with "app"
+    2. Copy this ID - you'll need it when connecting to your base
+    
+    <Tip>
+      The Base and Table ID format looks like: app12345abcdef/tb12345abcdef
+    </Tip>
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the integration">
+    1. In your Create project, type `/` in the chat 
+    2. Select "Airtable" from the menu
+  </Step>
+
+  <Step title="Add your API key">
+    1. Paste your Airtable API key into the "AIRTABLE_TOKEN" field
+    2. Add your Base ID to the "AIRTABLE_BASE_ID" field
+    3. Add your Table ID to the "AIRTABLE_TABLE_ID" field
+    
+    <Tip>
+      Need a new token? Generate one in your Airtable account settings.
+    </Tip>
+  </Step>
+
+  <Step title="Use it">
+    You can now use prompts with the integration to manage your Airtable data.
+
+    Some examples:
+    * `Create a new record in my Airtable base with /Airtable`
+    * `Fetch data from my Products table using /Airtable`
+    * `Update customer information with /Airtable`
+
+    <Warning>
+      Airtable has API rate limits - implement caching for frequently accessed data.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /Airtable, cache the retrieved data in my application state
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your Airtable integration is now ready! Use the `/Airtable` command in chat to manage your data.
+</Note>
