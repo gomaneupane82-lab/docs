@@ -1,0 +1,80 @@
+---
+title: "Ko-fi Webhook"
+description: "Set up webhooks to receive notifications from Ko-fi"
+---
+
+Ko-fi webhooks allow you to receive real-time notifications about events such as new donations, memberships, and more, enabling you to integrate these events into your applications.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a Ko-fi account
+  </Card>
+  <Card title="Access Webhook Settings" icon="settings">
+    Navigate to your webhook settings in Ko-fi
+  </Card>
+  <Card title="Copy Webhook URL" icon="link">
+    Add your webhook URL to receive notifications
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit Ko-fi Website">
+    Go to [ko-fi.com/](https://ko-fi.com/) and click "Sign Up" in the top right corner
+    
+    <img src="/images/kofi/homepage.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Choose Signup Method">
+    * Sign up with email/password
+    * Or continue with social media authentication
+    <img src="/images/kofi/signin.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Access Webhook Settings
+
+<Steps>
+  <Step title="Navigate to Webhooks">
+    Go to [ko-fi.com/manage/webhooks](https://ko-fi.com/manage/webhooks)
+  </Step>
+</Steps>
+
+## Create New Webhook
+
+<Steps>
+  <Step title="Add Your Webhook URL">
+    1. Enter your webhook URL where you want to receive notifications
+    2. Select the events you want to subscribe to (e.g., new donations, memberships)
+    
+    <img src="/images/kofi/add-webhook.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Save Your Webhook">
+    1. Click "Save" to create your webhook
+    
+    <Tip>
+      Ensure your server is set up to handle incoming webhook requests.
+    </Tip>
+  </Step>
+</Steps>
+
+## Test Your Webhook
+
+<Steps>
+  <Step title="Send a Test Notification">
+    1. Scroll down to find different "Send Test" buttons in the webhook settings to verify your setup
+    <img src="/images/kofi/test-donation.png" style={{ borderRadius: '0.5rem' }} />
+    2. Check your server logs to confirm receipt of the test notification
+    <Warning>
+      Make sure your Create app is published to view test notifications from Ko-fi.
+    </Warning>
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your Ko-fi webhook is set up! You will now receive notifications for the selected events.
+</Note>
