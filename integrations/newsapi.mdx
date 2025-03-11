@@ -1,0 +1,96 @@
+---
+title: "News API"
+description: "Access global news articles and headlines"
+---
+
+News API provides access to breaking news headlines and historical articles from over 80,000 sources worldwide.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a News API account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your News API key
+  </Card>
+  <Card title="Copy into Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit News API Website">
+    Go to [newsapi.org](https://newsapi.org/) and click "Get API Key" in the top right corner
+    
+    <img src="/images/newsapi/homepage.png" style={{ borderRadius: '0.5rem', width: '624px', height: '303px' }} />
+  </Step>
+
+  <Step title="Register for an Account">
+    * Fill in your name, email, and password
+    * Select your usage purpose (personal/academic/business)
+    * Accept the terms and conditions
+    
+    <img src="/images/newsapi/signup.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Access Your Account">
+    1. After registration, you'll be redirected to your account page
+    2. Your API key will be displayed on the dashboard
+    
+  </Step>
+
+  <Step title="Copy Your API Key">
+    1. Copy the API key from your dashboard
+    2. Keep this key secure for use in your applications
+    <img src="/images/newsapi/apigen.png" style={{ borderRadius: '0.5rem' }} />
+    <Warning>
+      Keep your API key secure - it grants access to your News API quota
+    </Warning>
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the integration">
+    1. In your Create project, type `/` in the chat 
+    2. Select "News API" from the menu
+  </Step>
+
+  <Step title="Add your API key">
+    1. Paste your News API key into the "NEWS_API_KEY" field
+    
+    <Tip>
+      Need a new key? You can find it in your News API dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Use it">
+    You can now use prompts with the integration to access news articles and headlines.
+
+    Some examples:
+    * `Get the latest technology news with /NewsAPI`
+    * `Find articles about climate change using /NewsAPI`
+    * `Create a news aggregator app with /NewsAPI`
+
+    <Warning>
+      Free tier has limitations (100 requests/day, no historical data) - consider upgrading for production use.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /NewsAPI, cache the news articles in my database to reduce API calls
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your News API integration is now ready! Use the `/NewsAPI` command in chat to access global news.
+</Note>
