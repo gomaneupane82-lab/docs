@@ -1,0 +1,102 @@
+---
+title: "Screenshot Layer"
+description: "Capture screenshots of any website"
+---
+
+Screenshot Layer API allows you to capture high-quality screenshots of any website, enabling you to integrate visual web captures into your applications.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a Screenshot Layer account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your Screenshot Layer API key
+  </Card>
+  <Card title="Copy into Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit Screenshot Layer Website">
+    Go to [screenshotlayer.com](https://screenshotlayer.com/) and click "Sign Up" in the top right corner
+    
+    <img src="/images/screenshot-layer/homepage.png" style={{ borderRadius: '0.5rem', width: '624px', height: '303px' }} />
+  </Step>
+
+  <Step title="Choose a Plan">
+    * Select a plan that fits your needs
+    * Fill in your registration details
+    * Complete the signup process
+    
+    <img src="/images/screenshot-layer/signup.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Access Your Dashboard">
+    1. Log in to your Screenshot Layer account
+    2. Navigate to the "Dashboard" section
+    
+  </Step>
+
+  <Step title="Get Your API Key">
+    1. Your API key will be displayed on the dashboard
+    2. Copy the API key for use in your applications
+    
+    <img src="/images/screenshot-layer/apigen.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Secure Your API Key">
+    1. Keep your API key secure
+    
+    <Warning>
+      Your API key grants access to your Screenshot Layer account and quota
+    </Warning>
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the integration">
+    1. In your Create project, type `/` in the chat 
+    2. Select "Screenshot Layer" from the menu
+  </Step>
+
+  <Step title="Add your API key">
+    1. Paste your Screenshot Layer API key into the "SCREENSHOT_LAYER_API_KEY" field
+    
+    <Tip>
+      Need a new key? You can find it in your Screenshot Layer dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Use it">
+    You can now use prompts with the integration to capture website screenshots.
+
+    Some examples:
+    * `Capture a screenshot of this website using /ScreenshotLayer`
+    * `Create a website preview tool with /ScreenshotLayer`
+    * `Build a web archiving app using /ScreenshotLayer`
+
+    <Warning>
+      API has rate limits based on your plan - implement caching for frequently accessed screenshots.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /ScreenshotLayer, cache the screenshots in my database
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your Screenshot Layer integration is now ready! Use the `/ScreenshotLayer` command in chat to capture website screenshots.
+</Note>
