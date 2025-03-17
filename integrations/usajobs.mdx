@@ -1,0 +1,87 @@
+---
+title: "USA Jobs"
+description: "Access federal job listings and employment data"
+---
+
+USA Jobs API provides access to federal job listings, employment opportunities, and related data from the U.S. government.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a USA Jobs account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your USA Jobs API key
+  </Card>
+  <Card title="Copy into Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit USA Jobs Website">
+    Go to [developer.usajobs.gov](https://developer.usajobs.gov/) 
+    
+    <img src="/images/usajobs/homepage.png" style={{ borderRadius: '0.5rem', width: '624px', height: '303px' }} />
+  </Step>
+
+  <Step title="Register for an Account">
+    * Fill in your organization information
+    * Provide contact details
+    * Complete the verification process
+    <img src="/images/usajobs/apigen.png" style={{ borderRadius: '0.5rem', width: '624px', height: '303px' }} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Copy Your API Key">
+    * Copy the generated API token found in the verification email
+    <Warning>
+      Keep your API key secure - it grants access to your USA Jobs API quota
+    </Warning>
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the integration">
+    1. In your Create project, type `/` in the chat 
+    2. Select "USA Jobs" from the menu
+  </Step>
+
+  <Step title="Add your API key">
+    1. Paste your API key into the "USAJOBS_API_KEY" field
+    
+    <Tip>
+      Need a new key? Generate one in your USA Jobs developer dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Use it">
+    You can now use prompts with the integration to access federal job listings.
+
+    Some examples:
+    * `Search federal jobs using /USAJobs`
+    * `Find government positions with /USAJobs`
+    * `Create a job board using /USAJobs`
+
+    <Warning>
+      API has rate limits - implement caching for frequently accessed listings.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /USAJobs, cache the job listings in my database
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your USA Jobs integration is now ready! Use the `/USAJobs` command in chat to access federal job listings.
+</Note>
