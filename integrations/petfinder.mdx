@@ -1,0 +1,107 @@
+---
+title: "Petfinder"
+description: "Access pet adoption data and information"
+---
+
+Petfinder provides access to a comprehensive database of adoptable pets, shelters, and rescue organizations.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a Petfinder account.
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your Petfinder API key.
+  </Card>
+  <Card title="Connect to Create" icon="plug">
+    Add your API key to Create's secrets.
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit Petfinder's Website">
+    Go to [petfinder.com/developer](https://www.petfinder.com/developer) and click "Sign Up" in the top right corner.
+    
+    <img src="/images/petfinder/homepage.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Choose Signup Method">
+    * Sign up with email/password.
+    * Or continue with social media authentication.
+  </Step>
+
+  <Step>
+     If the website isn't logging you in properly, please click "Request Elevated Access".
+    <img src="/images/petfinder/requestaccess.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Access API Settings">
+    1. Log in to your Petfinder account.
+    2. Navigate to the Developer Settings section in your account settings.
+    
+    <img src="/images/petfinder/settings.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Create New API Key">
+    1. Click "Create API Key."
+    2. Name your key (e.g., "Create Integration").
+    3. Click "Generate."
+    
+    <img src="/images/petfinder/apigen.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Copy Your Key">
+    1. Copy the generated API key.
+    2. Store it securely - you won't be able to see it again.
+    
+    <Warning>
+      Keep your API key secure - it grants access to your account data.
+    </Warning>
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the Integration">
+    1. In your Create project, type `/` in chat.
+    2. Select "Petfinder" from the menu.
+  </Step>
+
+  <Step title="Add Your API Key">
+    1. Paste your API key into "PETFINDER_API_KEY."
+    
+    <Tip>
+      Need new credentials? Regenerate in the Petfinder dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Start Using">
+    You can now use prompts with the integration to access pet adoption data.
+
+    Example prompts:
+    * `Find adoptable pets in my area using /Petfinder`
+    * `Get details about a specific pet using /Petfinder`
+    * `Create a pet adoption app with /Petfinder`
+
+    <Warning>
+      Petfinder API has rate limits - implement error handling for best reliability.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /Petfinder, cache the pet details in my database
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your Petfinder integration is ready! Use `/Petfinder` in chat to access pet adoption data.
+</Note>

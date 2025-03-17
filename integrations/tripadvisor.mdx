@@ -1,0 +1,102 @@
+---
+title: "TripAdvisor"
+description: "Access travel information and reviews"
+---
+
+TripAdvisor Content API provides access to a vast database of travel information, including hotels, restaurants, attractions, and user reviews.
+    <Warning>
+    TripAdvisor API requires billing info to pay for overage fees above 5000 requests per month.
+    </Warning>
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a TripAdvisor developer account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your TripAdvisor API key
+  </Card>
+  <Card title="Copy into Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit TripAdvisor Developer Portal">
+    Go to [tripadvisor.com/developer](https://tripadvisor.com/developer) and click "Log in to get started"
+    
+    <img src="/images/tripadvisor/homepage.png" style={{ borderRadius: '0.5rem', width: '624px', height: '303px' }} />
+  </Step>
+
+  <Step title="Complete Registration">
+    * Fill in your personal and company information
+    * Verify your email address
+    * Accept the terms of service
+    
+    <img src="/images/tripadvisor/signup.png" style={{ borderRadius: '0.5rem', width: '303px', height: '303px' }} />
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Access Developer Dashboard">
+    1. Log in to your TripAdvisor developer account
+    2. Navigate to the "My API" section in your dashboard
+    3. Generate your new key
+    4. Fill in your billing information
+    
+    <img src="/images/tripadvisor/checkout.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Get Your API Key">
+    1. Once your billing is set, you'll receive your API key
+    2. Copy the API key from your application details page
+    <img src="/images/tripadvisor/apigen.png" style={{ borderRadius: '0.5rem' }} />
+    <Warning>
+      Keep your API key secure - it grants access to your TripAdvisor API quota
+    </Warning>
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the integration">
+    1. In your Create project, type `/` in the chat 
+    2. Select "TripAdvisor" from the menu
+  </Step>
+
+  <Step title="Add your API key">
+    1. Paste your TripAdvisor API key into the "TRIPADVISOR_API_KEY" field
+    
+    <Tip>
+      Need a new key? Generate one in your TripAdvisor developer dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Use it">
+    You can now use prompts with the integration to access travel information.
+
+    Some examples:
+    * `Find top-rated hotels in Paris using /TripAdvisor`
+    * `Get restaurant reviews near me with /TripAdvisor`
+    * `Create a travel guide app using /TripAdvisor`
+
+    <Warning>
+      TripAdvisor API has rate limits - implement caching for frequently accessed data.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /TripAdvisor, cache the location data in my database
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your TripAdvisor integration is now ready! Use the `/TripAdvisor` command in chat to access travel information.
+</Note>
