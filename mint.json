@@ -17,7 +17,7 @@
   },
   "font": {
     "headings": {
-      "family": "Inter"
+      "family": "Instrument Sans"
     },
     "body": {
       "family": "Inter"
@@ -70,7 +70,8 @@
         "builder/databases",
         "builder/user-accounts",
         "builder/uploads",
-        "stripe"
+        "stripe",
+        "builder/mobile"
       ]
     },
     {
