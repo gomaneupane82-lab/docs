@@ -7,7 +7,7 @@ description: "Build iOS and Android apps with Create"
   <img src="/images/mobile/overview.png" />
 </Frame>
 
-Create is adding support for building native mobile apps for iOS and Android. This feature is in beta for early access members.
+Create will soon support prompt to mobile apps. You can launch your app on iOS and Android. This feature is in beta for early access members.
 
 **Join the beta:** Sign up at [earlyaccess.created.app](https://earlyaccess.created.app)
 
@@ -21,66 +21,55 @@ Create is adding support for building native mobile apps for iOS and Android. Th
   Share feedback on our [Discord server](https://create.xyz/discord). Please include the /build link (URL from the builder) and a short description of what's breaking. We're especially interested in code gen or device capability errors. 
 </Info>
 
-## What You Can Build
+## Why Create?
 
-With mobile app support, you can:
+We're pioneering a much faster, easier way to build mobile apps.
 
-- Build native iOS and Android apps through chat
-- Use device features like camera and location
-- Preview apps on your phone
-- Build full stack apps with Create's [functions](/functions), [database](/database), [user accounts](/auth), [uploads](/storage), and [payments](/payments)
-- Publish to the App Store and Google Play
+Here's what we're working towards in this beta:
 
+- **Prompt to app** - Just describe your app and Create turns it into React Native code that works
+- **Design out of box** - We're training our AI to design apps like a human would
+- **Preview on device** - Test your creations on your phone with Expo Go
+- **Add AI and 100+ integrations** - Integrate [GPT](/integrations#chatgpt), [Claude](/integrations#anthropic-sonnet-35), [Gemini](/integrations#google-gemini-15), and [100+ other AI models](/integrations) in seconds
+- **Full stack** - Use Create's built-in [databases](/builder/databases), [functions](/builder/functions), [auth](/builder/user-accounts), [storage](/builder/uploads), and [payments](/stripe) - no separate backend needed
+- **Web to Mobile, and vice versa** - Build both web and mobile apps from the same project. Convert between them. 
+- **Instant App Store and Play Store submission** - Publish your app to the App Store and Play Store from Create
 
-## Getting Started
+## How to build
+You get started with mobile apps by prompting Create to make one. 
+
+Create builds your app in "Mobile Pages", and then adds more functionality as needed. You can manually add more mobile pages by prompting Create or manually from the [logo menu](/builder/controls#logo-menu).
 
 <Steps>
   <Step title="Join Early Access">
     Sign up at [earlyaccess.created.app](https://earlyaccess.created.app)
   </Step>
   
-  <Step title="Create a new project">
-    Start a fresh project from your dashboard
+  <Step title="Start a new project">
+    Create a fresh project from your dashboard
   </Step>
   
-  <Step title="Logo menu > New mobile page">
-    Click the Logo menu and select "New mobile page"
+  <Step title="Create your mobile app">
+    Prompt Create to make a mobile app. You can say things like "Make an iOS app that..." or "Make an Android app that..." or "Make a mobile app that..."
     
-    <Frame>
-      <img src="/images/mobile/newmobilepagemenu.png" />
-    </Frame>
-  </Step>
-  
-  <Step title="Describe your app">
-    Tap anywhere on the page and describe what you want to build
+    Create generates your first mobile screen. You'll know it's working if you see the mobile preview.
+    
+    <Note>
+      This is a web preview of a mobile app, so features that rely on a device (like location, camera, etc.) might not work. See [Preview on Your Device](#preview-on-your-device) to test your app on your phone.
+    </Note>
     
     <Frame>
       <img src="/images/mobile/overview.png" />
     </Frame>
   </Step>
-</Steps>
-
-## How It Works
-
-Behind the scenes, Create generates React Native code for mobile devices. The code tab reveals React Native components like `<View>`, `<Text>`, and `<TouchableOpacity>` that work across iOS and Android.
-
-<Frame>
-  <img src="/images/mobile/viewcode.png" />
-</Frame>
-
-## Building Your App
-
-<Steps>
-  <Step title="Describe your app">
-    Tell Create what you want to build:
+  
+  <Step title="Preview on your device">
+    Download [Expo Go](https://expo.dev/client) and preview your app on a physical device.
     
-    ```
-    Make a fitness tracking app where users can log workouts, 
-    track progress, and set goals. Include a calendar view.
-    ```
+    See the [Preview on Your Device](#preview-on-your-device) section for detailed steps.
   </Step>
-
-  <Step title="Add mobile features">
+  
+  <Step title="Add mobile-specific features">
     Request specific mobile capabilities:
     
     ```
@@ -90,61 +79,75 @@ Behind the scenes, Create generates React Native code for mobile devices. The co
     ```
     Let users take photos of their workout progress
     ```
+    
+    Create comes with support for mobile-specific capabilities. For a deeper dive into what's supported, read the [Device Capabilities](#device-capabilities) section.
   </Step>
-
+  
+  <Step title="Build your full-stack app">
+    You can use Create's built-in [databases](/builder/databases), [functions](/builder/functions), [auth](/builder/user-accounts), and [payments](/payments) to build full-stack apps. Just describe what you want the app to do and Create will add the right functionality.
+    
+    For example:
+    ```
+    Make a fitness tracking app where users can log workouts, 
+    track progress, and set goals. Include a calendar view.
+    ```
+  </Step>
+  
   <Step title="Test and refine">
     Preview on your device and make improvements through conversation.
     
-    Be specific about issues so Create can fix the underlying code.
+    Be specific about issues so Create can fix the underlying code. For example:
+    ```
+    The workout screen is cluttered. Simplify it and make the "Add Workout" button more prominent.
+    ```
+    
+    ```
+    The app crashes when I try to take a photo. Can you fix this?
+    ```
+  </Step>
+  
+  <Step title="Submit to App Stores">
+    When you're ready, follow the steps in the [Publishing to App Stores](#publishing-to-app-stores) section to publish your app to Apple's App Store or Google's Play Store.
   </Step>
 </Steps>
 
-Create handles all technical details:
-
-* Project structure setup
-* Dependencies and libraries
-* Screen navigation
-* Responsive layouts for different devices
-
-## Testing on Your Device
+## Preview on Your Device
+Create's web builder shows you a preview of your app as you chat. But to test the full experience, you'll want to preview on your device. Some of your app features that require device capabilities will only work in Preview. 
 
 <Steps>
-  <Step title="Install Expo Go">
-    Download [Expo Go](https://expo.dev/client) on your iOS or Android device
+  <Step title="Start a new mobile project">
+    Start a new mobile project with a prompt or go to an existing one
   </Step>
   
-  <Step title="Publish your app">
-    Click the "Publish" button in Create
-    
-    <Frame>
-      <img src="/images/mobile/hitpublish.png" />
-    </Frame>
-  </Step>
-  
-  <Step title="Wait for processing">
-    Wait about 1-3 minute for preparation. We're working on reducing this time.
-    
-    When it's ready, you'll see a "View on mobile" button.
-  </Step>
-  
-  <Step title="Access the preview">
-    In the Publish modal, select "View on mobile"
-    
-    <Frame>
-      <img src="/images/mobile/viewonmobile.png" />
-    </Frame>
+  <Step title="Wait for mobile preview QR code">
+    Create immediately starts making your device preview. This step might take a few moments. If it takes longer than 1 minute, something is wrong and please let us know on [Discord](https://create.xyz/discord)
   </Step>
   
   <Step title="Scan the QR code">
-    Use your phone's camera to scan the QR code
+    You can use your camera or QR Code scanner app on iOS or Android to grab the link
     
     <Frame>
       <img src="/images/mobile/scanbarcode.png" />
     </Frame>
   </Step>
   
-  <Step title="Test your app">
-    Your app opens in Expo Go for immediate testing
+  <Step title="Test in Expo Go">
+    Your app will open in Expo Go. You can play with it. 
+    <Frame>
+      <img src="/images/mobile/in-expo-go.jpeg" />
+    </Frame>
+  </Step>
+  
+  <Step title="Make updates in Create">
+    Continue building your app by chatting with Create in the web interface. 
+  </Step>
+  
+  <Step title="See latest changes">
+    You can close & open the Expo Go app to see latest changes. Expo Go should autoupdate with the latest version of your app every time you close and reopen. If you need to force it to latest, scan the QR code again. 
+  </Step>
+  
+  <Step title="Choose available pages">
+    Choose which pages are available in the Publish menu. You can turn pages on or off under mobile app settings. 
   </Step>
 </Steps>
 
@@ -152,13 +155,33 @@ Create handles all technical details:
   Testing on a physical device provides the most accurate experience, especially for hardware features like camera or sensors.
 </Tip>
 
+## How It Works
+
+Create generates React Native code and partners with Expo. It generates app that can work on either iOS or Android, and use device capabilities like camera, location, etc.  
+
+The code tab reveals React Native components like `<View>`, `<Text>`, and `<TouchableOpacity>` that work across iOS and Android.
+
+<Frame>
+  <img src="/images/mobile/viewcode.png" />
+</Frame>
+
+React Native code can be previewed on the web, so you can view a preview of your app in the builder as you chat with Create. 
+
+<Warning>
+Some device-specific features like camera access, location services, and barcode scanning won't work in the web preview. For the most accurate testing experience and to access all native device capabilities, use the Expo Go app to preview your application directly on your iOS or Android device.
+</Warning>
+
+
+
 ## Publishing to App Stores
 
-Currently, you can export your code and publish using Expo's tools.
+Coming soon. 
 
-We're building a streamlined process for direct publishing to App Store and Google Play.
+We're building a streamlined way to submit your app to the App Store and Google Play from Create.
 
-## Features and Capabilities
+In the meantime, you can export your code and publish using Expo's tools.
+
+## Beta Status
 
 ### Available Now
 
@@ -172,9 +195,10 @@ We're building a streamlined process for direct publishing to App Store and Goog
 | [Functions](/builder/functions) | 🟢 Full | Custom backend logic |
 | [Uploads](/builder/uploads) | 🟢 Full | Image and file handling |
 | Navigation | 🟡 In Development | Screen transitions |
-| [User Accounts](/builder/user-accounts) | 🔴 Early | Authentication and profiles |
-| Device APIs | 🔴 Early | Camera, location, storage |
-| Offline Support | 🔴 Early | Basic offline functionality |
+| [User Accounts](/builder/user-accounts) | 🟡 Early | Authentication and profiles |
+| Device APIs | 🟡 In Development | Camera, location, storage, more |
+| Offline Support | 🟡 In Development | Basic offline functionality |
+| Packages | 🟡 In Development | Expo and other packages |
 
 ### Coming Soon
 
@@ -193,57 +217,56 @@ We're building a streamlined process for direct publishing to App Store and Goog
 
 ## Device Capabilities
 
-Create mobile apps use Expo, giving access to device features:
+Create can make mobile apps that take advantage of Expo, which gives access to device capabilities, and other popular packages for making great mobile apps.
 
-| Feature | Status | Function |
-|---------|--------|----------|
-| Image Picker | ✅ Supported | Select photos from gallery |
-| Camera | 🟡 In Development | Take photos and videos |
-| Location | 🟡 In Development | Access GPS coordinates |
-| Maps | 🟡 In Development | Display interactive maps |
-| Local Storage | 🟡 In Development | Save data on device |
-| Secure Storage | 🟡 In Development | Encrypted data storage |
-| Notifications | 🟡 In Development | Alert users (local only) |
-| Sensors | 🟡 In Development | Access motion sensors |
-| Barcode Scanner | 🟡 In Development | Scan QR codes and barcodes |
-| Haptic Feedback | 🟡 In Development | Vibration and tactile feedback |
-| Share | 🟡 In Development | Share to other apps |
-| Contacts | 🔴 Planned | Access device contacts |
-| Calendar | 🔴 Planned | Access device calendar |
+Here's a list of what's currently supported:
+
+| Package | Description | Sample Prompt |
+|---------|-------------|---------------|
+| expo-image | Optimized image component for fast loading and display | "Add an image gallery with efficient loading" |
+| expo-status-bar | Customize the status bar appearance | "Make the status bar light text on dark background" |
+| expo-location | Access device GPS and location services | "Track user's running route on a map" |
+| expo-font | Load and use custom fonts | "Use the Roboto font throughout the app" |
+| react-native-maps | Display interactive maps | "Add a map showing nearby restaurants" |
+| expo-haptics | Add vibration and tactile feedback | "Make the button vibrate when pressed" |
+| expo-image-picker | Select photos from the device gallery | "Let users choose profile pictures from their photos" |
+| moti | Create smooth animations | "Add a fancy animation when items load" |
+| expo-linear-gradient | Create gradient backgrounds | "Make the header background fade from blue to purple" |
+| expo-document-picker | Select documents from the device | "Allow users to upload PDF files" |
+| expo-linking | Handle deep links and external URLs | "Open the website when user taps the link" |
+| @expo/vector-icons | Use popular icon libraries | "Add a heart icon for favorites" |
+| expo-gl | Use OpenGL for advanced graphics | "Create a 3D visualization of workout data" |
+| solito-link | Unified navigation between screens | "Make the back button work consistently" |
+| expo-contacts | Access the device's contacts | "Let users invite friends from their contacts" |
+| expo-blur | Create blur effects | "Add a frosted glass effect behind the modal" |
+| react-native-safe-area-context | Handle safe areas on different devices | "Make sure content doesn't go under the notch" |
+| expo-clipboard | Copy and paste from clipboard | "Add a button to copy the tracking number" |
+| react-native-picker | Select from dropdown options | "Add a dropdown to select workout type" |
+| expo-calendar | Access device calendar | "Let users add workouts to their calendar" |
+| expo-constants | Access app and device constants | "Display the app version in settings" |
+| @gorhom/bottom-sheet | Create pull-up sheets | "Add a bottom sheet that shows workout details" |
+| react-native-masked-view | Create masked views | "Make the profile picture circular" |
+| expo-file-system | Handle file operations | "Save workout data locally" |
+| react-native-async-storage | Store data locally | "Remember user preferences between sessions" |
+| react-native-reanimated-carousel | Create smooth image carousels | "Add a scrolling carousel of workout types" |
+| expo-secure-store | Securely store sensitive data | "Save the API key securely" |
+| solito-navigation | Navigation between screens | "Add navigation between home and profile screens" |
+| expo-camera | Access device camera | "Let users take photos of their progress" |
 
 <Tip>
-  To use any device feature, describe what you want in chat. Example: "Add a screen where users can take a photo and save it to their profile"
+  To use any device feature, just describe what you want in chat. You don't need to specify the package name - Create will figure out the right implementation.
 </Tip>
 
-## Technical Foundation
+<Note>
+  Missing a capability you need? Let us know at hello@create.xyz and we'll prioritize adding it.
+</Note>
 
-Create mobile apps are built on:
-
-* Expo SDK 52
-* React Native 0.72.x
-* Expo Router for navigation
-
-## Best Practices
-
-1. **Start with mobile in mind** - Mention you're building a mobile app in your first prompt
-
-2. **Specify device features** - Clearly state when you need camera, location, etc.
-
-3. **Test on physical devices** - Mobile apps behave differently on real hardware
-
-4. **Consider offline use** - Plan for intermittent connectivity
-
-## Current Limitations
-
-* **Custom native modules** - Limited support for specialized native features
-* **Graphics-intensive apps** - May require manual optimization
-* **App store submission** - Requires some manual steps during beta
 
 ## FAQ
 
 <AccordionGroup>
   <Accordion title="Can I convert my existing web app to mobile?">
-    Not automatically yet. Start a new mobile project and describe similar functionality. We're working on a conversion feature.
+    We're rapidly making this 1:1. For now, try it. You can turn on web pages in mobile app settings and see how it works. Give us feedback on how it could be better.  
   </Accordion>
 
   <Accordion title="Do I need to know React Native?">
@@ -251,7 +274,7 @@ Create mobile apps are built on:
   </Accordion>
 
   <Accordion title="Can I publish to app stores?">
-    Yes, with some manual steps during beta. We're streamlining this process.
+    Yes, with some manual steps during beta. We're streamlining this process so all you'll need is your Apple or Google accounts.
   </Accordion>
 
   <Accordion title="What about app signing and certificates?">
