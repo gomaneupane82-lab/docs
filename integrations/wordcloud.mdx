@@ -1,0 +1,101 @@
+---
+title: "Word Cloud"
+description: "Generate visual word clouds from text data"
+---
+
+Word Cloud API allows you to create visual representations of text data, highlighting the most frequent words in your content.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Create Account" icon="user">
+    Sign up for a Word Cloud account
+  </Card>
+  <Card title="Get API Key" icon="key">
+    Generate your Word Cloud API key
+  </Card>
+  <Card title="Copy into Create" icon="plug">
+    Add your API key to Create's secrets
+  </Card>
+</CardGroup>
+
+## Account Creation
+
+<Steps>
+  <Step title="Visit RapidAPI Website">
+    Go to [rapidapi.com](https://rapidapi.com/) and click "Sign Up"
+    
+    <img src="/images/wordcloud/homepage.png" style={{ borderRadius: '0.5rem', width: '624px', height: '303px' }} />
+  </Step>
+
+  <Step title="Subscribe to WordCloud API">
+    * Go to [https://rapidapi.com/Textvis/api/word-cloud/pricing](https://rapidapi.com/Textvis/api/word-cloud/pricing)
+    * Select a subscription plan
+    * Complete the subscription process
+  </Step>
+</Steps>
+
+## Generate API Key
+
+<Steps>
+  <Step title="Access Your Dashboard">
+    1. Log in to your RapidAPI account
+    2. Navigate to the WordCloud API page
+    
+    <img src="/images/wordcloud/dashboard.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Get Your API Key">
+    1. Subscribe to the API if you haven't already
+    2. Copy your RapidAPI key from the endpoint examples
+    
+    <img src="/images/wordcloud/apigen.png" style={{ borderRadius: '0.5rem' }} />
+  </Step>
+
+  <Step title="Secure Your API Key">
+    1. Store your API key safely
+    
+    <Warning>
+      Keep your API key secure - it grants access to all your RapidAPI subscriptions
+    </Warning>
+  </Step>
+</Steps>
+
+## Add to Create Project
+
+<Steps>
+  <Step title="Add the integration">
+    1. In your Create project, type `/` in the chat 
+    2. Select "Word Cloud" from the menu
+  </Step>
+
+  <Step title="Add your API key">
+    1. Paste your API key into the "WORDCLOUD_API_KEY" field
+    
+    <Tip>
+      Need a new key? Generate one in your Word Cloud dashboard.
+    </Tip>
+  </Step>
+
+  <Step title="Use it">
+    You can now use prompts with the integration to generate word clouds.
+
+    Some examples:
+    * `Generate a word cloud from this text using /WordCloud`
+    * `Create a visual representation of keywords with /WordCloud`
+    * `Build a content analysis tool using /WordCloud`
+
+    <Warning>
+      API has rate limits - implement caching for frequently generated clouds.
+    </Warning>
+
+    Example prompt for optimization:
+    ```
+    When using /WordCloud, cache the generated images in my storage
+    ```
+  </Step>
+</Steps>
+
+<Note type="success">
+  Your Word Cloud integration is now ready! Use the `/WordCloud` command in chat to generate word clouds.
+</Note>
