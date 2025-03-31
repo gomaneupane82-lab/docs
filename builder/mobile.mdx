@@ -175,11 +175,130 @@ Some device-specific features like camera access, location services, and barcode
 
 ## Publishing to App Stores
 
-Coming soon. 
+<Note>
+Submitting to the App Store requires an Apple Developer Account which requires a yearly subscription. Create an Apple Developer account using your Apple ID right [here](https://developer.apple.com/account).
+</Note>
 
-We're building a streamlined way to submit your app to the App Store and Google Play from Create.
+<Steps>
+  <Step title="Prepare Your App">
+    1. Ensure your app meets [Apple's App Store Guidelines](https://developer.apple.com/app-store/review/guidelines/)
+    2. Prepare required assets:
+      * App icon (1024x1024px)
+      * App description
+      * Screenshot for 13-inch iPad displays
+      * Screenshot for 6.5-inch iPhone displays
+      * Privacy policy URL using [Termly](https://www.termly.io)
+      * Create a support page on in your project
+  </Step>
 
-In the meantime, you can export your code and publish using Expo's tools.
+  <Step title="Configure App Settings">
+    1. Click the "Publish" button in Create
+    2. Select "Submit to App Store"
+    <Frame>
+    <img src="/images/mobile/mobile-appstore-button.png" style={{ borderRadius: '0.5rem' }} />
+    </Frame>
+    3. Enter your Apple ID credentials
+    4. Complete text authentication
+    5. Create will handle the build and submission process to App Store Connect
+    <Frame>
+    <img src="/images/mobile/mobile-success.png" style={{ borderRadius: '0.5rem' }} />
+    </Frame>
+  </Step>
+
+  <Step title="Finding your App in App Store Connect">
+    1. Check your email for notifications from Apple
+    <Frame>
+    <img src="/images/mobile/apple-email.png" style={{ borderRadius: '0.5rem' }} />
+    </Frame>
+    2. Visit [App Store Connect](https://appstoreconnect.apple.com/login) and login to select and view your app.
+    <Frame>
+    <img src="/images/mobile/apple-view-app.png" style={{ borderRadius: '0.5rem' }} />
+    </Frame>
+  </Step>
+</Steps>
+
+###   Completing Apple Requirements
+    <Note> Apple requires several items to be completed before your app can be reviewed for App Store launch. Here's a comprehensive guide to completing all requirements.</Note>
+    <Frame>
+      <img src="/images/mobile/apple-required-items.png" style={{ borderRadius: '0.5rem' }} />
+    </Frame>
+<Steps>
+    <Step title="Upload Screenshots">
+      * Scroll down the "Prepare for Submission" tab to find the Screenshot section.
+      * Upload screenshots for iPhone (6.5" and 5.5" displays)
+      * Upload screenshots for iPad (12.9" and 11" displays)
+      * Include screenshots showing key features
+      * Ensure screenshots are high quality and properly sized
+      <Frame>
+        <img src="/images/mobile/apple-screenshot.png" style={{ borderRadius: '0.5rem' }} />
+      </Frame>
+    </Step>
+
+    <Step title="App Information">
+      * Fill out Contact Information Section
+      * If Sign-In is required for your app, please provide an example account for Apple to login to.
+      <Frame>
+        <img src="/images/mobile/apple-contact-info.png" style={{ borderRadius: '0.5rem' }} />
+      </Frame>
+    </Step>
+
+    <Step title="General Information">
+      * Fill out Contact Information Section
+      * Add Support URL from your Create project
+      * Declare Copyright information
+      * Add relevant Keywords
+      * Select appropriate Category
+      <Frame>
+        <img src="/images/mobile/apple-general-info.png" style={{ borderRadius: '0.5rem' }} />
+      </Frame>
+    </Step>
+
+    <Step title="Age Rating">
+      * Fill out Age Rating Section underneath the General Information section
+        <Frame>
+        <img src="/images/mobile/apple-age-rating.png" style={{ borderRadius: '0.5rem' }} />
+        </Frame>
+    </Step>
+
+    <Step title="Choose a build">
+      * Scroll down the "Prepare for Submission" tab to find the Build section.
+      * Select the build version you want to submit. The latest being on top.
+      <Frame>
+        <img src="/images/mobile/apple-build.png" style={{ borderRadius: '0.5rem' }} />
+      </Frame>
+    </Step>
+
+    <Step title="Privacy Policy and Data">
+      * Create your own Privacy Policy URL using [Termly](https://www.termly.io)
+      * Complete Data Collection Review
+      * Declare any third-party data collection
+      * Specify data usage and storage
+      <Frame>
+        <img src="/images/mobile/apple-app-privacy.png" style={{ borderRadius: '0.5rem' }} />
+      </Frame>
+    </Step>
+    <Step title="Pricing and Distribution">
+      * Set app price (Free or Paid)
+      * Configure in-app purchases if applicable
+      * Set availability in different regions
+      * Configure promotional codes if needed
+      <Note> Apple requires you to submit your country's respective tax form to earn monetization. Refer to it [here](https://developer.apple.com/help/app-store-connect/manage-tax-information/provide-tax-information/).</Note>
+      <Frame>
+        <img src="/images/mobile/apple-app-pricing.png" style={{ borderRadius: '0.5rem' }} />
+      </Frame>
+    </Step>
+
+    <Step title="Review Process">
+      * Submit for review
+      * Monitor review status in App Store Connect
+      * Respond to any feedback from the review team
+      * Address any issues promptly
+      <Tip>
+      Initial reviews typically take 1-3 business days. Make sure all required information is complete before submission to avoid delays.
+      </Tip>
+    </Step>
+</Steps>
+
 
 ## Beta Status
 
