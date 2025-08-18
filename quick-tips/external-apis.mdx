@@ -48,36 +48,45 @@ Watch this tutorial to see how easy it is to connect external APIs:
 
 <Steps>
   <Step title="Start the Conversation">
-    Begin by telling the builder about your API needs:
+    Switch the builder into Discussion Mode and begin by telling it about your API needs:
     
     ```
     "I want to connect to a pet facts API to display random facts"
     "I need to integrate with the Google Maps API for location services"
     "Connect my app to the SendGrid API for email notifications"
     ```
+    
+    **Alternative approach:** If you already know the API you want, you can link the builder to it and ask for the perfect prompt:
+    
+    ```
+    "I want to use the Spotify API. Here's the documentation: https://developer.spotify.com/documentation/web-api
+    
+    Can you create the perfect prompt for me to integrate this into my music app?"
+    ```
   </Step>
 
-  <Step title="Provide API Information">
-    Paste the API documentation or connection details into the builder chat:
-    
-    - **API documentation URL**: Paste the link to the API docs
-    - **Endpoint examples**: Share sample requests/responses
-    - **Authentication method**: API keys, OAuth, etc.
-    
-    The builder will analyze the information and understand how to connect.
+  <Step title="The builder will respond with the ideal prompt for you to use">
+    <Frame>
+      ![Builder response with API connection information](/images/prompt2.png)
+    </Frame>
     
     **Example prompt:**
     ```
     "I want to connect to the OpenWeatherMap API. Here's the documentation: 
     https://openweathermap.org/api
     
-    I need to display current weather and 5-day forecast for the user's location. 
-    Users should be able to search for weather in different cities."
+    Can you help me design a prompt to integrate this API into my weather app?"
     ```
   </Step>
 
+  <Step title="Change out of discussion mode to execute">
+    Using the prompt generated during step 2, paste that into the builder chat with Thinking Mode enabled and submit.
+    
+    The builder will work to integrate the API per your instructions.
+  </Step>
+
   <Step title="Add API Credentials">
-    Store your API credentials securely:
+    If prompted, store your API credentials securely:
     
     1. Go to **Project Settings** > **Saved Secrets**
     2. Click **"+ Add a new secret"**
@@ -93,21 +102,10 @@ Watch this tutorial to see how easy it is to connect external APIs:
     </Warning>
   </Step>
 
-  <Step title="Let the Builder Handle Integration">
-    The builder will automatically:
-    
-    - Generate the necessary code for API calls
-    - Create proper error handling
-    - Set up loading states and user feedback
-    - Integrate the API into your application flow
-    
-    Just describe what you want the API to do in your app!
-  </Step>
-
   <Step title="Test and Refine">
     Test your API integration:
     
-    - Use **[Preview Mode](/builder/controls#mode-switcher)** to test the full user experience
+    - Use **[Preview Mode](/builder/controls#demo-code-and-preview)** to test the full user experience
     - Check that API calls work correctly
     - Verify error handling and edge cases
     
