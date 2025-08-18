@@ -4,7 +4,7 @@ description: "Build iOS and Android apps with Anything"
 ---
 
 <Frame>
-  ![](/images/mobile/overview.png)
+  ![](/images/barbershop.png)
 </Frame>
 
 <Warning>
@@ -21,7 +21,7 @@ Here's what we're working towards in this beta:
 - **Design out of box** - We're training our AI to design apps like a human would
 - **Preview on device** - Test your creations on your phone with Expo Go
 - **Full stack** - Use Anything's built-in [databases](/builder/databases), [functions](/builder/functions), [auth](/builder/user-accounts), [storage](/builder/uploads), and [payments](/stripe) - no separate backend needed
-- **(Coming Soon) Instant App Store and Play Store submission** - Publish your app to the App Store and Play Store from Anything
+- **Instant App Store and Play Store submission** - Publish your app to the App Store and Play Store from Anything
 
 ## Getting Started
 
@@ -33,8 +33,8 @@ Ready to build your first mobile app? Start with our comprehensive [Getting Star
 Access native device features like camera, location, sensors, and more. See our complete [Device Capabilities Guide](/builder/mobile/device-capabilities) for all supported features.
 
 ### Publishing Your App
-- **[iOS App Store](/builder/mobile/publishing-ios)** - Publish to Apple's App Store via TestFlight
-- **[Google Play Store](/builder/mobile/publishing-android)** - Publish to Google's Play Store (coming soon)
+- [iOS App Store](/builder/mobile/publishing-ios) - Publish to Apple's App Store via TestFlight
+- [Google Play Store](/builder/mobile/publishing-android) - Publish to Google's Play Store (coming soon)
 
 ### Testing & Quality Assurance
 Ensure your app works perfectly with our [Testing & Debugging Guide](/builder/mobile/testing).
@@ -42,6 +42,22 @@ Ensure your app works perfectly with our [Testing & Debugging Guide](/builder/mo
 
 
 
+
+## How It Works
+
+Anything generates React Native code and partners with ExpoGo for app preview. It generates app that can work on either iOS or Android, and use device capabilities like camera, location, etc.
+
+The code tab reveals React Native components like `<View>`, `<Text>`, and `<TouchableOpacity>` that work across iOS and Android.
+
+<Frame>
+  ![](/images/mobile/viewcode.png)
+</Frame>
+
+React Native code can be previewed on the web, so you can view a preview of your app in the builder as you chat with Create.
+
+<Warning>
+  Some device-specific features like camera access, location services, and barcode scanning won't work in the web preview. For the most accurate testing experience and to access all native device capabilities, use the Expo Go app to preview your application directly on your iOS or Android device.
+</Warning>
 
 ## FAQ
 
