@@ -1,0 +1,105 @@
+---
+title: "Testing & Debugging Mobile Apps"
+description: "Test and debug your mobile apps effectively"
+---
+
+## Testing Your Mobile App
+
+Testing is crucial for ensuring your mobile app works correctly across different devices and scenarios. Here are the key areas to focus on:
+
+## Testing Strategies
+
+### 1. Device Testing
+- **Physical devices**: Test on actual iOS and Android devices
+- **Different screen sizes**: Test on phones, tablets, and different orientations
+- **OS versions**: Test on different iOS and Android versions
+- **Performance**: Check app performance on older devices
+
+### 2. Feature Testing
+- **Core functionality**: Test all main features of your app
+- **Edge cases**: Test unusual user interactions
+- **Error handling**: Test what happens when things go wrong
+- **Offline functionality**: Test app behavior without internet
+
+### 3. User Experience Testing
+- **Navigation**: Ensure all navigation flows work correctly
+- **Loading states**: Test how your app handles loading
+- **Error messages**: Verify error messages are helpful
+- **Accessibility**: Test with screen readers and accessibility features
+
+## Common Issues and Solutions
+
+### App Crashes
+```
+The app crashes when I try to take a photo
+```
+**Solution**: Check camera permissions and error handling in your code.
+
+### Performance Issues
+```
+The app is slow when loading images
+```
+**Solution**: Use optimized image loading and caching strategies.
+
+### Navigation Problems
+```
+The back button doesn't work properly
+```
+**Solution**: Ensure proper navigation stack management.
+
+## Debugging Techniques
+
+### 1. Console Logging
+Use console.log statements to track app behavior:
+```javascript
+console.log('User tapped button:', buttonId);
+console.log('API response:', response);
+```
+
+### 2. React Native Debugger
+- Use React Native Debugger for advanced debugging
+- Set breakpoints in your code
+- Inspect component state and props
+
+### 3. Expo DevTools
+- Use Expo DevTools for real-time debugging
+- Monitor network requests
+- Check device logs
+
+## Performance Optimization
+
+### 1. Image Optimization
+- Use appropriate image formats (WebP, PNG)
+- Implement lazy loading for images
+- Compress images before uploading
+
+### 2. Code Optimization
+- Avoid unnecessary re-renders
+- Use React.memo for expensive components
+- Optimize list rendering with FlatList
+
+### 3. Network Optimization
+- Implement proper caching strategies
+- Use pagination for large data sets
+- Handle offline scenarios gracefully
+
+## Testing Checklist
+
+Before publishing your app, ensure you've tested:
+
+- [ ] App launches without crashes
+- [ ] All navigation flows work correctly
+- [ ] Forms submit and validate properly
+- [ ] Images load correctly
+- [ ] App works offline (if applicable)
+- [ ] Performance is acceptable on target devices
+- [ ] Error messages are helpful
+- [ ] App handles edge cases gracefully
+
+<Tip>
+  Test your app on multiple devices and with different network conditions to ensure a robust user experience.
+</Tip>
+
+<Note>
+  Need help with testing or debugging? Reach out at [hello@create.xyz](mailto:hello@create.xyz)
+</Note>

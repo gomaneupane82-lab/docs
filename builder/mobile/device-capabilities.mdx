@@ -1,0 +1,84 @@
+---
+title: "Device Capabilities & APIs"
+description: "Use device features like camera, location, and sensors in your mobile apps"
+---
+
+## Device Capabilities
+
+Create can make mobile apps that take advantage of Expo, which gives access to device capabilities, and other popular packages for making great mobile apps.
+
+Here's a list of what's currently supported:
+
+| Package                          | Description                                            | Sample Prompt                                         |
+| -------------------------------- | ------------------------------------------------------ | ----------------------------------------------------- |
+| expo-image                       | Optimized image component for fast loading and display | "Add an image gallery with efficient loading"         |
+| expo-status-bar                  | Customize the status bar appearance                    | "Make the status bar light text on dark background"   |
+| expo-location                    | Access device GPS and location services                | "Track user's running route on a map"                 |
+| expo-font                        | Load and use custom fonts                              | "Use the Roboto font throughout the app"              |
+| react-native-maps                | Display interactive maps                               | "Add a map showing nearby restaurants"                |
+| expo-haptics                     | Add vibration and tactile feedback                     | "Make the button vibrate when pressed"                |
+| expo-image-picker                | Select photos from the device gallery                  | "Let users choose profile pictures from their photos" |
+| moti                             | Create smooth animations                               | "Add a fancy animation when items load"               |
+| expo-linear-gradient             | Create gradient backgrounds                            | "Make the header background fade from blue to purple" |
+| expo-document-picker             | Select documents from the device                       | "Allow users to upload PDF files"                     |
+| expo-linking                     | Handle deep links and external URLs                    | "Open the website when user taps the link"            |
+| @expo/vector-icons               | Use popular icon libraries                             | "Add a heart icon for favorites"                      |
+| expo-gl                          | Use OpenGL for advanced graphics                       | "Create a 3D visualization of workout data"           |
+| solito-link                      | Unified navigation between screens                     | "Make the back button work consistently"              |
+| expo-contacts                    | Access the device's contacts                           | "Let users invite friends from their contacts"        |
+| expo-blur                        | Create blur effects                                    | "Add a frosted glass effect behind the modal"         |
+| react-native-safe-area-context   | Handle safe areas on different devices                 | "Make sure content doesn't go under the notch"        |
+| expo-clipboard                   | Copy and paste from clipboard                          | "Add a button to copy the tracking number"            |
+| react-native-picker              | Select from dropdown options                           | "Add a dropdown to select workout type"               |
+| expo-calendar                    | Access device calendar                                 | "Let users add workouts to their calendar"            |
+| expo-constants                   | Access app and device constants                        | "Display the app version in settings"                 |
+| @gorhom/bottom-sheet             | Create pull-up sheets                                  | "Add a bottom sheet that shows workout details"       |
+| react-native-masked-view         | Create masked views                                    | "Make the profile picture circular"                   |
+| expo-file-system                 | Handle file operations                                 | "Save workout data locally"                           |
+| react-native-async-storage       | Store data locally                                     | "Remember user preferences between sessions"          |
+| react-native-reanimated-carousel | Create smooth image carousels                          | "Add a scrolling carousel of workout types"           |
+| expo-secure-store                | Securely store sensitive data                          | "Save the API key securely"                           |
+| solito-navigation                | Navigation between screens                             | "Add navigation between home and profile screens"     |
+| expo-camera                      | Access device camera                                   | "Let users take photos of their progress"             |
+
+<Tip>
+  To use any device feature, just describe what you want in chat. You don't need to specify the package name - Create will figure out the right implementation.
+</Tip>
+
+<Note>
+  Missing a capability you need? Let us know at [hello@create.xyz](mailto:hello@create.xyz) and we'll prioritize adding it.
+</Note>
+
+## Beta Status
+
+### Available Now
+
+| Feature                                 | Status            | Description                     |
+| --------------------------------------- | ----------------- | ------------------------------- |
+| Chat to build                           | 🟢 Full           | Build through conversation      |
+| React Native generation                 | 🟢 Full           | Automatic code generation       |
+| Pages                                   | 🟢 Full           | Mobile app views                |
+| Components                              | 🟢 Full           | Mobile-optimized UI elements    |
+| [Databases](/builder/databases)         | 🟢 Full           | Data storage and retrieval      |
+| [Functions](/builder/functions)         | 🟢 Full           | Custom backend logic            |
+| [Uploads](/builder/uploads)             | 🟢 Full           | Image and file handling         |
+| Navigation                              | 🟢 Full           | Screen transitions              |
+| [User Accounts](/builder/user-accounts) | 🟢 Full           | Authentication and profiles     |
+| Device APIs                             | 🟡 In Development | We support some today, including Camera |
+| Offline Support                         | 🟡 In Development | Basic offline functionality     |
+| Packages                                | 🟡 In Development | Expo and other packages         |
+
+### Coming Soon
+
+| Feature               | Expected |
+| --------------------- | -------- |
+| More Device APIs      | Q3 2025  |
+| App Store Publishing  | Active  |
+| Background Services   | Q3 2025  |
+| Push Notifications    | Q3 2025  |
+| Deep Linking          | Q3 2025  |
+| Enhanced Offline Mode | Q4 2025  |
+
+<Note>
+  Missing a feature you need? Let us know at [hello@create.xyz](mailto:hello@create.xyz)
+</Note>

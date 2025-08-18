@@ -1,0 +1,150 @@
+---
+title: "Getting Started with Mobile Apps"
+description: "Build your first iOS and Android app with Anything"
+---
+
+<Frame>
+  ![](/images/mobile/overview.png)
+</Frame>
+
+<Warning>
+Mobile app support is rapidly evolving. You might encounter limitations with certain features or device capabilities. Your real-world examples help us prioritize improvements. Try building different apps and tell us what works and what breaks.
+</Warning>
+
+## How to build
+
+You get started with mobile apps by prompting Anything to make one.
+
+Anything builds your app in "Mobile Pages", and then adds more functionality as needed. You can manually add more mobile pages by prompting Anything or manually from the [logo menu](/builder/controls#logo-menu).
+
+<Steps>
+  <Step title="Ensure you have a Pro Account">
+    Ensure you have a [Pro Account](/account/credits), this feature requires one.
+  </Step>
+  <Step title="Start A New Project">
+    Create a fresh project from your dashboard
+  </Step>
+  <Step title="Create Your Mobile App">
+    Prompt Anything to make a mobile app. You can say things like "Make an iOS app that..." or "Make an Android app that..." or "Make a mobile app that..."
+
+    Anything generates your first mobile screen. You'll know it's working if you see the mobile preview.
+
+    <Note>
+      This is a web preview of a mobile app, so features that rely on a device (like location, camera, etc.) might not work. See [Preview on Your Device](#preview-on-your-device) to test your app on your phone.
+    </Note>
+    <Frame>
+      ![](/images/mobile/overview.png)
+    </Frame>
+  </Step>
+  <Step title="Preview On Your Device">
+    Download [Expo Go](https://expo.dev/client) and preview your app on a physical device.
+
+    See the [Preview on Your Device](#preview-on-your-device) section for detailed steps.
+  </Step>
+  <Step title="Add Mobile-specific Features">
+    Request specific mobile capabilities:
+
+    ```
+    Add a barcode scanner to scan product nutrition labels
+    ```
+
+    ```
+    Let users take photos of their workout progress
+    ```
+
+    Anything comes with support for mobile-specific capabilities. For a deeper dive into what's supported, read the [Device Capabilities](/builder/mobile/device-capabilities) section.
+  </Step>
+  <Step title="Build Your Full-stack app">
+    You can use Anything's built-in [databases](/builder/databases), [functions](/builder/functions), [auth](/builder/user-accounts), and [payments](/payments) to build full-stack apps. Just describe what you want the app to do and Anything will add the right functionality.
+
+    For example:
+
+    ```
+    Make a fitness tracking app where users can log workouts, 
+    track progress, and set goals. Include a calendar view.
+    ```
+  </Step>
+  <Step title="Test and Refine">
+    Preview on your device and make improvements through conversation.
+
+    Be specific about issues so Anything can fix the underlying code. For example:
+
+    ```
+    The workout screen is cluttered. Simplify it and make the "Add Workout" button more prominent.
+    ```
+
+    ```
+    The app crashes when I try to take a photo. Can you fix this?
+    ```
+  </Step>
+  <Step title="Add a Face To Your App ">
+    Head into your project settings to upload an icon and loading screen for your app.
+
+    <Frame>
+      ![project setting image](/images/mobile/mobile-project-setting.png)
+    </Frame>
+    Both icons requires a 1024 x 1024px PNG.
+  </Step>
+  <Step title="Submit To The App Stores">
+    When you're ready, follow the steps in the [Publishing to App Stores](/builder/mobile/publishing-ios) section to publish your app to Apple's App Store or Google's Play Store.
+  </Step>
+</Steps>
+
+## Preview on Your Device
+
+Create's web builder shows you a preview of your app as you chat. But to test the full experience, you'll want to preview on your device. Some of your app features that require device capabilities will only work in Preview.
+
+<Steps>
+  <Step title="Start a new mobile project">
+    Start a new mobile project with a prompt or go to an existing one
+  </Step>
+  <Step title="Wait for mobile preview QR code">
+    Create immediately starts making your device preview. This step might take a few moments. If it takes longer than 1 minute, something is wrong and please let us know at [hello@create.xyz](mailto:hello@create.xyz)
+  </Step>
+  <Step title="Scan the QR code">
+    You can use your camera or QR Code scanner app on iOS or Android to grab the link
+
+    <Frame>
+      <img
+        src="/images/mobilepreviewexpo.png"
+        style={{ width: "100%", height: "auto" }}
+      />
+    </Frame>
+  </Step>
+  <Step title="Test in ExpoGo">
+    Your app will open in Expo Go. You can play with it.
+
+    <Frame>
+      <img
+        src="/images/2025-07-2416.53.32.gif"
+        style={{ width: "100%", height: "auto" }}
+      />
+    </Frame>
+  </Step>
+  <Step title="Make updates in Anything">
+    Continue building your app by chatting with Anything in the web interface.
+  </Step>
+  <Step title="See latest changes">
+    You can close & open the Expo Go app to see latest changes. Expo Go should autoupdate with the latest version of your app every time you close and reopen. If you need to force it to latest, scan the QR code again.
+  </Step>
+</Steps>
+
+<Tip>
+  Testing on a physical device provides the most accurate experience, especially for hardware features like camera or sensors.
+</Tip>
+
+## How It Works
+
+Anything generates React Native code and partners with ExpoGo for app preview. It generates app that can work on either iOS or Android, and use device capabilities like camera, location, etc.
+
+The code tab reveals React Native components like `<View>`, `<Text>`, and `<TouchableOpacity>` that work across iOS and Android.
+
+<Frame>
+  ![](/images/mobile/viewcode.png)
+</Frame>
+
+React Native code can be previewed on the web, so you can view a preview of your app in the builder as you chat with Create.
+
+<Warning>
+  Some device-specific features like camera access, location services, and barcode scanning won't work in the web preview. For the most accurate testing experience and to access all native device capabilities, use the Expo Go app to preview your application directly on your iOS or Android device.
+</Warning>
