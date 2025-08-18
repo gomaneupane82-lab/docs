@@ -37,12 +37,7 @@
               "builder/user-accounts",
               "builder/uploads",
               "payments",
-              "builder/mobile",
-              "builder/mobile/getting-started",
-              "builder/mobile/device-capabilities",
-              "builder/mobile/publishing-ios",
-              "builder/mobile/publishing-android",
-              "builder/mobile/testing"
+              "builder/mobile"
             ]
           },
           {
