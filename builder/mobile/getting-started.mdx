@@ -22,7 +22,7 @@ Anything builds your app in "Mobile Pages", and then adds more functionality as 
     Ensure you have a [Pro Account](/account/credits), this feature requires one.
   </Step>
   <Step title="Start A New Project">
-    Create a fresh project from your dashboard
+    Create a fresh project from your dashboard. For a complete overview of how to build with Anything, see our [Essentials Guide](/essentials).
   </Step>
   <Step title="Create Your Mobile App">
     Prompt Anything to make a mobile app. You can say things like "Make an iOS app that..." or "Make an Android app that..." or "Make a mobile app that..."
@@ -76,6 +76,8 @@ Anything builds your app in "Mobile Pages", and then adds more functionality as 
     ```
     The app crashes when I try to take a photo. Can you fix this?
     ```
+
+    For comprehensive testing strategies and debugging techniques, see our [Testing & Quality Assurance Guide](/builder/mobile/testing).
   </Step>
   <Step title="Add a Face To Your App ">
     Head into your project settings to upload an icon and loading screen for your app.
@@ -133,18 +135,12 @@ Create's web builder shows you a preview of your app as you chat. But to test th
   Testing on a physical device provides the most accurate experience, especially for hardware features like camera or sensors.
 </Tip>
 
-## How It Works
+---
 
-Anything generates React Native code and partners with ExpoGo for app preview. It generates app that can work on either iOS or Android, and use device capabilities like camera, location, etc.
+## Related Articles
 
-The code tab reveals React Native components like `<View>`, `<Text>`, and `<TouchableOpacity>` that work across iOS and Android.
-
-<Frame>
-  ![](/images/mobile/viewcode.png)
-</Frame>
-
-React Native code can be previewed on the web, so you can view a preview of your app in the builder as you chat with Create.
-
-<Warning>
-  Some device-specific features like camera access, location services, and barcode scanning won't work in the web preview. For the most accurate testing experience and to access all native device capabilities, use the Expo Go app to preview your application directly on your iOS or Android device.
-</Warning>
+- [Device Capabilities](/builder/mobile/device-capabilities) - Available device features and APIs
+- [Publishing to iOS](/builder/mobile/publishing-ios) - Deploy to App Store
+- [Publishing to Android](/builder/mobile/publishing-android) - Deploy to Play Store  
+- [Testing & Debugging](/builder/mobile/testing) - Test and debug your app
+- [← Back to Mobile Overview](/builder/mobile) - Return to main mobile guide
