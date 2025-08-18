@@ -61,3 +61,17 @@ When you encounter issues, use the Debug Agent to help identify and fix problems
 - Content was temporarily removed from help.mdx and mobile/testing.mdx
 - Debug agent functionality may be reintroduced in future updates
 - Video and image assets are preserved for later use
+
+## Additional Debug Mode Content Removed
+
+### Content from builder/controls.mdx
+
+#### Debug Mode Description
+```mdx
+- **Debug Mode** - This mode is designed to help you overcome issues with your app or build, simply swap to debug mode and provide a succinct description of the issue. It will work to replicate and test a fix for you.
+```
+
+### Other Debug-Related Content to Consider
+- Various mentions of "debugging" in mobile testing documentation
+- Debug-related content in essentials.mdx, prompting.mdx, and other files
+- Consider if these should also be removed or if they refer to general debugging concepts rather than the specific Debug Mode feature
